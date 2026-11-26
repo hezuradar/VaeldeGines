@@ -9,7 +9,7 @@ module.exports = `
       <h1>La cabaña<br><em style="font-style:italic;color:var(--brass-light)">del luthier.</em></h1>
       <p>Conversaciones sobre luthería, artesanía y música. Un espacio para escuchar a quienes construyen, reparan y piensan los instrumentos desde dentro del taller.</p>
       <div class="podcast-platforms">
-        <a class="btn btn--light btn--sm" href="https://www.youtube.com/watch?v=W8ileM09_CI" target="_blank" rel="noopener">Ver en YouTube ${icons.arrow}</a>
+        <a class="btn btn--light btn--sm" href="https://www.youtube.com/playlist?list=PLQ-vsegxn_5WBKskaEPoBPHoUU3QhfDbS" target="_blank" rel="noopener">Ver en YouTube ${icons.arrow}</a>
         <a class="btn btn--ghost-light btn--sm" href="https://www.ivoox.com/" target="_blank" rel="noopener">Escuchar en iVoox</a>
       </div>
 
