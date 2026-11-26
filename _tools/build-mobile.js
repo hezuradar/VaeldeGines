@@ -118,7 +118,7 @@ files.forEach((file) => {
   );
   html = html.replace(
     '</body>',
-    `  <button class="view-switch-btn view-switch-btn--fixed" type="button" data-view="desktop">Versión escritorio</button>\n${tabbarFor(file)}\n</body>`
+    `  <a class="view-switch-btn view-switch-btn--fixed" href="../${file}" data-view="desktop">Versión escritorio</a>\n${tabbarFor(file)}\n</body>`
   );
 
   fs.writeFileSync(path.join(OUT, file), html, 'utf8');
