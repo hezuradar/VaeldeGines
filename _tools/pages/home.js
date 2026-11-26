@@ -100,7 +100,7 @@ module.exports = `
       <h2 class="h2">Cada guitarra deja<br><em>una huella positiva.</em></h2>
       <p class="lead">La madera que uso tiene una segunda vida. Colaboro con Tree Nation para compensar la huella de carbono del taller y devolver al planeta parte de lo que recibe de él.</p>
       <p class="text-muted measure">En el bosque de Vael de Ginés ya se han plantado <strong>129 árboles</strong> y se han capturado <strong>14,92 toneladas de CO₂</strong> en proyectos de reforestación en Tanzania, Madagascar y Senegal.</p>
-      <a class="btn" href="https://tree-nation.com/es/perfil/impacto/vael-de-gines?code=64f099c2343b7&amp;version=v1&amp;utm_source=widget&amp;utm_medium=referral&amp;utm_campaign=net-zero-website&amp;utm_term=660287" target="_blank" rel="noopener">Ver el bosque en Tree Nation ${icons.arrow}</a>
+      <a class="btn" href="https://tree-nation.com/es/perfil/impacto/vael-de-gines?code=64f099c2343b7&amp;version=v1&amp;utm_source=widget&amp;utm_medium=referral&amp;utm_campaign=net-zero-website&amp;utm_term=660287" target="_blank" rel="noopener"><img src="assets/img/tree-nation-logo.png" alt="Tree Nation" width="640" height="147">Ver el bosque en Tree Nation ${icons.arrow}</a>
     </div>
 
     <div class="compromiso__visual reveal" data-delay="1">

@@ -635,6 +635,7 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
 .compromiso__intro > .text-muted { margin-top: 18px; }
 .compromiso__intro > .text-muted strong { color: var(--walnut); font-weight: 600; }
 .compromiso__intro .btn { margin-top: 30px; }
+.compromiso__intro .btn img { width: auto; height: 18px; flex: none; }
 .compromiso__visual { padding: 24px; background: var(--cream); border: 1px solid var(--line); }
 .compromiso__visual > img { width: 100%; max-width: 420px; max-height: 280px; object-fit: contain; margin-inline: auto; }
 .compromiso__rings { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--line-soft); }
