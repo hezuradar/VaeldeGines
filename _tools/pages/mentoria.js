@@ -7,9 +7,9 @@ ${pageHero({
   title: 'Aprende el oficio<br><em>con quien lo vive.</em>',
   text: '¿Quieres mejorar en el campo de la luthería o la artesanía? ¿No sabes por dónde empezar? ¿Te preguntas si es posible emprender y vivir de ello? Con más de 10 años de experiencia en el sector, pongo todo mi conocimiento a tu servicio.',
   actions: `<a class="btn" href="#reserva">Reservar una sesión ${icons.arrow}</a><a class="link-arrow" href="#sesiones">Ver las modalidades ${icons.arrow}</a>`,
-  image: 'assets/img/craft-hands.jpg',
-  alt: 'Manos del luthier trabajando la madera en el taller',
-  caption: 'Mentoría 1:1 · Videoconferencia',
+  image: 'assets/img/mentoria.png',
+  alt: 'Ginés Martínez explicando la construcción de instrumentos en una demostración',
+  caption: 'Mentoría 1:1 · Con Ginés Martínez',
   portrait: false
 })}
 

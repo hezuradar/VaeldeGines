@@ -104,7 +104,7 @@ const products = [
     slug: 'mentoria', name: 'Mentoría 1:1', cat: 'formacion', label: 'Mentoría',
     price: 45, priceLabel: '45 € / sesión',
     desc: 'Una hora de consultoría con el luthier. Pack de 10 sesiones: 400 €.',
-    image: 'assets/img/craft-hands.jpg',
+    image: 'assets/img/mentoria.png',
     subtitle: 'Aprende el oficio con quien lo vive.',
     specs: [['Duración', '1 hora'], ['Formato', 'Videoconferencia'], ['Grabación', 'Opcional'], ['Pack 10 sesiones', '400 €'], ['Reserva', 'Por correo']],
     extras: []

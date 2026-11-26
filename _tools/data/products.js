@@ -382,7 +382,7 @@ module.exports = [
     "price": 45,
     "priceLabel": "45 € / sesión",
     "desc": "Una hora de consultoría con el luthier. Pack de 10 sesiones: 400 €.",
-    "image": "assets/img/craft-hands.jpg",
+    "image": "assets/img/mentoria.png",
     "subtitle": "Aprende el oficio con quien lo vive.",
     "specs": [
       [
@@ -407,7 +407,7 @@ module.exports = [
       ]
     ],
     "gallery": [
-      "assets/img/craft-hands.jpg"
+      "assets/img/mentoria.png"
     ]
   }
 ];
