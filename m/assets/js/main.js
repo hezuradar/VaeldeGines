@@ -120,6 +120,7 @@
       }
 
       bar.style.strokeDashoffset = circumference;
+      num.textContent = format(0);
       const start = performance.now();
       const duration = 1800;
       const tick = (now) => {

@@ -112,7 +112,7 @@ module.exports = `
             <circle class="impact-ring__bar" cx="60" cy="60" r="52"></circle>
           </svg>
           <div class="impact-ring__label">
-            <strong data-count>0</strong>
+            <strong data-count>14,92</strong>
             <span>t CO₂ capturado</span>
           </div>
         </div>
@@ -122,7 +122,7 @@ module.exports = `
             <circle class="impact-ring__bar" cx="60" cy="60" r="52"></circle>
           </svg>
           <div class="impact-ring__label">
-            <strong data-count>0</strong>
+            <strong data-count>129</strong>
             <span>árboles plantados</span>
           </div>
         </div>
