@@ -99,6 +99,54 @@
     }
   }
 
+  /* ---------- Gráficas circulares de impacto ---------- */
+  const rings = $$('.impact-ring');
+  if (rings.length) {
+    const animateRing = (ring) => {
+      const bar = $('.impact-ring__bar', ring);
+      const num = $('[data-count]', ring);
+      if (!bar || !num) return;
+      const value = Number(ring.dataset.value) || 0;
+      const pct = Math.min(100, Math.max(0, Number(ring.dataset.percent) || 0)) / 100;
+      const decimals = Number(ring.dataset.decimals) || 0;
+      const circumference = 326.73;
+      const target = circumference * (1 - pct);
+      const format = (v) => decimals ? v.toFixed(decimals).replace('.', ',') : String(Math.round(v));
+
+      if (prefersReduced || !window.requestAnimationFrame) {
+        bar.style.strokeDashoffset = target;
+        num.textContent = format(value);
+        return;
+      }
+
+      bar.style.strokeDashoffset = circumference;
+      const start = performance.now();
+      const duration = 1800;
+      const tick = (now) => {
+        const t = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - t, 3);
+        bar.style.strokeDashoffset = circumference - (circumference - target) * eased;
+        num.textContent = format(value * eased);
+        if (t < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+
+    if ('IntersectionObserver' in window) {
+      const ringObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateRing(entry.target);
+            ringObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: .4 });
+      rings.forEach((ring) => ringObserver.observe(ring));
+    } else {
+      rings.forEach(animateRing);
+    }
+  }
+
   /* ---------- Testimonios ---------- */
   const testimonialTrack = $('.testimonial-track');
   if (testimonialTrack) {

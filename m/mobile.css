@@ -78,6 +78,8 @@ body { padding-bottom: calc(58px + env(safe-area-inset-bottom, 0px)); }
   .path-card { min-height: 420px; }
 
   .collection-grid { grid-template-columns: repeat(2, 1fr); }
+  .compromiso__grid { grid-template-columns: 1fr; }
+  .compromiso__visual > img { max-width: 320px; }
   .process { grid-template-columns: 1fr; }
   .process__media { position: static; }
   .process__media img { aspect-ratio: 16 / 9; }
