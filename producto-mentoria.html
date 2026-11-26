@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- AUTO-REDIRECT-MOBILE -->
+  <script>
+  (function () {
+    try {
+      if (localStorage.getItem('vdg-view') === 'desktop') return;
+      var ua = navigator.userAgent || '';
+      var mobile = (navigator.userAgentData && navigator.userAgentData.mobile === true) ||
+        /Android|iPhone|iPod|Windows Phone|Mobile|Silk|BlackBerry|Opera Mini/i.test(ua) ||
+        (/iPad|Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+      if (!mobile) return;
+      var page = location.pathname.split('/').pop() || 'index.html';
+      if (!/.html$/.test(page)) page = 'index.html';
+      location.replace('m/' + page);
+    } catch (e) {}
+  })();
+  </script>
+  <!-- /AUTO-REDIRECT-MOBILE -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mentoría 1:1 · Mentoría · Vael de Ginés</title>
+  <meta name="description" content="Una hora de consultoría con el luthier. Pack de 10 sesiones: 400 €.">
+  <meta name="theme-color" content="#f8f4ec">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+</head>
+<body>
+
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html" aria-label="Vael de Ginés, inicio">
+        <img class="brand__logo" src="assets/img/logo.png" alt="Vael de Ginés" width="120" height="60">
+        <span class="brand__meta">Los Alcázares · Murcia</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="guitarras.html">Guitarras</a><a href="instrumentos.html">Instrumentos</a><a href="luthier.html">El taller</a><a href="mentoria.html" class="is-current" aria-current="page">Mentoría</a><a href="podcast.html">Podcast</a><a href="blog.html">Blog</a><a href="tienda.html">Tienda</a><a href="contacto.html">Contacto</a></nav>
+
+      <div class="header__actions">
+        <a class="icon-btn" href="tienda.html" aria-label="Ver el catálogo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.2-4.2"/></svg></a>
+        <a class="btn btn--sm btn--outline-light" href="contacto.html">Encargos</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="nav" id="menu-principal" aria-label="Navegación móvil"><a href="index.html">Inicio</a><a href="guitarras.html">Guitarras</a><a href="instrumentos.html">Instrumentos</a><a href="luthier.html">El taller</a><a href="mentoria.html" class="is-current" aria-current="page">Mentoría</a><a href="podcast.html">Podcast</a><a href="blog.html">Blog</a><a href="tienda.html">Tienda</a><a href="contacto.html">Contacto</a></nav>
+  </header>
+<main id="contenido">
+
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Ruta de navegación">
+    <a href="index.html">Inicio</a><span>/</span>
+    <a href="tienda.html">Tienda</a><span>/</span>
+    <span aria-current="page">Mentoría 1:1</span>
+  </nav>
+</div>
+
+<section class="section section--tight">
+  <div class="container product">
+    <div class="gallery gallery--single" data-gallery>
+      <div class="gallery__thumbs">
+        <button class="gallery__thumb is-active" type="button" aria-label="Ver imagen 1">
+          <img src="assets/img/craft-hands.jpg" alt="Mentoría 1:1 — imagen 1" data-full="assets/img/craft-hands.jpg" loading="lazy">
+        </button>
+      </div>
+      <div class="gallery__main">
+        <span class="guitar-card__tag">Mentoría</span>
+        <img src="assets/img/craft-hands.jpg" alt="Mentoría 1:1 de Vael de Ginés" width="690" height="863">
+      </div>
+    </div>
+
+    <div class="product__info reveal" data-delay="1">
+      <span class="product__collection">Mentoría</span>
+      <h1 class="product__title">Mentoría 1:1</h1>
+      <p class="product__subtitle">Aprende el oficio con quien lo vive.</p>
+      
+      <div class="product__options" aria-label="Modalidades de mentoría">
+        <div class="product-option">
+          <span class="product-option__tag">Sesión individual</span>
+          <h3>Una sesión</h3>
+          <div class="product-option__price">45 € <small>IVA incl.</small></div>
+          <p>Una hora de consultoría 1:1 por videoconferencia para resolver dudas o revisar un proyecto concreto.</p>
+          <ul>
+            <li>Duración: 1 hora</li>
+            <li>Grabación opcional</li>
+            <li>Resumen de conclusiones</li>
+          </ul>
+          <a class="btn btn--outline btn--block" href="contacto.html">Solicitar una hora <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="product-option product-option--featured">
+          <span class="product-option__tag">Acompañamiento</span>
+          <h3>Pack 10 sesiones</h3>
+          <div class="product-option__price">400 € <small>IVA incl.</small></div>
+          <p>Diez sesiones de una hora con apoyo para desarrollar tu plan de negocio y minimizar riesgos.</p>
+          <ul>
+            <li>10 sesiones de 1 hora</li>
+            <li>Plan de negocio con mi apoyo</li>
+            <li>Estudio y minimización de riesgos</li>
+          </ul>
+          <a class="btn btn--light btn--block" href="contacto.html">Solicitar el pack <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+      
+      
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="tabs" data-tabs>
+      <div class="tabs__nav" role="tablist" aria-label="Información del producto">
+        <button class="tabs__btn is-active" type="button" role="tab" aria-selected="true" data-tab="tab-desc">Descripción</button>
+        <button class="tabs__btn" type="button" role="tab" aria-selected="false" data-tab="tab-specs">Qué incluye</button>
+        <button class="tabs__btn" type="button" role="tab" aria-selected="false" data-tab="tab-proceso">Proceso y plazos</button>
+        
+      </div>
+
+      <div class="tabs__panel is-active" id="tab-desc" role="tabpanel">
+        <p>Las sesiones de mentoría y consultoría tienen una duración de una hora y se realizan por videoconferencia. Puedes contratar una sesión suelta para una consulta concreta o el pack de diez sesiones para un acompañamiento continuado.</p>
+        <p>Todas las sesiones pueden grabarse y, si lo deseas, te enviaré una copia del vídeo. Con el pack de diez sesiones podrás desarrollar con mi apoyo un plan de negocio y estudiar cómo minimizar los riesgos.</p>
+        
+        <h3>Dos formas de trabajar juntos</h3>
+        <p>Puedes contratar una sesión suelta cuando necesitas una respuesta concreta, o el pack de diez sesiones cuando quieres un acompañamiento continuado con plan de negocio.</p>
+      </div>
+
+      <div class="tabs__panel" id="tab-specs" role="tabpanel">
+        
+        <div class="incluye-grid">
+          <div class="incluye-block">
+            <h4>Una sesión · 45 €</h4>
+            <ul>
+              <li>Una sesión de 1 hora por videoconferencia.</li>
+              <li>Consultoría 1:1 sobre luthería, artesanía o negocio.</li>
+              <li>Grabación de la sesión, si la solicitas.</li>
+              <li>Resumen de conclusiones y siguientes pasos.</li>
+            </ul>
+          </div>
+          <div class="incluye-block">
+            <h4>Pack 10 sesiones · 400 €</h4>
+            <ul>
+              <li>Diez sesiones de 1 hora por videoconferencia.</li>
+              <li>Desarrollo de un plan de negocio con mi apoyo.</li>
+              <li>Estudio y minimización de riesgos del proyecto.</li>
+              <li>Seguimiento y resolución de dudas entre sesiones.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="tabs__panel" id="tab-proceso" role="tabpanel">
+        
+        <p>El primer paso es escribirme y contarme en qué punto estás, qué quieres conseguir y qué dudas tienes. Con esa información concretamos la modalidad, la agenda y el alcance de la sesión o del pack.</p>
+        <p>Las sesiones se realizan por videoconferencia en el horario acordado. El pack de diez sesiones se distribuye a lo largo del acompañamiento según tu ritmo y tus necesidades.</p>
+        <h3>Qué conviene preparar</h3>
+        <ul>
+          <li>Tu nivel y experiencia en luthería o artesanía.</li>
+          <li>El proyecto o la duda concreta que quieres trabajar.</li>
+          <li>Referencias, maderas o herramientas que estés valorando.</li>
+          <li>Si vas a emprender, tu idea de negocio y tus objetivos.</li>
+        </ul>
+      </div>
+
+      
+    </div>
+  </div>
+</section>
+
+<section class="section section--cream">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head__body">
+        <p class="eyebrow">Del catálogo</p>
+        <h2 class="h2">Otras piezas del <em>taller.</em></h2>
+      </div>
+      <a class="link-arrow" href="tienda.html">Ver todo el catálogo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+    </div>
+    <div class="product-grid">
+      
+      <article class="product-card">
+        <a class="product-card__media" href="producto-libro-guitarra-lutheria.html" aria-label="Ver La guitarra en la luthería">
+          <img src="assets/img/blog-libro.jpg" alt="La guitarra en la luthería" loading="lazy">
+        </a>
+        <div class="product-card__body">
+          <span class="product-card__cat">Libros y formación</span>
+          <h3><a href="producto-libro-guitarra-lutheria.html">La guitarra en la luthería</a></h3>
+          <p>Libro de referencia · tapa dura. Lectura esencial para luthiers y aficionados.</p>
+          <div class="product-card__price"><strong>39 €</strong><span>Disponible</span></div>
+        </div>
+      </article>
+      <article class="product-card">
+        <a class="product-card__media" href="producto-paloma.html" aria-label="Ver Paloma">
+          <img src="assets/img/guitar-paloma.jpg" alt="Paloma" loading="lazy">
+        </a>
+        <div class="product-card__body">
+          <span class="product-card__cat">Guitarras de autor</span>
+          <h3><a href="producto-paloma.html">Paloma</a></h3>
+          <p>Abeto alemán · Palosanto de Madagascar. Tono cristalino y respuesta inmediata.</p>
+          <div class="product-card__price"><strong>Desde 6.200 €</strong><span>Por encargo</span></div>
+        </div>
+      </article>
+      <article class="product-card">
+        <a class="product-card__media" href="producto-golden-whale.html" aria-label="Ver Golden Whale">
+          <img src="assets/img/guitar-golden-whale.jpg" alt="Golden Whale" loading="lazy">
+        </a>
+        <div class="product-card__body">
+          <span class="product-card__cat">Guitarras de autor</span>
+          <h3><a href="producto-golden-whale.html">Golden Whale</a></h3>
+          <p>Cedro canadiense · Koa hawaiana · pan de oro. Proyección armónica colosal.</p>
+          <div class="product-card__price"><strong>Desde 6.200 €</strong><span>Por encargo</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+  <section class="cta-band">
+    <div class="cta-band__bg"><img src="assets/img/craft-hands.jpg" alt="" loading="lazy"></div>
+    <div class="container cta-band__inner">
+      <div>
+        <p class="eyebrow">Hablemos de tu proyecto</p>
+        <h2>¿Es Mentoría 1:1 <em>lo que buscas?</em></h2>
+        <p>Si esta pieza encaja con lo que tienes en mente, escríbeme y concretamos los detalles. Si tienes otra idea, también podemos diseñarla desde cero.</p>
+      </div>
+      <div class="cta-band__actions">
+        <a class="btn btn--light" href="contacto.html">Solicitar información <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+        <a class="btn btn--ghost-light" href="tienda.html">Seguir explorando</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" aria-label="Vael de Ginés, inicio">
+            <img src="assets/img/logo.png" alt="Vael de Ginés" width="150" height="75" loading="lazy">
+          </a>
+          <p>Luthería artesanal en Los Alcázares (Murcia). Guitarras personalizadas e instrumentos de folclore construidos a mano, uno a uno.</p>
+          <div class="footer__social">
+            <a href="https://www.instagram.com/vaeldegines/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.youtube.com/watch?v=W8ileM09_CI" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.facebook.com/Vaelluthier" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14.5 8.5h2.5V5h-2.6C11.8 5 10.5 6.6 10.5 9v2H8v3.5h2.5V21H14v-6.5h2.7l.4-3.5H14V9.2c0-.5.2-.7.5-.7z"/></svg></a>
+            <a href="mailto:luthier@vaeldegines.com" aria-label="Correo electrónico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 6.5L20.5 6"/></svg></a>
+          </div>
+        </div>
+
+        <div>
+          <p class="footer__title">Instrumentos</p>
+          <div class="footer__list">
+            <a href="guitarras.html">Guitarras personalizadas</a>
+            <a href="guitarras.html#coleccion">Colección de autor</a>
+            <a href="instrumentos.html">Instrumentos de folclore</a>
+            <a href="instrumentos.html#guitarro">Guitarro murciano</a>
+            <a href="tienda.html">Catálogo y encargos</a>
+          </div>
+        </div>
+
+        <div>
+          <p class="footer__title">El taller</p>
+          <div class="footer__list">
+            <a href="luthier.html">Sobre el luthier</a>
+            <a href="luthier.html#proceso">Proceso artesanal</a>
+            <a href="luthier.html#reconocimientos">Reconocimientos</a>
+            <a href="mentoria.html">Mentoría</a>
+            <a href="podcast.html">La cabaña del luthier</a>
+            <a href="blog.html">Blog</a>
+          </div>
+        </div>
+
+        <div>
+          <p class="footer__title">Contacto</p>
+          <div class="footer__contact">
+            <a href="mailto:luthier@vaeldegines.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 6.5L20.5 6"/></svg><span>luthier@vaeldegines.com</span></a>
+            <a href="tel:+34609302713"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6.5 3.5h3l1.5 4-2 1.5a12 12 0 006 6l1.5-2 4 1.5v3a2 2 0 01-2.2 2A17.5 17.5 0 014.5 5.7 2 2 0 016.5 3.5z"/></svg><span>+34 609 302 713</span></a>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Los Alcázares, Murcia<br><small class="text-muted">Visitas con cita previa</small></span></div>
+          </div>
+          <form class="newsletter" novalidate>
+            <label class="newsletter__label" for="newsletter-email">Newsletter del taller</label>
+            <div class="newsletter__row">
+              <input id="newsletter-email" type="email" name="email" placeholder="Tu correo electrónico" required>
+              <button type="submit" aria-label="Suscribirme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+            </div>
+            <small>Novedades, procesos y nuevas piezas. Sin ruido.</small>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>© <span data-year>2026</span> Vael de Ginés · Luthería artesanal</p>
+        <div class="footer__legal">
+          <a href="legal.html#aviso">Aviso legal</a>
+          <a href="legal.html#privacidad">Privacidad</a>
+          <a href="legal.html#cookies">Cookies</a>
+          <a href="legal.html#devoluciones">Devoluciones</a>
+          <button class="view-switch-btn" type="button" data-view="mobile">Ver versión móvil</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

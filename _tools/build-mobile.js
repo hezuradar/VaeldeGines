@@ -1,0 +1,127 @@
+'use strict';
+/* Genera la versión móvil en m/. Cada página mantiene sus enlaces internos
+   dentro de m/ y carga los mismos assets con rutas relativas ajustadas.      */
+
+const fs = require('fs');
+const path = require('path');
+
+const ROOT = 'D:/hezuradar/Vael/web-nueva';
+const OUT = path.join(ROOT, 'm');
+fs.mkdirSync(OUT, { recursive: true });
+fs.cpSync(path.join(ROOT, 'assets'), path.join(OUT, 'assets'), { recursive: true });
+
+function extractMedia(css, query) {
+  const marker = `@media ${query} {`;
+  const i = css.indexOf(marker);
+  if (i < 0) return '';
+  const start = css.indexOf('{', i);
+  let depth = 0;
+  for (let j = start; j < css.length; j++) {
+    if (css[j] === '{') depth++;
+    else if (css[j] === '}') {
+      depth--;
+      if (depth === 0) return css.slice(start + 1, j);
+    }
+  }
+  return '';
+}
+
+const css = fs.readFileSync(path.join(ROOT, 'assets', 'css', 'styles.css'), 'utf8');
+const shell = `
+/* Versión móvil dedicada: se aplica siempre, independientemente del ancho */
+html { background: #2b241d; }
+body { max-width: 520px; margin: 0 auto; background: var(--paper); }
+.site-header, .nav, .scroll-progress {
+  left: max(0px, calc(50% - 260px));
+  right: auto;
+  width: min(100%, 520px);
+}
+.view-switch-btn--fixed { left: auto; bottom: calc(72px + env(safe-area-inset-bottom, 0px)); }
+body { padding-bottom: calc(58px + env(safe-area-inset-bottom, 0px)); }
+.site-footer { padding-bottom: 4rem; }
+
+.mobile-tabbar {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  position: fixed;
+  left: max(0px, calc(50% - 260px));
+  right: auto;
+  width: min(100%, 520px);
+  bottom: 0;
+  z-index: 1100;
+  background: rgba(36,26,19,.97);
+  backdrop-filter: blur(14px);
+  border-top: 1px solid rgba(248,244,236,.16);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.mobile-tabbar a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: .2rem;
+  min-height: 58px;
+  padding: .35rem .15rem;
+  font-size: .55rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: rgba(248,244,236,.6);
+  transition: color .3s;
+}
+.mobile-tabbar a:hover,
+.mobile-tabbar a.is-current { color: var(--brass-light); }
+.mobile-tabbar .tab-icon { font-family: var(--serif); font-size: 1.35rem; line-height: 1; font-weight: 500; }
+`;
+
+const mobileCss = shell +
+  extractMedia(css, '(max-width: 1024px)') +
+  extractMedia(css, '(max-width: 780px)') +
+  extractMedia(css, '(max-width: 520px)');
+
+fs.writeFileSync(path.join(OUT, 'mobile.css'), mobileCss, 'utf8');
+
+const files = fs.readdirSync(ROOT).filter((f) => f.endsWith('.html'));
+
+const tabItems = [
+  ['index.html', 'index.html', '⌂', 'Inicio'],
+  ['guitarras.html', 'guitarras.html', '♪', 'Guitarras'],
+  ['tienda.html', 'tienda.html', '▦', 'Tienda'],
+  ['blog.html', 'blog.html', '✎', 'Blog'],
+  ['contacto.html', 'contacto.html', '✉', 'Contacto']
+];
+
+function tabbarFor(file) {
+  const current = file === 'index.html' ? 'index.html'
+    : /^blog-|^articulo/.test(file) || file === 'blog.html' ? 'blog.html'
+    : /^producto-|^producto\.html/.test(file) ? (file === 'producto-mentoria.html' ? '' : 'tienda.html')
+    : file;
+  return `
+<nav class="mobile-tabbar" aria-label="Navegación rápida móvil">
+  ${tabItems.map(([target, key, icon, label]) => `<a href="${target}"${key === current ? ' class="is-current" aria-current="page"' : ''}><span class="tab-icon" aria-hidden="true">${icon}</span>${label}</a>`).join('')}
+</nav>`;
+}
+
+files.forEach((file) => {
+  let html = fs.readFileSync(path.join(ROOT, file), 'utf8');
+
+  // Quitar el redirect automático (solo debe estar en la versión escritorio)
+  html = html.replace(/<!-- AUTO-REDIRECT-MOBILE -->[\s\S]*?<!-- \/AUTO-REDIRECT-MOBILE -->/, '');
+
+  // La versión móvil es autocontenida: mantiene las mismas rutas relativas
+  // y dispone de su propia copia de assets dentro de m/.
+
+  // Añadir la hoja móvil y el control de cambio de versión
+  html = html.replace(
+    '<link rel="stylesheet" href="assets/css/styles.css">',
+    '<link rel="stylesheet" href="assets/css/styles.css">\n  <link rel="stylesheet" href="mobile.css">'
+  );
+  html = html.replace(
+    '</body>',
+    `  <button class="view-switch-btn view-switch-btn--fixed" type="button" data-view="desktop">Versión escritorio</button>\n${tabbarFor(file)}\n</body>`
+  );
+
+  fs.writeFileSync(path.join(OUT, file), html, 'utf8');
+});
+
+console.log(`Versión móvil generada: ${files.length} páginas en ${OUT}`);

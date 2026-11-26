@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- AUTO-REDIRECT-MOBILE -->
+  <script>
+  (function () {
+    try {
+      if (localStorage.getItem('vdg-view') === 'desktop') return;
+      var ua = navigator.userAgent || '';
+      var mobile = (navigator.userAgentData && navigator.userAgentData.mobile === true) ||
+        /Android|iPhone|iPod|Windows Phone|Mobile|Silk|BlackBerry|Opera Mini/i.test(ua) ||
+        (/iPad|Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+      if (!mobile) return;
+      var page = location.pathname.split('/').pop() || 'index.html';
+      if (!/.html$/.test(page)) page = 'index.html';
+      location.replace('m/' + page);
+    } catch (e) {}
+  })();
+  </script>
+  <!-- /AUTO-REDIRECT-MOBILE -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog · Cuaderno del taller · Vael de Ginés</title>
+  <meta name="description" content="Artículos sobre maderas, luthería, guitarras artesanales y cuidados del instrumento.">
+  <meta name="theme-color" content="#f8f4ec">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+</head>
+<body>
+
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="container header__inner">
+      <a class="brand" href="index.html" aria-label="Vael de Ginés, inicio">
+        <img class="brand__logo" src="assets/img/logo.png" alt="Vael de Ginés" width="120" height="60">
+        <span class="brand__meta">Los Alcázares · Murcia</span>
+      </a>
+
+      <nav class="nav-desktop" aria-label="Navegación principal"><a href="index.html">Inicio</a><a href="guitarras.html">Guitarras</a><a href="instrumentos.html">Instrumentos</a><a href="luthier.html">El taller</a><a href="mentoria.html">Mentoría</a><a href="podcast.html">Podcast</a><a href="blog.html" class="is-current" aria-current="page">Blog</a><a href="tienda.html">Tienda</a><a href="contacto.html">Contacto</a></nav>
+
+      <div class="header__actions">
+        <a class="icon-btn" href="tienda.html" aria-label="Ver el catálogo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.2-4.2"/></svg></a>
+        <a class="btn btn--sm btn--outline-light" href="contacto.html">Encargos</a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="nav" id="menu-principal" aria-label="Navegación móvil"><a href="index.html">Inicio</a><a href="guitarras.html">Guitarras</a><a href="instrumentos.html">Instrumentos</a><a href="luthier.html">El taller</a><a href="mentoria.html">Mentoría</a><a href="podcast.html">Podcast</a><a href="blog.html" class="is-current" aria-current="page">Blog</a><a href="tienda.html">Tienda</a><a href="contacto.html">Contacto</a></nav>
+  </header>
+<main id="contenido">
+
+<section class="page-header-simple">
+  <div class="container">
+    <p class="eyebrow eyebrow--center">Cuaderno del taller</p>
+    <h1 class="h2">Historias, maderas<br><em>y oficio.</em></h1>
+    <p>Explora el mundo de la luthería, la construcción de guitarras de autor y todo lo relacionado con el arte de crear instrumentos únicos. 27 artículos del taller.</p>
+  </div>
+</section>
+
+<section class="section section--tight">
+  <div class="container">
+    <a class="featured-post reveal" href="blog-pau-ferro.html">
+      <div class="featured-post__media">
+        <img src="assets/img/blog/pau-ferro-portada.jpg" alt="Pau Ferro: equilibrio natural entre elegancia y versatilidad sonora" loading="lazy">
+      </div>
+      <div class="featured-post__body">
+        <p class="eyebrow">Artículo destacado</p>
+        <h2>Pau Ferro: equilibrio natural entre elegancia y versatilidad sonora</h2>
+        <p>El Pau Ferro, también conocido como palisandro brasileño boliviano, es una de las maderas más valoradas por su aspecto elegante, su versatilidad tonal y su estabilidad estructural.…</p>
+        <div class="article__meta" style="margin-top:22px">
+          <span>Maderas y materiales</span><span class="dot"></span><span>3 oct 2025</span>
+        </div>
+        <p style="margin-top:24px"><span class="link-arrow">Leer el artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></span></p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head__body">
+        <p class="eyebrow">Todos los artículos</p>
+        <h2 class="h2">Aprende sobre <em>el oficio.</em></h2>
+      </div>
+      <div class="chip-row" data-blog-filters>
+        <button class="chip is-active" type="button" data-blog-filter="all">Todos <span class="text-muted">(27)</span></button>
+<button class="chip" type="button" data-blog-filter="maderas">Maderas <span class="text-muted">(12)</span></button>
+<button class="chip" type="button" data-blog-filter="guitarras">Guitarras <span class="text-muted">(7)</span></button>
+<button class="chip" type="button" data-blog-filter="lutheria">Luthería <span class="text-muted">(4)</span></button>
+<button class="chip" type="button" data-blog-filter="instrumentos">Instrumentos <span class="text-muted">(3)</span></button>
+<button class="chip" type="button" data-blog-filter="formacion">Formación <span class="text-muted">(1)</span></button>
+      </div>
+    </div>
+    <div class="post-grid">
+      
+      <div data-post="maderas">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-pau-ferro.html" aria-label="Leer Pau Ferro: equilibrio natural entre elegancia y versatilidad sonora">
+      <img src="assets/img/blog/pau-ferro-portada.jpg" alt="Pau Ferro: equilibrio natural entre elegancia y versatilidad sonora" loading="lazy">
+    </a>
+    <div class="post-card__meta">Maderas y materiales <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-pau-ferro.html">Pau Ferro: equilibrio natural entre elegancia y versatilidad sonora</a></h3>
+    <p>El Pau Ferro, también conocido como palisandro brasileño boliviano, es una de las maderas más valoradas por su aspecto elegante, su versatilidad tonal y su estabilidad estructural.…</p>
+    <a class="link-arrow post-card__link" href="blog-pau-ferro.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="lutheria">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-cnc-en-la-lutheria.html" aria-label="Leer CNC en la luthería: ¿herramienta o amenaza?">
+      <img src="assets/img/blog/cnc-en-la-lutheria-portada.jpg" alt="CNC en la luthería: ¿herramienta o amenaza?" loading="lazy">
+    </a>
+    <div class="post-card__meta">Herramientas <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-cnc-en-la-lutheria.html">CNC en la luthería: ¿herramienta o amenaza?</a></h3>
+    <p>Vivimos un momento fascinante en la historia de la luthería. Los avances tecnológicos han puesto al alcance de un luthier independiente herramientas que hace apenas unas décadas pa…</p>
+    <a class="link-arrow post-card__link" href="blog-cnc-en-la-lutheria.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="guitarras">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-guitarra-clasica-vs-flamenca-luthier.html" aria-label="Leer Diferencias entre guitarra clásica y flamenca de luthier">
+      <img src="assets/img/blog/guitarra-clasica-vs-flamenca-luthier-portada.jpg" alt="Diferencias entre guitarra clásica y flamenca de luthier" loading="lazy">
+    </a>
+    <div class="post-card__meta">Guitarras artesanales <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-guitarra-clasica-vs-flamenca-luthier.html">Diferencias entre guitarra clásica y flamenca de luthier</a></h3>
+    <p>Guitarra clásica y flamenca de luthier: lo que todo amante de la guitarra debe saber Si estás pensando en encargar una guitarra personalizada o simplemente te interesa profundizar…</p>
+    <a class="link-arrow post-card__link" href="blog-guitarra-clasica-vs-flamenca-luthier.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="maderas">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-madera-de-bubinga-guitarra.html" aria-label="Leer Bubinga: fuerza, belleza y alma africana en cada nota">
+      <img src="assets/img/blog/madera-de-bubinga-guitarra-portada.jpg" alt="Bubinga: fuerza, belleza y alma africana en cada nota" loading="lazy">
+    </a>
+    <div class="post-card__meta">Maderas y materiales <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-madera-de-bubinga-guitarra.html">Bubinga: fuerza, belleza y alma africana en cada nota</a></h3>
+    <p>La madera de Bubinga es una de las más impresionantes del mundo de la luthería por su fuerza, belleza y profundidad sonora. Originaria del corazón de África, esta madera ha sido ad…</p>
+    <a class="link-arrow post-card__link" href="blog-madera-de-bubinga-guitarra.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="maderas">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-madera-de-cocobolo.html" aria-label="Leer Cocobolo en guitarras clásicas y flamencas: belleza, exclusividad y sonido incomparable">
+      <img src="assets/img/blog/madera-de-cocobolo-portada.jpg" alt="Cocobolo en guitarras clásicas y flamencas: belleza, exclusividad y sonido incomparable" loading="lazy">
+    </a>
+    <div class="post-card__meta">Maderas y materiales <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-madera-de-cocobolo.html">Cocobolo en guitarras clásicas y flamencas: belleza, exclusividad y sonido incomparable</a></h3>
+    <p>En el mundo de la luthería, pocas maderas despiertan tanta admiración y respeto como el cocobolo. Con su veteado espectacular, su densidad y su sonoridad profunda, esta madera trop…</p>
+    <a class="link-arrow post-card__link" href="blog-madera-de-cocobolo.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="maderas">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-moon-spruce.html" aria-label="Leer ¿Qué es Moon Spruce o abeto luna nueva?">
+      <img src="assets/img/blog/moon-spruce-portada.jpg" alt="¿Qué es Moon Spruce o abeto luna nueva?" loading="lazy">
+    </a>
+    <div class="post-card__meta">Maderas y materiales <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-moon-spruce.html">¿Qué es Moon Spruce o abeto luna nueva?</a></h3>
+    <p>La elección de materiales en la construcción de una guitarra es esencial para determinar su sonido, durabilidad y estética. Entre las maderas más valoradas por los luthiers de élit…</p>
+    <a class="link-arrow post-card__link" href="blog-moon-spruce.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="formacion">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-libros-para-luthiers.html" aria-label="Leer Libros para luthiers: 5 lecturas esenciales para la construcción de guitarras">
+      <img src="assets/img/blog/libros-para-luthiers-portada.jpg" alt="Libros para luthiers: 5 lecturas esenciales para la construcción de guitarras" loading="lazy">
+    </a>
+    <div class="post-card__meta">Libros y formación <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-libros-para-luthiers.html">Libros para luthiers: 5 lecturas esenciales para la construcción de guitarras</a></h3>
+    <p>La luthería es un arte que combina tradición, conocimiento técnico y pasión por la madera y el sonido. Para quienes desean profundizar en esta disciplina, la lectura de libros espe…</p>
+    <a class="link-arrow post-card__link" href="blog-libros-para-luthiers.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="guitarras">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-mantenimiento-guitarra-de-lujo.html" aria-label="Leer Cuidado y mantenimiento de una guitarra de lujo">
+      <img src="assets/img/blog/mantenimiento-guitarra-de-lujo-portada.jpg" alt="Cuidado y mantenimiento de una guitarra de lujo" loading="lazy">
+    </a>
+    <div class="post-card__meta">Guitarras artesanales <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-mantenimiento-guitarra-de-lujo.html">Cuidado y mantenimiento de una guitarra de lujo</a></h3>
+    <p>El cuidado de una guitarra de lujo va más allá de la limpieza básica: requiere atención al detalle, almacenamiento adecuado y mantenimiento profesional. Descubre cómo proteger tu i…</p>
+    <a class="link-arrow post-card__link" href="blog-mantenimiento-guitarra-de-lujo.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="guitarras">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-guitarras-hecha-a-mano.html" aria-label="Leer Guitarra hecha a mano">
+      <img src="assets/img/blog/guitarras-hecha-a-mano-portada.jpg" alt="Guitarra hecha a mano" loading="lazy">
+    </a>
+    <div class="post-card__meta">Guitarras artesanales <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-guitarras-hecha-a-mano.html">Guitarra hecha a mano</a></h3>
+    <p>Descubre cómo las guitarras Vael de Ginés combinan exclusividad y calidad, convirtiéndose en inversiones a largo plazo. Con un aumento del 40% en su valor en los últimos años, esta…</p>
+    <a class="link-arrow post-card__link" href="blog-guitarras-hecha-a-mano.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="maderas">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-guitarra-de-abeto-la-eleccion-perfecta-para-el-sonido-ideal.html" aria-label="Leer Abeto para la tapa de tu guitarra">
+      <img src="assets/img/blog/guitarra-de-abeto-la-eleccion-perfecta-para-el-sonido-ideal-portada.jpg" alt="Abeto para la tapa de tu guitarra" loading="lazy">
+    </a>
+    <div class="post-card__meta">Maderas y materiales <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-guitarra-de-abeto-la-eleccion-perfecta-para-el-sonido-ideal.html">Abeto para la tapa de tu guitarra</a></h3>
+    <p>En el mundo de la construcción de guitarras, la elección de la madera para la tapa armónica es fundamental, ya que afecta directamente al sonido, la resonancia y la proyección del…</p>
+    <a class="link-arrow post-card__link" href="blog-guitarra-de-abeto-la-eleccion-perfecta-para-el-sonido-ideal.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="guitarras">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-homo-faber-y-vael-de-gines.html" aria-label="Leer Homo Faber y Vael de Ginés">
+      <img src="assets/img/blog/homo-faber-y-vael-de-gines-portada.jpg" alt="Homo Faber y Vael de Ginés" loading="lazy">
+    </a>
+    <div class="post-card__meta">Guitarras artesanales <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-homo-faber-y-vael-de-gines.html">Homo Faber y Vael de Ginés</a></h3>
+    <p>Homo Faber: La excelencia de la artesanía y su conexión con el lujo La artesanía es mucho más que un oficio; es una expresión cultural, un legado vivo que se transmite de generació…</p>
+    <a class="link-arrow post-card__link" href="blog-homo-faber-y-vael-de-gines.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="guitarras">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-luthier-de-guitarras.html" aria-label="Leer Luthier de Guitarras: El Arte y la Ciencia Detrás de un Instrumento Único">
+      <img src="assets/img/blog/luthier-de-guitarras-portada.jpg" alt="Luthier de Guitarras: El Arte y la Ciencia Detrás de un Instrumento Único" loading="lazy">
+    </a>
+    <div class="post-card__meta">Guitarras artesanales <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-luthier-de-guitarras.html">Luthier de Guitarras: El Arte y la Ciencia Detrás de un Instrumento Único</a></h3>
+    <p>El término luthier de guitarras evoca imágenes de dedicación, precisión y una conexión especial con la música. Los luthiers son los artesanos encargados de construir, reparar y per…</p>
+    <a class="link-arrow post-card__link" href="blog-luthier-de-guitarras.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="guitarras">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-historia_de_la_guitarra.html" aria-label="Leer Historia de la guitarra">
+      <img src="assets/img/blog/historia_de_la_guitarra-portada.jpg" alt="Historia de la guitarra" loading="lazy">
+    </a>
+    <div class="post-card__meta">Guitarras artesanales <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-historia_de_la_guitarra.html">Historia de la guitarra</a></h3>
+    <p>Un Viaje Melódico a través del Tiempo: La Evolución de la Guitarra Orígenes Antiguos: Las Primeras Cuerdas Vibrantes Los orígenes de la guitarra se pierden en la noche de los tiemp…</p>
+    <a class="link-arrow post-card__link" href="blog-historia_de_la_guitarra.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="lutheria">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-herramientas-electricas.html" aria-label="Leer Herramientas eléctricas">
+      <img src="assets/img/blog/herramientas-electricas-portada.jpg" alt="Herramientas eléctricas" loading="lazy">
+    </a>
+    <div class="post-card__meta">Herramientas <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-herramientas-electricas.html">Herramientas eléctricas</a></h3>
+    <p>Herramientas eléctricas: y maquinaria que ayuda a un luthier Aquí os vamos a mostrar algunas de las herramientas eléctricas que facilitan el trabajo en un taller de luthería. Ninguna de estas máquinas es i…</p>
+    <a class="link-arrow post-card__link" href="blog-herramientas-electricas.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="lutheria">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-el-luthier-y-las-herramientas-tradicionales.html" aria-label="Leer Herramientas de luthier">
+      <img src="assets/img/blog/el-luthier-y-las-herramientas-tradicionales-portada.jpg" alt="Herramientas de luthier" loading="lazy">
+    </a>
+    <div class="post-card__meta">Herramientas <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-el-luthier-y-las-herramientas-tradicionales.html">Herramientas de luthier</a></h3>
+    <p>Las herramientas de luthier son fundamentales para la construcción, reparación y mantenimiento de instrumentos musicales. Estas herramientas especializadas permiten al artesano tra…</p>
+    <a class="link-arrow post-card__link" href="blog-el-luthier-y-las-herramientas-tradicionales.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="maderas">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-abeto-vs-cedro.html" aria-label="Leer ¿Qué suena mejor pino abeto o cedro rojo?">
+      <img src="assets/img/blog/abeto-vs-cedro-portada.jpg" alt="¿Qué suena mejor pino abeto o cedro rojo?" loading="lazy">
+    </a>
+    <div class="post-card__meta">Maderas y materiales <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-abeto-vs-cedro.html">¿Qué suena mejor pino abeto o cedro rojo?</a></h3>
+    <p>El abeto y el cedro son dos maderas fundamentales en la construcción de guitarras, especialmente para las tapas armónicas. Cada una tiene características distintivas que afectan el…</p>
+    <a class="link-arrow post-card__link" href="blog-abeto-vs-cedro.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="maderas">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-palo-santo.html" aria-label="Leer Palo Santo">
+      <img src="assets/img/blog/palo-santo-portada.jpg" alt="Palo Santo" loading="lazy">
+    </a>
+    <div class="post-card__meta">Maderas y materiales <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-palo-santo.html">Palo Santo</a></h3>
+    <p>El palo santo, también conocido como palisandro, es una madera muy apreciada en la construcción de guitarras por sus excelentes cualidades acústicas y estéticas. Existen varias esp…</p>
+    <a class="link-arrow post-card__link" href="blog-palo-santo.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="maderas">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-arce.html" aria-label="Leer Madera de arce">
+      <img src="assets/img/blog/arce-portada.jpg" alt="Madera de arce" loading="lazy">
+    </a>
+    <div class="post-card__meta">Maderas y materiales <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-arce.html">Madera de arce</a></h3>
+    <p>La madera de arce es ampliamente utilizada en la construcción de guitarras debido a sus excelentes propiedades acústicas y estéticas. Existen varios tipos y especies de esta madera…</p>
+    <a class="link-arrow post-card__link" href="blog-arce.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="maderas">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-cipres.html" aria-label="Leer Madera de ciprés">
+      <img src="assets/img/blog/cipres-portada.jpg" alt="Madera de ciprés" loading="lazy">
+    </a>
+    <div class="post-card__meta">Maderas y materiales <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-cipres.html">Madera de ciprés</a></h3>
+    <p>La madera de ciprés es una madera semidura y durable, apreciada por sus bonitas tonalidades y veteado. Existen diferentes especies de ciprés, cada una con características particula…</p>
+    <a class="link-arrow post-card__link" href="blog-cipres.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="maderas">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-ebano.html" aria-label="Leer Ébano">
+      <img src="assets/img/blog/ebano-portada.jpeg" alt="Ébano" loading="lazy">
+    </a>
+    <div class="post-card__meta">Maderas y materiales <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-ebano.html">Ébano</a></h3>
+    <p>La madera de ébano es una de las maderas más apreciadas y valiosas en el mundo, especialmente en la construcción de instrumentos musicales como la guitarra. Vamos a explorar sus ca…</p>
+    <a class="link-arrow post-card__link" href="blog-ebano.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="maderas">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-ziricote.html" aria-label="Leer El Ziricote: Una Joya de la Naturaleza en la Construcción de Guitarras">
+      <img src="assets/img/blog/ziricote-portada.jpg" alt="El Ziricote: Una Joya de la Naturaleza en la Construcción de Guitarras" loading="lazy">
+    </a>
+    <div class="post-card__meta">Maderas y materiales <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-ziricote.html">El Ziricote: Una Joya de la Naturaleza en la Construcción de Guitarras</a></h3>
+    <p>El ziricote es una de las maderas más apreciadas en el mundo de la luthería por su belleza única, excelente densidad y cualidades sonoras excepcionales. Su nombre científico, Cordi…</p>
+    <a class="link-arrow post-card__link" href="blog-ziricote.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="maderas">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-el-barniz.html" aria-label="Leer El Barniz de Guitarra: Tipos y su Influencia en el Sonido">
+      <img src="assets/img/blog/el-barniz-portada.jpg" alt="El Barniz de Guitarra: Tipos y su Influencia en el Sonido" loading="lazy">
+    </a>
+    <div class="post-card__meta">Maderas y materiales <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-el-barniz.html">El Barniz de Guitarra: Tipos y su Influencia en el Sonido</a></h3>
+    <p>El barniz de guitarra juega un papel crucial en la estética, la protección y, sobre todo, en el sonido de las guitarras clásicas y flamencas. Más allá de ser un acabado visual, el…</p>
+    <a class="link-arrow post-card__link" href="blog-el-barniz.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="guitarras">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-que-es-una-guitarra.html" aria-label="Leer ¿QUÉ ES UNA GUITARRA?">
+      <img src="assets/img/blog/que-es-una-guitarra-portada.jpg" alt="¿QUÉ ES UNA GUITARRA?" loading="lazy">
+    </a>
+    <div class="post-card__meta">Guitarras artesanales <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-que-es-una-guitarra.html">¿QUÉ ES UNA GUITARRA?</a></h3>
+    <p>Una guitarra es un instrumento sonoro de cuerda que se pulsa con los dedos, consta de una caja de resonancia y un mástil sobre el que apoya el diapasón que sirve para pulsar las cu…</p>
+    <a class="link-arrow post-card__link" href="blog-que-es-una-guitarra.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="lutheria">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-que-es-un-luthier.html" aria-label="Leer ¿Qué es un luthier?">
+      <img src="assets/img/blog/que-es-un-luthier-portada.jpg" alt="¿Qué es un luthier?" loading="lazy">
+    </a>
+    <div class="post-card__meta">Luthería <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-que-es-un-luthier.html">¿Qué es un luthier?</a></h3>
+    <p>Un luthier es un artesano que se dedica a construir instrumentos de cuerda, así como repáralos o ajustarlos según sea la necesidad. Esta antigua profesión es una noble actividad ar…</p>
+    <a class="link-arrow post-card__link" href="blog-que-es-un-luthier.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="instrumentos">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-que-es-un-ukelele.html" aria-label="Leer ¿Qué es un ukelele?">
+      <img src="assets/img/blog/que-es-un-ukelele-portada.jpg" alt="¿Qué es un ukelele?" loading="lazy">
+    </a>
+    <div class="post-card__meta">Instrumentos <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-que-es-un-ukelele.html">¿Qué es un ukelele?</a></h3>
+    <p>El ukelele es un instrumento de cuerda pulsada. Tiene cuatro cuerdas y diferentes tamaños: soprano, concierto, tenor y barítono. Tiene las mismas partes que una guitarra española,…</p>
+    <a class="link-arrow post-card__link" href="blog-que-es-un-ukelele.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="instrumentos">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-definicion-de-violin.html" aria-label="Leer Definición de violín">
+      <img src="assets/img/blog/definicion-de-violin-portada.jpg" alt="Definición de violín" loading="lazy">
+    </a>
+    <div class="post-card__meta">Instrumentos <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-definicion-de-violin.html">Definición de violín</a></h3>
+    <p>Definición violín: es un instrumento de cuerda frotada y para tocarlo utilizamos un arco. Tiene cuatro cuerdas afinadas por quintas y es el más pequeño de su familia, misma categor…</p>
+    <a class="link-arrow post-card__link" href="blog-definicion-de-violin.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+      <div data-post="instrumentos">
+        
+  <article class="post-card reveal">
+    <a class="post-card__media" href="blog-partes-del-violin.html" aria-label="Leer El violín">
+      <img src="assets/img/blog/partes-del-violin-portada.jpg" alt="El violín" loading="lazy">
+    </a>
+    <div class="post-card__meta">Instrumentos <span>·</span> <span>6 min de lectura</span></div>
+    <h3><a href="blog-partes-del-violin.html">El violín</a></h3>
+    <p>El violín: se compone de diferentes elementos, cada uno con una función determinada.</p>
+    <a class="link-arrow post-card__link" href="blog-partes-del-violin.html">Leer artículo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+  </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section class="cta-band">
+    <div class="cta-band__bg"><img src="assets/img/craft-hands.jpg" alt="" loading="lazy"></div>
+    <div class="container cta-band__inner">
+      <div>
+        <p class="eyebrow">Hablemos de tu proyecto</p>
+        <h2>¿Tienes una duda <em>sobre tu instrumento?</em></h2>
+        <p>Si estás eligiendo una guitarra, una madera o necesitas orientación sobre el cuidado de tu instrumento, escríbeme. Te responderé personalmente.</p>
+      </div>
+      <div class="cta-band__actions">
+        <a class="btn btn--light" href="contacto.html">Preguntar al luthier <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+        <a class="btn btn--ghost-light" href="podcast.html">Escuchar el podcast</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" aria-label="Vael de Ginés, inicio">
+            <img src="assets/img/logo.png" alt="Vael de Ginés" width="150" height="75" loading="lazy">
+          </a>
+          <p>Luthería artesanal en Los Alcázares (Murcia). Guitarras personalizadas e instrumentos de folclore construidos a mano, uno a uno.</p>
+          <div class="footer__social">
+            <a href="https://www.instagram.com/vaeldegines/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.youtube.com/watch?v=W8ileM09_CI" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2.5" y="5.5" width="19" height="13" rx="4"/><path d="M10.5 9.5l5 2.5-5 2.5z" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.facebook.com/Vaelluthier" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14.5 8.5h2.5V5h-2.6C11.8 5 10.5 6.6 10.5 9v2H8v3.5h2.5V21H14v-6.5h2.7l.4-3.5H14V9.2c0-.5.2-.7.5-.7z"/></svg></a>
+            <a href="mailto:luthier@vaeldegines.com" aria-label="Correo electrónico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 6.5L20.5 6"/></svg></a>
+          </div>
+        </div>
+
+        <div>
+          <p class="footer__title">Instrumentos</p>
+          <div class="footer__list">
+            <a href="guitarras.html">Guitarras personalizadas</a>
+            <a href="guitarras.html#coleccion">Colección de autor</a>
+            <a href="instrumentos.html">Instrumentos de folclore</a>
+            <a href="instrumentos.html#guitarro">Guitarro murciano</a>
+            <a href="tienda.html">Catálogo y encargos</a>
+          </div>
+        </div>
+
+        <div>
+          <p class="footer__title">El taller</p>
+          <div class="footer__list">
+            <a href="luthier.html">Sobre el luthier</a>
+            <a href="luthier.html#proceso">Proceso artesanal</a>
+            <a href="luthier.html#reconocimientos">Reconocimientos</a>
+            <a href="mentoria.html">Mentoría</a>
+            <a href="podcast.html">La cabaña del luthier</a>
+            <a href="blog.html">Blog</a>
+          </div>
+        </div>
+
+        <div>
+          <p class="footer__title">Contacto</p>
+          <div class="footer__contact">
+            <a href="mailto:luthier@vaeldegines.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 6.5L20.5 6"/></svg><span>luthier@vaeldegines.com</span></a>
+            <a href="tel:+34609302713"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M6.5 3.5h3l1.5 4-2 1.5a12 12 0 006 6l1.5-2 4 1.5v3a2 2 0 01-2.2 2A17.5 17.5 0 014.5 5.7 2 2 0 016.5 3.5z"/></svg><span>+34 609 302 713</span></a>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M12 21s7-6.2 7-11a7 7 0 10-14 0c0 4.8 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>Los Alcázares, Murcia<br><small class="text-muted">Visitas con cita previa</small></span></div>
+          </div>
+          <form class="newsletter" novalidate>
+            <label class="newsletter__label" for="newsletter-email">Newsletter del taller</label>
+            <div class="newsletter__row">
+              <input id="newsletter-email" type="email" name="email" placeholder="Tu correo electrónico" required>
+              <button type="submit" aria-label="Suscribirme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></button>
+            </div>
+            <small>Novedades, procesos y nuevas piezas. Sin ruido.</small>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>© <span data-year>2026</span> Vael de Ginés · Luthería artesanal</p>
+        <div class="footer__legal">
+          <a href="legal.html#aviso">Aviso legal</a>
+          <a href="legal.html#privacidad">Privacidad</a>
+          <a href="legal.html#cookies">Cookies</a>
+          <a href="legal.html#devoluciones">Devoluciones</a>
+          <button class="view-switch-btn" type="button" data-view="mobile">Ver versión móvil</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
