@@ -64,7 +64,6 @@ body { padding-bottom: calc(58px + env(safe-area-inset-bottom, 0px)); }
   .hero__media img { position: relative; height: 100%; min-height: 54vw; max-height: 520px; }
   .hero__media::after { display: none; }
   .hero__badge { right: 18px; bottom: 18px; }
-  .hero__stamp { width: 150px; right: 14px; top: 86px; bottom: auto; padding: 8px 10px; }
 
   .page-hero__grid { grid-template-columns: 1fr; gap: 40px; }
   .page-hero__media { order: -1; }
