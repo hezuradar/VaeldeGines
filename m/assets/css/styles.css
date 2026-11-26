@@ -1637,6 +1637,11 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
 .podcast-cover { position: relative; aspect-ratio: 1 / 1; overflow: hidden; border: 1px solid rgba(248,244,236,.18); }
 .podcast-cover img { width: 100%; height: 100%; object-fit: cover; }
 .podcast-platforms { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
+.podcast-support { margin-top: 30px; padding-top: 22px; border-top: 1px solid rgba(248,244,236,.18); }
+.podcast-support__title { margin: 0; font-size: 10px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--brass-light); }
+.podcast-support p { margin-top: 10px; max-width: 48ch; font-size: 13px; line-height: 1.65; color: rgba(248,244,236,.72); }
+.podcast-support a { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; padding-bottom: 4px; border-bottom: 1px solid var(--brass); color: var(--paper); font-size: 13px; transition: color var(--fast), border-color var(--fast); }
+.podcast-support a:hover { color: var(--brass-light); border-color: var(--brass-light); }
 .episode-list { border-top: 1px solid var(--line); }
 .episode {
   display: grid;
