@@ -247,7 +247,10 @@
     btn.addEventListener('click', () => {
       try { localStorage.setItem('vdg-view', btn.dataset.view); } catch (e) {}
       const page = location.pathname.split('/').pop() || 'index.html';
-      const target = btn.dataset.view === 'mobile' ? `m/${page}` : page;
+      const inMobile = /(^|\/)m\//.test(location.pathname);
+      let target = page;
+      if (btn.dataset.view === 'mobile' && !inMobile) target = `m/${page}`;
+      if (btn.dataset.view === 'desktop' && inMobile) target = `../${page}`;
       location.href = target;
     });
   });
