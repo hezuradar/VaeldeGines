@@ -1329,6 +1329,7 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
 .product-card__price { margin-top: 10px; display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 12px; }
 .product-card__price strong { font-family: var(--serif); font-size: 17px; font-weight: 500; }
 .product-card__price span { font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.product-card__cta { display: none; }
 
 /* Category cards */
 .category-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }

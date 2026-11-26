@@ -69,6 +69,7 @@ module.exports = `
               <h3><a href="${fileOf(p)}">${p.name}</a></h3>
               <p>${p.desc}</p>
               <div class="product-card__price"><strong>${p.priceLabel}</strong><span>${p.cat === 'formacion' || p.cat === 'maderas' ? 'Disponible' : 'Por encargo'}</span></div>
+              <a class="product-card__cta" href="${fileOf(p)}">Ver ficha ${icons.arrow}</a>
             </div>
           </article>`).join('')}
         </div>
