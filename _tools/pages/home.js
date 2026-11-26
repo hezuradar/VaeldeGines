@@ -29,6 +29,9 @@ module.exports = `
       <strong>Nº 01</strong>
       <span>Paloma<br>Colección de autor</span>
     </div>
+    <div class="hero__stamp" aria-label="España Artesana">
+      <img src="assets/img/espana-artesana-sello.webp" alt="España Artesana" loading="lazy">
+    </div>
   </div>
 </section>
 
