@@ -1022,6 +1022,26 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
   transition: color var(--fast);
 }
 .view-switch-btn:hover { color: var(--brass-light); }
+
+.wa-float {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 950;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: #0b7a3b;
+  color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(0,0,0,.25);
+  transition: transform var(--fast), background var(--fast), box-shadow var(--fast);
+}
+.wa-float svg { width: 28px; height: 28px; }
+.wa-float:hover { background: #096930; transform: translateY(-3px); box-shadow: 0 10px 24px rgba(0,0,0,.3); }
+.wa-float:active { transform: translateY(0); }
 /* ---------- 20. Inner page components ---------- */
 .page-header-simple {
   padding: clamp(120px, 12vw, 160px) 0 56px;

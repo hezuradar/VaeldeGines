@@ -71,6 +71,13 @@ body { padding-bottom: calc(58px + env(safe-area-inset-bottom, 0px)); }
 .mobile-tabbar a:hover,
 .mobile-tabbar a.is-current { color: var(--brass-light); }
 .mobile-tabbar .tab-icon { font-family: var(--serif); font-size: 1.35rem; line-height: 1; font-weight: 500; }
+.wa-float {
+  right: max(22px, calc(50% - 238px));
+  bottom: calc(80px + env(safe-area-inset-bottom, 0px));
+  width: 50px;
+  height: 50px;
+}
+.wa-float svg { width: 25px; height: 25px; }
 `;
 
 const productCards = `
