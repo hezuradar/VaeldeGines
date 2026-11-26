@@ -1022,22 +1022,6 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
   transition: color var(--fast);
 }
 .view-switch-btn:hover { color: var(--brass-light); }
-.view-switch-btn--fixed {
-  position: fixed;
-  bottom: 14px;
-  right: 14px;
-  z-index: 10002;
-  padding: 10px 14px;
-  background: var(--ink);
-  color: var(--cream);
-  border: 1px solid rgba(248,244,236,.25);
-  font-size: 9px;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  box-shadow: 0 8px 24px -10px rgba(0,0,0,.6);
-}
-.view-switch-btn--fixed:hover { background: var(--brass); color: var(--ink); }
-
 /* ---------- 20. Inner page components ---------- */
 .page-header-simple {
   padding: clamp(120px, 12vw, 160px) 0 56px;

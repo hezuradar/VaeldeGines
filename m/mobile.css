@@ -7,7 +7,6 @@ body { max-width: 520px; margin: 0 auto; background: var(--paper); }
   right: auto;
   width: min(100%, 520px);
 }
-.view-switch-btn--fixed { left: auto; bottom: calc(72px + env(safe-area-inset-bottom, 0px)); }
 body { padding-bottom: calc(58px + env(safe-area-inset-bottom, 0px)); }
 .site-footer { padding-bottom: 4rem; }
 

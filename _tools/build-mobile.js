@@ -36,7 +36,6 @@ body { max-width: 520px; margin: 0 auto; background: var(--paper); }
   right: auto;
   width: min(100%, 520px);
 }
-.view-switch-btn--fixed { left: auto; bottom: calc(72px + env(safe-area-inset-bottom, 0px)); }
 body { padding-bottom: calc(58px + env(safe-area-inset-bottom, 0px)); }
 .site-footer { padding-bottom: 4rem; }
 
@@ -156,15 +155,18 @@ files.forEach((file) => {
   // La versión móvil es autocontenida: mantiene las mismas rutas relativas
   // y dispone de su propia copia de assets dentro de m/.
 
-  // Añadir la hoja móvil y el control de cambio de versión
+  // En el pie de página, sustituir el botón de móvil por un enlace a escritorio
+  html = html.replace(
+    '<button class="view-switch-btn" type="button" data-view="mobile">Ver versión móvil</button>',
+    `<a class="view-switch-btn" href="../${file}" data-view="desktop">Ver versión escritorio</a>`
+  );
+
+  // Añadir la hoja móvil y la barra inferior de navegación
   html = html.replace(
     '<link rel="stylesheet" href="assets/css/styles.css">',
     '<link rel="stylesheet" href="assets/css/styles.css">\n  <link rel="stylesheet" href="mobile.css">'
   );
-  html = html.replace(
-    '</body>',
-    `  <a class="view-switch-btn view-switch-btn--fixed" href="../${file}" data-view="desktop">Versión escritorio</a>\n${tabbarFor(file)}\n</body>`
-  );
+  html = html.replace('</body>', `${tabbarFor(file)}\n</body>`);
 
   fs.writeFileSync(path.join(OUT, file), html, 'utf8');
 });
