@@ -1,0 +1,33 @@
+rules_version = '2';
+
+// Reglas de Firestore para Vael de Ginés (mismo sistema que la web de HezurAdar).
+// El catálogo y las fotos ya no están en Firestore: son archivos del repositorio de GitHub
+// (_tools/data/catalogo.json y assets/img/catalogo/). Aquí solo se guarda el token de GitHub
+// del panel de administración, legible únicamente por los administradores.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Cuentas que pueden entrar en el panel (/admin). Para añadir otra persona, pon aquí el UID
+    // que le muestra el panel al entrar («Sin permisos») y vuelve a publicar las reglas.
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.uid in ['Q0l5WiAENjdQ9WN3evhPx5Sf1Vq2'];
+    }
+
+    // Token de GitHub del panel (admin.js): se guarda aquí para poder entrar desde cualquier
+    // móvil u ordenador con el login, sin repetir la configuración en cada navegador.
+    match /adminConfig/github {
+      allow get, delete: if isAdmin();
+      allow create, update: if isAdmin()
+        && request.resource.data.keys().hasOnly(['token', 'updatedAt', 'updatedBy'])
+        && request.resource.data.token is string
+        && request.resource.data.token.size() <= 255
+        && request.resource.data.updatedAt == request.time;
+    }
+
+    // Todo lo demás (incluidas las antiguas colecciones instrumentos, fotos, sistema y admins) queda cerrado.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

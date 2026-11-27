@@ -8,9 +8,13 @@ const { page, SITE, absUrl } = require('./layout');
 const articlePage = require('./pages/article');
 const productPage = require('./pages/producto');
 const articles = require('./data/blog');
-const products = require('./data/products');
+const products = require('./data/catalog');
+const { CATEGORIES } = products;
 const { optimizeImages } = require('./images');
-const { buildHtaccess } = require('./redirects');
+const { buildHtaccess, buildRedirectStubs } = require('./redirects');
+
+// Ruta en la que se sirve la web: «/» con dominio propio, «/VaeldeGines/» en hezuradar.github.io.
+const SITE_BASE = `${(process.env.SITE_BASE || '').replace(/\/+$/, '')}/`;
 
 const root = path.join(__dirname, '..');
 const BUILD_DATE = new Date().toISOString().slice(0, 10);
@@ -108,7 +112,7 @@ const pages = [
   { file: 'podcast.html', active: 'podcast', title: 'La cabaña del luthier · Podcast · Vael de Ginés', description: 'Podcast de Vael de Ginés: conversaciones sobre luthería, artesanía y música con luthiers, músicos y artesanos.', body: require('./pages/podcast'), priority: '0.6' },
   { file: 'contacto.html', active: 'contacto', title: 'Contacto · Vael de Ginés', description: 'Escríbeme para hablar de tu guitarra personalizada, un instrumento de folclore o una visita al taller en Los Alcázares.', body: require('./pages/contacto'), jsonLd: [business], priority: '0.8' },
   { file: 'legal.html', active: 'legal', title: 'Aviso legal, privacidad y cookies · Vael de Ginés', description: 'Información legal, política de privacidad, cookies y condiciones de devolución y garantía de Vael de Ginés.', body: require('./pages/legal'), priority: '0.2' },
-  { file: '404.html', active: '', title: 'Página no encontrada · Vael de Ginés', description: 'La página que buscas no existe o ha cambiado de dirección.', body: require('./pages/404'), noindex: true, baseHref: '/', sitemap: false },
+  { file: '404.html', active: '', title: 'Página no encontrada · Vael de Ginés', description: 'La página que buscas no existe o ha cambiado de dirección.', body: require('./pages/404'), noindex: true, baseHref: SITE_BASE, sitemap: false },
 
   ...articles.map((a) => ({
     file: a.file, active: 'blog', title: titleFor(a.title), description: describe(a.excerpt),
@@ -130,6 +134,21 @@ const pages = [
 
 const write = (file, content) => fs.writeFileSync(path.join(root, file), content, 'utf8');
 
+/** Configuración pública de Firebase (solo inicio de sesión del panel y su token de GitHub). */
+function writeAdminFiles() {
+  const config = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'firebase-config.json'), 'utf8'));
+  write('admin/firebase-config.js', `// Generado por _tools/build.js. Configuración pública (no es secreta).\nexport const firebaseConfig = ${JSON.stringify(config, null, 2)};\n`);
+  fs.rmSync(path.join(root, 'admin', 'catalogo-inicial.json'), { force: true });
+}
+
+/** GitHub Pages no lee .htaccess: las URL antiguas se resuelven con páginas que redirigen. */
+function writeRedirectStubs() {
+  buildRedirectStubs(articles, pages.map((p) => p.file)).forEach(({ file, html }) => {
+    fs.mkdirSync(path.dirname(path.join(root, file)), { recursive: true });
+    write(file, html);
+  });
+}
+
 pages.forEach((entry) => {
   const body = typeof entry.body === 'function' ? entry.body() : entry.body;
   write(entry.file, optimizeImages(page({ ...entry, body })));
@@ -141,10 +160,22 @@ ${pages.filter((p) => p.sitemap !== false).map((p) => `  <url><loc>${absUrl(p.fi
 </urlset>
 `;
 write('sitemap.xml', sitemap);
-write('robots.txt', `User-agent: *\nAllow: /\nDisallow: /_tools/\n\nSitemap: ${SITE.url}/sitemap.xml\n`);
+write('robots.txt', `User-agent: *\nAllow: /\nDisallow: /_tools/\nDisallow: /admin/\n\nSitemap: ${SITE.url}/sitemap.xml\n`);
 write('.htaccess', buildHtaccess(articles));
+write('firebase.json', `${JSON.stringify({ firestore: { rules: 'firestore.rules' } }, null, 2)}\n`);
+writeAdminFiles();
+// Solo al publicar en GitHub Pages (en local no hacen falta y llenarían el repositorio de carpetas).
+if (process.env.GENERAR_REDIRECCIONES === '1') writeRedirectStubs();
 
-// Páginas retiradas: duplicaban contenido y ahora redirigen con 301.
-['articulo.html', 'producto.html'].forEach((f) => fs.rmSync(path.join(root, f), { force: true }));
+// Páginas retiradas: duplicaban contenido. En GitHub Pages se sustituyen por redirecciones (writeRedirectStubs).
+if (process.env.GENERAR_REDIRECCIONES !== '1') {
+  ['articulo.html', 'producto.html'].forEach((f) => fs.rmSync(path.join(root, f), { force: true }));
+}
+
+// Fichas de piezas borradas o despublicadas en el panel: se eliminan para que no queden páginas huérfanas.
+const productFiles = new Set(products.map(productFile));
+fs.readdirSync(root)
+  .filter((f) => /^producto-[a-z0-9-]+\.html$/.test(f) && !productFiles.has(f))
+  .forEach((f) => { fs.rmSync(path.join(root, f)); console.log(`Ficha retirada: ${f}`); });
 
 console.log(`${pages.length} páginas + sitemap.xml, robots.txt y .htaccess generados en ${root}`);

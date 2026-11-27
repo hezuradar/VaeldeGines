@@ -84,3 +84,14 @@ Esto reescribe las 49 páginas HTML, `sitemap.xml`, `robots.txt` y `.htaccess`. 
 - El mapa usa Google Maps incrustado; la dirección exacta del taller se ha dejado «al confirmar la cita». Sustitúyela si quieres mostrarla públicamente.
 - Los textos legales son una base informativa: revísalos con asesoramiento legal antes de publicar.
 - Los precios del catálogo son orientativos, como en la web original. Confirma los vigentes antes de publicar.
+
+## Panel del taller (mismo sistema que la web de HezurAdar)
+
+El catálogo de la tienda se gestiona desde **`/admin/`**. No hay base de datos para los productos: **el catálogo es el archivo `_tools/data/catalogo.json` y las fotos están en `assets/img/catalogo/`, dentro de este repositorio**.
+
+- **Entrar:** con el usuario de Firebase Authentication (proyecto `vael-de-gines`, cuenta `vaeldeginesweb@gmail.com`). Solo entran los UID de `isAdmin()` en `firestore.rules`.
+- **Token de GitHub:** la primera vez el panel pide un *fine-grained token* con acceso solo a `hezuradar/VaeldeGines` y permisos **Contents: Read and write** y **Actions: Read-only**. Se guarda en Firestore (`adminConfig/github`), legible solo por los administradores, y vale para cualquier dispositivo.
+- **Guardar = publicar:** cada alta, cambio o borrado es un commit en `main`. El flujo **Publicar web** (`.github/workflows/publicar.yml`) optimiza las fotos, genera la web y la sube a **GitHub Pages** en 2 o 3 minutos. El panel muestra el estado.
+- **Firestore** solo guarda el token del panel. Las reglas están en `firestore.rules`; si se cambian, hay que volver a publicarlas en la consola de Firebase → Firestore → Reglas.
+- **Redirecciones:** GitHub Pages no lee `.htaccess`, así que al publicar se generan páginas de redirección para las URL antiguas de WordPress y de `m/` (variable `GENERAR_REDIRECCIONES=1`).
+- **Todo es gratis:** GitHub Pages y Actions (repositorio público) y Firebase en el plan Spark.

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Panel del taller · Vael de Ginés</title>
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header class="adm-header">
+    <div class="adm-brand">
+      <img src="../assets/img/logo.png" alt="" width="64" height="32">
+      <span>Panel del taller</span>
+    </div>
+    <div class="adm-session" id="session" hidden>
+      <span id="sessionEmail"></span>
+      <button type="button" class="adm-btn adm-btn--ghost-light" id="changeToken">Conexión GitHub</button>
+      <button type="button" class="adm-btn adm-btn--ghost-light" id="logout">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="adm-main">
+    <p class="adm-status" id="status" role="status" aria-live="polite"></p>
+
+    <!-- Inicio de sesión -->
+    <section class="adm-card adm-login" id="login" hidden>
+      <h1>Entrar</h1>
+      <p class="adm-muted">Acceso solo para el taller.</p>
+      <form id="loginForm" novalidate>
+        <label for="loginEmail">Correo electrónico</label>
+        <input id="loginEmail" type="email" autocomplete="username" required>
+        <label for="loginPassword">Contraseña</label>
+        <input id="loginPassword" type="password" autocomplete="current-password" required>
+        <button type="submit" class="adm-btn">Entrar</button>
+        <button type="button" class="adm-link" id="forgot">He olvidado la contraseña</button>
+      </form>
+    </section>
+
+    <!-- Sin permisos -->
+    <section class="adm-card" id="denied" hidden>
+      <h1>Sin permisos</h1>
+      <p>Has entrado correctamente, pero esta cuenta todavía no está autorizada para editar el catálogo.</p>
+      <p class="adm-muted">Identificador de la cuenta: <code id="deniedUid"></code></p>
+    </section>
+
+    <!-- Conexión con GitHub (una sola vez) -->
+    <section class="adm-card adm-connect" id="connect" hidden>
+      <p class="adm-eyebrow">Configuración</p>
+      <h1>Conectar con GitHub</h1>
+      <p>El catálogo y las fotos se guardan en el repositorio de la web. Para que el panel pueda guardar los cambios necesita un <strong>token de GitHub</strong>. Se guarda una sola vez en tu cuenta y vale para cualquier móvil u ordenador.</p>
+      <ol class="adm-steps">
+        <li>En GitHub: foto de perfil → <strong>Settings</strong> → <strong>Developer settings</strong> → <strong>Personal access tokens</strong> → <strong>Fine-grained tokens</strong> → <strong>Generate new token</strong>.</li>
+        <li>En <em>Repository access</em> elige <strong>Only select repositories</strong> → <code>hezuradar/VaeldeGines</code>.</li>
+        <li>En <em>Repository permissions</em>: <strong>Contents: Read and write</strong> y <strong>Actions: Read-only</strong>.</li>
+        <li>Genera el token, cópialo y pégalo aquí.</li>
+      </ol>
+      <form id="connectForm" class="adm-connect__form" novalidate>
+        <label for="ghToken">Token de GitHub</label>
+        <input id="ghToken" type="password" autocomplete="off" spellcheck="false" placeholder="github_pat_…" required>
+        <button type="submit" class="adm-btn">Guardar conexión</button>
+      </form>
+    </section>
+
+    <!-- Catálogo -->
+    <section id="catalog" hidden>
+      <div class="adm-publish" id="publishBar" data-state="idle">
+        <span class="adm-publish__dot" aria-hidden="true"></span>
+        <div class="adm-publish__text">
+          <strong id="publishTitle">Comprobando el estado de la web…</strong>
+          <span id="publishInfo" class="adm-muted"></span>
+        </div>
+        <a class="adm-btn adm-btn--ghost" id="publishLink" href="#" target="_blank" rel="noopener" hidden>Ver detalles</a>
+        <button type="button" class="adm-btn adm-btn--ghost" id="publishRefresh">Actualizar estado</button>
+      </div>
+
+      <div class="adm-toolbar">
+        <div>
+          <p class="adm-eyebrow">Tienda</p>
+          <h1>Catálogo <em>del taller</em></h1>
+          <p class="adm-muted"><span id="count">0</span> piezas · <span id="countPublished">0</span> visibles en la web</p>
+        </div>
+        <div class="adm-toolbar__actions">
+          <input type="search" id="search" placeholder="Buscar pieza…" aria-label="Buscar en el catálogo">
+          <button type="button" class="adm-btn" id="new">+ Nueva pieza</button>
+        </div>
+      </div>
+
+      <div class="adm-chips" role="group" aria-label="Filtrar por categoría">
+        <button type="button" class="adm-chip is-active" data-cat="all">Todas</button>
+        <button type="button" class="adm-chip" data-cat="guitarras">Guitarras de autor</button>
+        <button type="button" class="adm-chip" data-cat="folclore">Folclore</button>
+        <button type="button" class="adm-chip" data-cat="maderas">Maderas</button>
+        <button type="button" class="adm-chip" data-cat="formacion">Formación</button>
+      </div>
+
+      <div class="adm-empty adm-card" id="empty" hidden>
+        <p>El catálogo está vacío. Pulsa «Nueva pieza» para dar de alta la primera.</p>
+      </div>
+
+      <div class="adm-grid-cards" id="grid"></div>
+    </section>
+  </main>
+
+  <!-- Editor -->
+  <dialog class="adm-dialog adm-dialog--wide" id="editor" aria-labelledby="editorTitle">
+    <form id="editorForm" novalidate>
+      <header class="adm-dialog__head">
+        <div>
+          <p class="adm-eyebrow" id="editorEyebrow">Nueva pieza</p>
+          <h2 id="editorTitle">Pieza</h2>
+        </div>
+        <button type="button" class="adm-icon" data-close aria-label="Cerrar">×</button>
+      </header>
+
+      <div class="adm-editor">
+        <!-- Fotos -->
+        <section class="adm-photos" aria-labelledby="photosTitle">
+          <h3 id="photosTitle">Fotos <small>La primera es la principal</small></h3>
+          <label class="adm-drop" id="drop">
+            <input type="file" id="fileInput" accept="image/*" multiple>
+            <span class="adm-drop__icon" aria-hidden="true">＋</span>
+            <strong>Arrastra fotos aquí</strong>
+            <span>o pulsa para elegirlas · se optimizan automáticamente</span>
+          </label>
+          <ul class="adm-photo-list" id="photoList" aria-label="Fotos de la pieza"></ul>
+        </section>
+
+        <!-- Datos -->
+        <section class="adm-fields">
+          <div class="adm-grid">
+            <div class="adm-field adm-field--wide">
+              <label for="f-name">Nombre *</label>
+              <input id="f-name" name="name" maxlength="80" required>
+            </div>
+            <div class="adm-field">
+              <label for="f-cat">Categoría *</label>
+              <select id="f-cat" name="cat" required>
+                <option value="guitarras">Guitarras</option>
+                <option value="folclore">Folclore</option>
+                <option value="maderas">Maderas</option>
+                <option value="formacion">Formación</option>
+              </select>
+            </div>
+            <div class="adm-field">
+              <label for="f-label">Colección / etiqueta</label>
+              <input id="f-label" name="label" maxlength="80" placeholder="Guitarras de autor">
+            </div>
+            <div class="adm-field">
+              <label for="f-price">Precio (€) *</label>
+              <input id="f-price" name="price" type="number" min="0" step="1" required>
+            </div>
+            <div class="adm-field">
+              <label for="f-priceLabel">Texto del precio</label>
+              <input id="f-priceLabel" name="priceLabel" maxlength="40" placeholder="Desde 6.200 €">
+            </div>
+            <div class="adm-field">
+              <label for="f-disp">Disponibilidad</label>
+              <select id="f-disp" name="disponibilidad">
+                <option value="encargo">Por encargo</option>
+                <option value="inmediata">Entrega inmediata</option>
+              </select>
+            </div>
+            <div class="adm-field">
+              <label for="f-orden">Orden en el catálogo</label>
+              <input id="f-orden" name="orden" type="number" step="1">
+            </div>
+            <fieldset class="adm-field adm-field--wide adm-autor" id="autorFields">
+              <legend>Colección de autor <small>Aparece en la portada y en la página Guitarras</small></legend>
+              <div class="adm-grid">
+                <div class="adm-field">
+                  <label for="f-lema">Lema</label>
+                  <input id="f-lema" name="lema" maxlength="60" placeholder="Serie exclusiva">
+                </div>
+                <div class="adm-field adm-field--wide">
+                  <label for="f-resumen">Texto para la colección de autor</label>
+                  <textarea id="f-resumen" name="resumen" rows="3" maxlength="400" placeholder="Inspirada en… Tono…, con tapa de…"></textarea>
+                </div>
+              </div>
+            </fieldset>
+            <div class="adm-field adm-field--wide">
+              <label for="f-subtitle">Subtítulo</label>
+              <input id="f-subtitle" name="subtitle" maxlength="300" placeholder="Inspirada en…">
+            </div>
+            <div class="adm-field adm-field--wide">
+              <label for="f-desc">Descripción breve</label>
+              <textarea id="f-desc" name="desc" rows="3" maxlength="600"></textarea>
+            </div>
+            <fieldset class="adm-field adm-field--wide adm-specs">
+              <legend>Especificaciones</legend>
+              <div id="specs"></div>
+              <button type="button" class="adm-link" id="addSpec">+ Añadir especificación</button>
+            </fieldset>
+            <div class="adm-field adm-field--wide adm-advanced">
+              <label for="f-slug">Dirección web</label>
+              <input id="f-slug" name="slug" maxlength="60" pattern="[a-z0-9-]+" required>
+              <small>Se genera sola a partir del nombre. Página: producto-<b id="slugPreview">…</b>.html</small>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <p class="adm-error" id="editorError" role="alert"></p>
+
+      <footer class="adm-dialog__foot">
+        <button type="button" class="adm-btn adm-btn--danger-ghost" id="delete" hidden>Borrar pieza</button>
+        <span class="adm-spacer"></span>
+        <label class="adm-switch">
+          <input type="checkbox" id="f-publicado" name="publicado">
+          <span class="adm-switch__track" aria-hidden="true"></span>
+          Visible en la web
+        </label>
+        <button type="button" class="adm-btn adm-btn--ghost" data-close>Cancelar</button>
+        <button type="submit" class="adm-btn" id="save">Guardar</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <!-- Confirmación de borrado -->
+  <dialog class="adm-dialog adm-dialog--small" id="confirm" aria-labelledby="confirmTitle">
+    <form method="dialog">
+      <h2 id="confirmTitle">¿Borrar esta pieza?</h2>
+      <p>Se eliminará <strong id="confirmName"></strong> del catálogo, junto con las fotos que se subieron desde el panel. Esta acción no se puede deshacer.</p>
+      <footer class="adm-dialog__foot">
+        <span class="adm-spacer"></span>
+        <button class="adm-btn adm-btn--ghost" value="cancel">Cancelar</button>
+        <button class="adm-btn adm-btn--danger" value="ok">Sí, borrar</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

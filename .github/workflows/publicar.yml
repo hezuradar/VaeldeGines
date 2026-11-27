@@ -1,0 +1,71 @@
+# Publica la web en GitHub Pages (mismo sistema que la web de HezurAdar).
+# Se lanza sola con cada cambio en main: los que hace el panel (/admin) al guardar el catálogo
+# o las fotos, y los cambios de código. También se puede lanzar a mano desde la pestaña Actions.
+name: Publicar web
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Si se guardan varios cambios seguidos, solo se publica el último.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  generar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Preparar optimizador de imágenes
+        run: pip install pillow==11.0.0
+
+      - id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Optimizar fotos y generar la web
+        env:
+          GENERAR_REDIRECCIONES: '1'
+          SITE_BASE: ${{ steps.pages.outputs.base_path }}
+          PYTHONIOENCODING: utf-8
+        run: |
+          python _tools/optimize-images.py
+          node _tools/build.js
+
+      - name: Preparar los archivos públicos
+        run: |
+          rsync -a ./ _site/ \
+            --exclude '.git' --exclude '.github' --exclude '_site' --exclude '_tools' \
+            --exclude 'README.md' --exclude 'firestore.rules' --exclude 'firebase.json' \
+            --exclude '.htaccess' --exclude '*.py'
+          touch _site/.nojekyll
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  publicar:
+    needs: generar
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

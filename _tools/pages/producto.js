@@ -1,6 +1,6 @@
 'use strict';
 const { contactUrl, waLink, icons, ctaBand } = require('../layout');
-const products = require('../data/products');
+const products = require('../data/catalog');
 
 const relatedOf = (p) => [
   ...products.filter((x) => x.slug !== p.slug && x.cat === p.cat),

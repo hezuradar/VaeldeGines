@@ -1,7 +1,10 @@
 'use strict';
 const { icons, ctaBand } = require('../layout');
-const products = require('../data/products');
+const products = require('../data/catalog');
+const { enLetras, capitalizar } = products;
 const fileOf = (p) => `producto-${p.slug}.html`;
+const countCat = (cat) => products.filter((p) => p.cat === cat).length;
+const countDisp = (d) => products.filter((p) => p.disponibilidad === d).length;
 
 module.exports = `
 <section class="page-header-simple">
@@ -27,18 +30,18 @@ module.exports = `
         <div class="filter-group">
           <h3>Categorías</h3>
           <div class="filter-list">
-            <button class="filter-btn is-active" type="button" data-filter="all">Todas las piezas <span>11</span></button>
-            <button class="filter-btn" type="button" data-filter="guitarras">Guitarras <span>6</span></button>
-            <button class="filter-btn" type="button" data-filter="folclore">Folclore <span>2</span></button>
-            <button class="filter-btn" type="button" data-filter="maderas">Maderas <span>1</span></button>
-            <button class="filter-btn" type="button" data-filter="formacion">Formación <span>2</span></button>
+            <button class="filter-btn is-active" type="button" data-filter="all">Todas las piezas <span>${products.length}</span></button>
+            <button class="filter-btn" type="button" data-filter="guitarras">Guitarras <span>${countCat('guitarras')}</span></button>
+            <button class="filter-btn" type="button" data-filter="folclore">Folclore <span>${countCat('folclore')}</span></button>
+            <button class="filter-btn" type="button" data-filter="maderas">Maderas <span>${countCat('maderas')}</span></button>
+            <button class="filter-btn" type="button" data-filter="formacion">Formación <span>${countCat('formacion')}</span></button>
           </div>
         </div>
         <div class="filter-group">
           <h3>Disponibilidad</h3>
           <div class="filter-list">
-            <span class="filter-btn" style="cursor:default">Por encargo <span>9</span></span>
-            <span class="filter-btn" style="cursor:default">Entrega inmediata <span>2</span></span>
+            <span class="filter-btn" style="cursor:default">Por encargo <span>${countDisp('encargo')}</span></span>
+            <span class="filter-btn" style="cursor:default">Entrega inmediata <span>${countDisp('inmediata')}</span></span>
           </div>
         </div>
         <div class="filter-group">
@@ -50,7 +53,7 @@ module.exports = `
 
       <div>
         <div class="shop-toolbar">
-          <p><strong data-count>11</strong> piezas · Precios orientativos</p>
+          <p><strong data-count>${products.length}</strong> piezas · Precios orientativos</p>
           <label class="sr-only" for="sort">Ordenar por</label>
           <select class="select" id="sort" data-sort>
             <option value="name">Nombre A–Z</option>
@@ -68,7 +71,7 @@ module.exports = `
               <span class="product-card__cat">${p.label}</span>
               <h3><a href="${fileOf(p)}">${p.name}</a></h3>
               <p>${p.desc}</p>
-              <div class="product-card__price"><strong>${p.priceLabel}</strong><span>${p.cat === 'formacion' || p.cat === 'maderas' ? 'Disponible' : 'Por encargo'}</span></div>
+              <div class="product-card__price"><strong>${p.priceLabel}</strong><span>${p.disponibilidad === 'inmediata' ? 'Disponible' : 'Por encargo'}</span></div>
               <a class="product-card__cta" href="${fileOf(p)}">Ver ficha ${icons.arrow}</a>
             </div>
           </article>`).join('')}
@@ -110,7 +113,7 @@ module.exports = `
   <div class="container">
     <div class="category-grid">
       <a class="category-card reveal" href="guitarras.html#coleccion">
-        <div><span class="category-card__num">01 — 6 piezas</span><h3>Guitarras de autor</h3><p>Seis instrumentos únicos, construidos a mano.</p></div>
+        <div><span class="category-card__num">01 — ${countCat('guitarras')} ${countCat('guitarras') === 1 ? 'pieza' : 'piezas'}</span><h3>Guitarras de autor</h3><p>${countCat('guitarras') === 1 ? 'Un instrumento único, construido a mano.' : `${capitalizar(enLetras(countCat('guitarras')))} instrumentos únicos, construidos a mano.`}</p></div>
         <div class="category-card__foot">Explorar ${icons.arrow}</div>
       </a>
       <a class="category-card reveal" data-delay="1" href="instrumentos.html#catalogo">

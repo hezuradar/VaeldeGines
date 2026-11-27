@@ -1,5 +1,11 @@
 'use strict';
 const { contactUrl, icons, guitarCard, postCard, ctaBand, readTime } = require('../layout');
+const { guitarrasDeAutor, enLetras, capitalizar } = require('../data/catalog');
+const nGuitarras = guitarrasDeAutor.length;
+const tarjetasColeccion = (descOf) => guitarrasDeAutor.map((p, i) => guitarCard({
+  num: String(i + 1).padStart(2, '0'), name: p.name, tag: p.lema, desc: descOf(p),
+  img: p.image, alt: `Guitarra ${p.name} de Vael de Ginés`, slug: p.slug
+})).join('\n');
 const articles = require('../data/blog');
 const bySlug = Object.fromEntries(articles.map((a) => [a.slug, a]));
 const blogTeaser = (slug) => {
@@ -136,18 +142,13 @@ module.exports = `
     <div class="section-head">
       <div class="section-head__body">
         <p class="eyebrow">Colección de autor</p>
-        <h2 class="h2">Seis instrumentos,<br><em>seis historias.</em></h2>
+        <h2 class="h2">${nGuitarras === 1 ? 'Un instrumento,<br><em>una historia.</em>' : `${capitalizar(enLetras(nGuitarras))} instrumentos,<br><em>${enLetras(nGuitarras, 'f')} historias.</em>`}</h2>
         <p class="text-muted measure">Cada guitarra parte de una idea diferente. La combinación de materiales, el diseño ornamental y las decisiones de construcción dan lugar a instrumentos irrepetibles.</p>
       </div>
       <a class="link-arrow" href="guitarras.html#coleccion">Ver la colección completa ${icons.arrow}</a>
     </div>
     <div class="collection-grid">
-      ${guitarCard({ num: '01', name: 'Paloma', tag: 'Serie exclusiva', desc: 'Tono cristalino y respuesta inmediata. Abeto alemán y palosanto de Madagascar.', img: 'assets/img/guitar-paloma.jpg', alt: 'Guitarra Paloma de Vael de Ginés' })}
-      ${guitarCard({ num: '02', name: 'Golden Whale', tag: 'Maestría orgánica', desc: 'Proyección armónica y timbre denso. Cedro canadiense, koa hawaiana y pan de oro.', img: 'assets/img/guitar-golden-whale.jpg', alt: 'Guitarra Golden Whale de Vael de Ginés' })}
-      ${guitarCard({ num: '03', name: 'Freya', tag: 'Templanza y tempestad', desc: 'Graves majestuosos y nitidez lírica. Pícea de Sitka y cocobolo exótico.', img: 'assets/img/guitar-freya.jpg', alt: 'Guitarra Freya de Vael de Ginés' })}
-      ${guitarCard({ num: '04', name: 'Camino', tag: 'Vínculo infinito', desc: 'Equilibrio y timbre orgánico. Abeto de los Alpes y barniz a la goma laca.', img: 'assets/img/guitar-camino.jpg', alt: 'Guitarra Camino de Vael de Ginés' })}
-      ${guitarCard({ num: '05', name: 'Jaguar', tag: 'Instinto y ataque', desc: 'Ataque veloz y graves aterciopelados. Nogal español y alma de fibra de carbono.', img: 'assets/img/guitar-jaguar.jpg', alt: 'Guitarra Jaguar de Vael de Ginés' })}
-      ${guitarCard({ num: '06', name: 'Venus', tag: 'Belleza celestial', desc: 'Sustain infinito y armónicos etéreos. Arce rizado y roseta con nácar natural.', img: 'assets/img/guitar-venus.jpg', alt: 'Guitarra Venus de Vael de Ginés' })}
+      ${tarjetasColeccion((p) => p.desc)}
     </div>
   </div>
 </section>

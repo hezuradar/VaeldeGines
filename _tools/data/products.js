@@ -37,7 +37,9 @@ module.exports = [
       "assets/img/guitar-paloma.jpg",
       "assets/img/productos/paloma-1.jpg",
       "assets/img/productos/paloma-2.jpg"
-    ]
+    ],
+    "lema": "Serie exclusiva",
+    "resumen": "Inspirada en la sutileza del vuelo libre. Tono cristalino y respuesta inmediata, con tapa de abeto alemán y palosanto de Madagascar."
   },
   {
     "slug": "golden-whale",
@@ -76,7 +78,9 @@ module.exports = [
       "assets/img/productos/golden-whale-1.jpg",
       "assets/img/productos/golden-whale-2.jpg",
       "assets/img/productos/golden-whale-3.jpg"
-    ]
+    ],
+    "lema": "Maestría orgánica",
+    "resumen": "Una oda a las profundidades del océano. Proyección armónica colosal, cedro canadiense, koa hawaiana y detalles en pan de oro."
   },
   {
     "slug": "freya",
@@ -112,7 +116,9 @@ module.exports = [
     ],
     "gallery": [
       "assets/img/guitar-freya.jpg"
-    ]
+    ],
+    "lema": "Templanza y tempestad",
+    "resumen": "Fuerza y belleza nórdica. Graves majestuosos y nitidez lírica, con pícea de Sitka y cocobolo de vetas espectaculares."
   },
   {
     "slug": "camino",
@@ -149,7 +155,9 @@ module.exports = [
     "gallery": [
       "assets/img/guitar-camino.jpg",
       "assets/img/productos/camino-1.jpg"
-    ]
+    ],
+    "lema": "Vínculo infinito",
+    "resumen": "La compañera de viaje de los espíritus errantes. Equilibrio, nobleza y un timbre orgánico que madura con cada pulsación."
   },
   {
     "slug": "jaguar",
@@ -185,7 +193,9 @@ module.exports = [
     ],
     "gallery": [
       "assets/img/guitar-jaguar.jpg"
-    ]
+    ],
+    "lema": "Instinto y ataque",
+    "resumen": "Carácter salvaje e imponente. Ataque veloz, graves aterciopelados y una presencia elegante sobre el escenario."
   },
   {
     "slug": "venus",
@@ -221,7 +231,9 @@ module.exports = [
     ],
     "gallery": [
       "assets/img/guitar-venus.jpg"
-    ]
+    ],
+    "lema": "Belleza celestial",
+    "resumen": "Armonía y simetría ideal. Sustain infinito, armónicos etéreos y roseta grabada a mano con incrustaciones de nácar."
   },
   {
     "slug": "guitarro-murciano",
@@ -376,6 +388,7 @@ module.exports = [
   },
   {
     "slug": "mentoria",
+    "disponibilidad": "encargo",
     "name": "Mentoría 1:1",
     "cat": "formacion",
     "label": "Mentoría",

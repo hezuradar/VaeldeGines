@@ -290,12 +290,8 @@ function ctaBand({ title, text, primary, secondary, image = 'assets/img/hero-lut
   </section>`;
 }
 
-function guitarCard({ num, name, tag, desc, img, alt, href }) {
-  const slugs = {
-    'Paloma': 'paloma', 'Golden Whale': 'golden-whale', 'Freya': 'freya',
-    'Camino': 'camino', 'Jaguar': 'jaguar', 'Venus': 'venus'
-  };
-  const target = href || `producto-${slugs[name] || 'paloma'}.html`;
+function guitarCard({ num, name, tag, desc, img, alt, slug, href }) {
+  const target = href || `producto-${slug}.html`;
   return `
   <article class="guitar-card reveal">
     <a class="guitar-card__media" href="${target}" aria-label="Ver ${name}">

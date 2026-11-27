@@ -1,0 +1,469 @@
+[
+ {
+  "slug": "paloma",
+  "name": "Paloma",
+  "cat": "guitarras",
+  "label": "Guitarras de autor",
+  "price": 6200,
+  "priceLabel": "Desde 6.200 €",
+  "desc": "Abeto alemán · Palosanto de Madagascar. Tono cristalino y respuesta inmediata.",
+  "subtitle": "Inspirada en la sutileza y ligereza del vuelo libre.",
+  "image": "assets/img/guitar-paloma.jpg",
+  "specs": [
+   {
+    "nombre": "Tapa armónica",
+    "valor": "Abeto alemán selecto"
+   },
+   {
+    "nombre": "Aros y fondo",
+    "valor": "Palosanto de Madagascar"
+   },
+   {
+    "nombre": "Diapasón",
+    "valor": "Ébano africano"
+   },
+   {
+    "nombre": "Escala",
+    "valor": "650 mm"
+   },
+   {
+    "nombre": "Acabado",
+    "valor": "Goma laca a muñequilla"
+   }
+  ],
+  "gallery": [
+   "assets/img/guitar-paloma.jpg",
+   "assets/img/productos/paloma-1.jpg",
+   "assets/img/productos/paloma-2.jpg"
+  ],
+  "disponibilidad": "encargo",
+  "orden": 0,
+  "publicado": true
+ },
+ {
+  "slug": "golden-whale",
+  "name": "Golden Whale",
+  "cat": "guitarras",
+  "label": "Guitarras de autor",
+  "price": 6200,
+  "priceLabel": "Desde 6.200 €",
+  "desc": "Cedro canadiense · Koa hawaiana · pan de oro. Proyección armónica colosal.",
+  "subtitle": "Una oda a las profundidades del océano.",
+  "image": "assets/img/guitar-golden-whale.jpg",
+  "specs": [
+   {
+    "nombre": "Tapa armónica",
+    "valor": "Cedro rojo canadiense"
+   },
+   {
+    "nombre": "Aros y fondo",
+    "valor": "Koa hawaiana"
+   },
+   {
+    "nombre": "Detalles",
+    "valor": "Incrustaciones en pan de oro"
+   },
+   {
+    "nombre": "Escala",
+    "valor": "650 mm"
+   },
+   {
+    "nombre": "Acabado",
+    "valor": "Goma laca"
+   }
+  ],
+  "gallery": [
+   "assets/img/guitar-golden-whale.jpg",
+   "assets/img/productos/golden-whale-1.jpg",
+   "assets/img/productos/golden-whale-2.jpg",
+   "assets/img/productos/golden-whale-3.jpg"
+  ],
+  "disponibilidad": "encargo",
+  "orden": 1,
+  "publicado": true
+ },
+ {
+  "slug": "freya",
+  "name": "Freya",
+  "cat": "guitarras",
+  "label": "Guitarras de autor",
+  "price": 6200,
+  "priceLabel": "Desde 6.200 €",
+  "desc": "Pícea de Sitka · Cocobolo. Graves majestuosos y nitidez lírica.",
+  "subtitle": "Fuerza y belleza de las tempestades del norte.",
+  "image": "assets/img/guitar-freya.jpg",
+  "specs": [
+   {
+    "nombre": "Tapa armónica",
+    "valor": "Pícea de Sitka"
+   },
+   {
+    "nombre": "Aros y fondo",
+    "valor": "Cocobolo"
+   },
+   {
+    "nombre": "Diapasón",
+    "valor": "Ébano"
+   },
+   {
+    "nombre": "Escala",
+    "valor": "650 mm"
+   },
+   {
+    "nombre": "Acabado",
+    "valor": "Goma laca"
+   }
+  ],
+  "gallery": [
+   "assets/img/guitar-freya.jpg"
+  ],
+  "disponibilidad": "encargo",
+  "orden": 2,
+  "publicado": true
+ },
+ {
+  "slug": "camino",
+  "name": "Camino",
+  "cat": "guitarras",
+  "label": "Guitarras de autor",
+  "price": 3500,
+  "priceLabel": "Desde 3.500 €",
+  "desc": "Abeto de los Alpes · barniz a la goma laca. Equilibrio y timbre orgánico.",
+  "subtitle": "La compañera de viaje de los espíritus errantes.",
+  "image": "assets/img/guitar-camino.jpg",
+  "specs": [
+   {
+    "nombre": "Tapa armónica",
+    "valor": "Abeto de los Alpes"
+   },
+   {
+    "nombre": "Aros y fondo",
+    "valor": "Palosanto"
+   },
+   {
+    "nombre": "Diapasón",
+    "valor": "Ébano"
+   },
+   {
+    "nombre": "Escala",
+    "valor": "650 mm"
+   },
+   {
+    "nombre": "Acabado",
+    "valor": "Goma laca a muñequilla"
+   }
+  ],
+  "gallery": [
+   "assets/img/guitar-camino.jpg",
+   "assets/img/productos/camino-1.jpg"
+  ],
+  "disponibilidad": "encargo",
+  "orden": 3,
+  "publicado": true
+ },
+ {
+  "slug": "jaguar",
+  "name": "Jaguar",
+  "cat": "guitarras",
+  "label": "Guitarras de autor",
+  "price": 9800,
+  "priceLabel": "Desde 9.800 €",
+  "desc": "Nogal español · alma de fibra de carbono. Ataque veloz y graves aterciopelados.",
+  "subtitle": "Carácter salvaje e imponente, elegante sobre el escenario.",
+  "image": "assets/img/guitar-jaguar.jpg",
+  "specs": [
+   {
+    "nombre": "Tapa armónica",
+    "valor": "Nogal español"
+   },
+   {
+    "nombre": "Refuerzo interior",
+    "valor": "Fibra de carbono"
+   },
+   {
+    "nombre": "Diapasón",
+    "valor": "Ébano"
+   },
+   {
+    "nombre": "Escala",
+    "valor": "650 mm"
+   },
+   {
+    "nombre": "Acabado",
+    "valor": "Barniz orgánico"
+   }
+  ],
+  "gallery": [
+   "assets/img/guitar-jaguar.jpg"
+  ],
+  "disponibilidad": "encargo",
+  "orden": 4,
+  "publicado": true
+ },
+ {
+  "slug": "venus",
+  "name": "Venus",
+  "cat": "guitarras",
+  "label": "Guitarras de autor",
+  "price": 9800,
+  "priceLabel": "Desde 9.800 €",
+  "desc": "Arce rizado · roseta con nácar natural. Sustain infinito y armónicos etéreos.",
+  "subtitle": "Armonía y simetría ideal.",
+  "image": "assets/img/guitar-venus.jpg",
+  "specs": [
+   {
+    "nombre": "Tapa armónica",
+    "valor": "Abeto seleccionado"
+   },
+   {
+    "nombre": "Aros y fondo",
+    "valor": "Arce rizado"
+   },
+   {
+    "nombre": "Roseta",
+    "valor": "Nácar natural"
+   },
+   {
+    "nombre": "Escala",
+    "valor": "650 mm"
+   },
+   {
+    "nombre": "Acabado",
+    "valor": "Goma laca"
+   }
+  ],
+  "gallery": [
+   "assets/img/guitar-venus.jpg"
+  ],
+  "disponibilidad": "encargo",
+  "orden": 5,
+  "publicado": true
+ },
+ {
+  "slug": "guitarro-murciano",
+  "name": "Guitarro murciano",
+  "cat": "folclore",
+  "label": "Instrumentos de folclore",
+  "price": 1800,
+  "priceLabel": "Desde 1.800 €",
+  "desc": "Construcción artesanal · bajo encargo. Un instrumento ligado a la tradición murciana.",
+  "subtitle": "Una seña de identidad de la música tradicional de Murcia.",
+  "image": "assets/img/folk-guitarro.jpg",
+  "specs": [
+   {
+    "nombre": "Tipo",
+    "valor": "Guitarro murciano"
+   },
+   {
+    "nombre": "Construcción",
+    "valor": "Artesanal, pieza a pieza"
+   },
+   {
+    "nombre": "Maderas",
+    "valor": "Selección según el proyecto"
+   },
+   {
+    "nombre": "Acabados",
+    "valor": "A medida"
+   },
+   {
+    "nombre": "Plazo",
+    "valor": "Según planificación del taller"
+   }
+  ],
+  "gallery": [
+   "assets/img/folk-guitarro.jpg",
+   "assets/img/productos/guitarro-murciano-1.jpg",
+   "assets/img/productos/guitarro-murciano-2.jpg"
+  ],
+  "disponibilidad": "encargo",
+  "orden": 6,
+  "publicado": true
+ },
+ {
+  "slug": "guitarro-tenor",
+  "name": "Guitarro tenor",
+  "cat": "folclore",
+  "label": "Instrumentos de folclore",
+  "price": 1600,
+  "priceLabel": "Desde 1.600 €",
+  "desc": "Música popular · configuración a medida. Pensado para conjuntos y repertorio tradicional.",
+  "subtitle": "Una voz propia dentro de la familia de los guitarros.",
+  "image": "assets/img/guitarro-detail.jpg",
+  "specs": [
+   {
+    "nombre": "Tipo",
+    "valor": "Guitarro tenor"
+   },
+   {
+    "nombre": "Uso",
+    "valor": "Conjuntos de música popular"
+   },
+   {
+    "nombre": "Construcción",
+    "valor": "Artesanal"
+   },
+   {
+    "nombre": "Acabados",
+    "valor": "A medida"
+   },
+   {
+    "nombre": "Plazo",
+    "valor": "A consultar"
+   }
+  ],
+  "gallery": [
+   "assets/img/guitarro-detail.jpg",
+   "assets/img/productos/guitarro-tenor-1.jpg",
+   "assets/img/productos/guitarro-tenor-2.jpg"
+  ],
+  "disponibilidad": "encargo",
+  "orden": 7,
+  "publicado": true
+ },
+ {
+  "slug": "madera-bubinga",
+  "name": "Lámina de Bubinga",
+  "cat": "maderas",
+  "label": "Maderas",
+  "price": 180,
+  "priceLabel": "Desde 180 €",
+  "desc": "Pommele figurada · estacionada en el taller. Pieza seleccionada para luthería.",
+  "subtitle": "Fuerza, belleza y alma africana en cada veta.",
+  "image": "assets/img/wood-bubinga.jpg",
+  "specs": [
+   {
+    "nombre": "Madera",
+    "valor": "Bubinga"
+   },
+   {
+    "nombre": "Figura",
+    "valor": "Pommele figurada"
+   },
+   {
+    "nombre": "Estado",
+    "valor": "Estacionada en taller"
+   },
+   {
+    "nombre": "Uso",
+    "valor": "Fondos, aros y diapasones"
+   },
+   {
+    "nombre": "Disponibilidad",
+    "valor": "Unidades limitadas"
+   }
+  ],
+  "gallery": [
+   "assets/img/wood-bubinga.jpg",
+   "assets/img/productos/madera-bubinga-1.jpg",
+   "assets/img/productos/madera-bubinga-2.jpeg"
+  ],
+  "disponibilidad": "inmediata",
+  "orden": 8,
+  "publicado": true
+ },
+ {
+  "slug": "libro-guitarra-lutheria",
+  "name": "La guitarra en la luthería",
+  "cat": "formacion",
+  "label": "Libros y formación",
+  "price": 39,
+  "priceLabel": "39 €",
+  "desc": "Libro de referencia · tapa dura. Lectura esencial para luthiers y aficionados.",
+  "subtitle": "Una mirada al oficio desde la página.",
+  "image": "assets/img/blog-libro.jpg",
+  "specs": [
+   {
+    "nombre": "Formato",
+    "valor": "Tapa dura"
+   },
+   {
+    "nombre": "Idioma",
+    "valor": "Español"
+   },
+   {
+    "nombre": "Tema",
+    "valor": "Construcción y luthería"
+   },
+   {
+    "nombre": "Estado",
+    "valor": "Disponible"
+   },
+   {
+    "nombre": "Envío",
+    "valor": "A toda España"
+   }
+  ],
+  "gallery": [
+   "assets/img/blog-libro.jpg",
+   "assets/img/productos/libro-guitarra-lutheria-1.jpg"
+  ],
+  "disponibilidad": "inmediata",
+  "orden": 9,
+  "publicado": true
+ },
+ {
+  "slug": "mentoria",
+  "name": "Mentoría 1:1",
+  "cat": "formacion",
+  "label": "Mentoría",
+  "price": 45,
+  "priceLabel": "45 € / sesión",
+  "desc": "Una hora de consultoría con el luthier. Pack de 10 sesiones: 400 €.",
+  "subtitle": "Aprende el oficio con quien lo vive.",
+  "image": "assets/img/mentoria.png",
+  "specs": [
+   {
+    "nombre": "Duración",
+    "valor": "1 hora"
+   },
+   {
+    "nombre": "Formato",
+    "valor": "Videoconferencia"
+   },
+   {
+    "nombre": "Grabación",
+    "valor": "Opcional"
+   },
+   {
+    "nombre": "Pack 10 sesiones",
+    "valor": "400 €"
+   },
+   {
+    "nombre": "Reserva",
+    "valor": "Por correo"
+   }
+  ],
+  "gallery": [
+   "assets/img/mentoria.png"
+  ],
+  "disponibilidad": "encargo",
+  "orden": 10,
+  "publicado": true
+ },
+ {
+  "slug": "ukelele",
+  "name": "ukelele",
+  "cat": "guitarras",
+  "label": "Guitarras de autor",
+  "price": 23,
+  "priceLabel": "Desde 23 €",
+  "desc": "",
+  "subtitle": "",
+  "image": "assets/img/catalogo/EaU8eiNh3pqRhrL5mBE2.webp",
+  "specs": [
+   {
+    "nombre": "tapa armonica",
+    "valor": "aberto"
+   }
+  ],
+  "gallery": [
+   "assets/img/catalogo/EaU8eiNh3pqRhrL5mBE2.webp"
+  ],
+  "disponibilidad": "encargo",
+  "orden": 11,
+  "publicado": true,
+  "lema": "Serie mini",
+  "resumen": "Inspirada en hawaii"
+ }
+]
