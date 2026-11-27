@@ -556,6 +556,11 @@
   "sm": "assets/img/hero-luthier-sm.webp",
   "smw": 800
  },
+ "assets/img/homofaber-sticker.webp": {
+  "w": 248,
+  "h": 248,
+  "lg": "assets/img/homofaber-sticker-lg.webp"
+ },
  "assets/img/homofaber.webp": {
   "w": 248,
   "h": 248,

@@ -1682,7 +1682,7 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
 
 @media print {
   .reveal { opacity: 1 !important; transform: none !important; }
-  .site-header, .topbar, .cta-band, .site-footer, .menu-toggle, .mobile-tabbar, .wa-float { display: none !important; }
+  .site-header, .topbar, .cta-band, .site-footer, .menu-toggle, .mobile-tabbar, .wa-float, .hf-tab { display: none !important; }
   body { background: #fff; }
 }
 
@@ -1744,6 +1744,59 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
 .error-page__links svg { grid-column: 2; grid-row: 1 / span 2; width: 16px; height: 16px; color: var(--brass); transition: transform var(--fast); }
 .error-page__links a:hover { background: var(--cream); }
 .error-page__links a:hover svg { transform: translateX(4px); }
+
+/* ---------- 23d. Pestaña lateral Homo Faber ---------- */
+.hf-tab {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  z-index: 940;
+  display: flex;
+  align-items: center;
+  padding: 9px 24px 9px 9px;
+  background: var(--walnut-deep);
+  border: 1px solid rgba(248,244,236,.14);
+  border-right: 0;
+  border-radius: 999px 0 0 999px;
+  box-shadow: -10px 14px 30px -14px rgba(0,0,0,.5);
+  transform: translate(16px, -50%);
+  transition: transform .5s cubic-bezier(.16,1,.3,1), box-shadow .5s;
+  animation: hf-tab-in .9s cubic-bezier(.16,1,.3,1) 1.2s backwards;
+}
+.hf-tab__seal {
+  width: 64px;
+  height: 64px;
+  flex: none;
+  transition: transform .7s cubic-bezier(.16,1,.3,1);
+}
+.hf-tab__label {
+  max-width: 0;
+  overflow: hidden;
+  opacity: 0;
+  white-space: nowrap;
+  font-size: 9px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(248,244,236,.62);
+  transition: max-width .5s cubic-bezier(.16,1,.3,1), opacity .3s, margin .5s cubic-bezier(.16,1,.3,1);
+}
+.hf-tab__label strong {
+  display: block;
+  margin-top: 3px;
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: .01em;
+  text-transform: none;
+  color: var(--paper);
+}
+.hf-tab:hover, .hf-tab:focus-visible {
+  transform: translate(0, -50%);
+  box-shadow: -14px 18px 36px -14px rgba(0,0,0,.6);
+}
+.hf-tab:hover .hf-tab__label, .hf-tab:focus-visible .hf-tab__label { max-width: 190px; opacity: 1; margin: 0 14px 0 10px; }
+.hf-tab:hover .hf-tab__seal, .hf-tab:focus-visible .hf-tab__seal { transform: rotate(-14deg) scale(1.04); }
+@keyframes hf-tab-in { from { translate: 120% 0; } to { translate: 0 0; } }
 
 /* ---------- 24. Responsive ---------- */
 @media (max-width: 1180px) {
@@ -2017,4 +2070,18 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
     line-height: 1.5;
   }
   .product-card__price { margin-top: 9px; }
+}
+
+@media (max-width: 780px) {
+  .hf-tab {
+    top: auto;
+    bottom: calc(138px + env(safe-area-inset-bottom, 0px));
+    padding: 5px 14px 5px 5px;
+    transform: translateX(8px);
+  }
+  .hf-tab:hover, .hf-tab:focus-visible { transform: translateX(0); }
+  .hf-tab__seal { width: 42px; height: 42px; }
+}
+@media (hover: none) {
+  .hf-tab__label { display: none; }
 }
