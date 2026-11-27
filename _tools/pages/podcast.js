@@ -10,8 +10,8 @@ module.exports = `
       <p>Conversaciones sobre luthería, artesanía y música. Un espacio para escuchar a quienes construyen, reparan y piensan los instrumentos desde dentro del taller.</p>
       <div class="podcast-platforms">
         <a class="btn btn--light btn--sm" href="https://www.youtube.com/playlist?list=PLQ-vsegxn_5WBKskaEPoBPHoUU3QhfDbS" target="_blank" rel="noopener">Ver en YouTube ${icons.arrow}</a>
-        <a class="btn btn--ghost-light btn--sm" href="https://www.ivoox.com/podcast-cabana-del-luthier_sq_f11192727_1.html" target="_blank" rel="noopener">Escuchar en iVoox</a>
       </div>
+      <p class="podcast-note">También disponible en todas las plataformas de audio</p>
 
       <div class="podcast-support">
         <p class="podcast-support__title">💚 Apoya el proyecto</p>
