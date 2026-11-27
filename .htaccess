@@ -1,0 +1,99 @@
+# Generado por _tools/build.js. No editar a mano.
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# HTTPS y dominio sin www
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^(.*)$ https://vaeldegines.com/$1 [R=301,L,NE]
+
+# /index.html -> /
+RewriteCond %{THE_REQUEST} \s/index\.html[\s?]
+RewriteRule ^index\.html$ / [R=301,L]
+
+# Las herramientas de generación no se publican
+RewriteRule ^_tools(/|$) - [F,L]
+
+# URL de la antigua web WordPress y de la antigua versión móvil
+RewriteRule ^blog(/.*)?$ /blog.html [R=301,L,NE]
+RewriteRule ^category/.*$ /blog.html [R=301,L,NE]
+RewriteRule ^tag/.*$ /blog.html [R=301,L,NE]
+RewriteRule ^author/.*$ /blog.html [R=301,L,NE]
+RewriteRule ^guitarras-personalizadas/?$ /guitarras.html [R=301,L,NE]
+RewriteRule ^guitarra-artesanal-murcia/?$ /guitarras.html [R=301,L,NE]
+RewriteRule ^guitarras-de-luthier-murcia/?$ /guitarras.html [R=301,L,NE]
+RewriteRule ^instrumentos-de-folclore/?$ /instrumentos.html [R=301,L,NE]
+RewriteRule ^mentoria/?$ /mentoria.html [R=301,L,NE]
+RewriteRule ^podcast/?$ /podcast.html [R=301,L,NE]
+RewriteRule ^la-cabana-del-luthier[^/]*/?$ /podcast.html [R=301,L,NE]
+RewriteRule ^tienda/?$ /tienda.html [R=301,L,NE]
+RewriteRule ^carrito/?$ /tienda.html [R=301,L,NE]
+RewriteRule ^finalizar-compra/?$ /tienda.html [R=301,L,NE]
+RewriteRule ^producto/.*$ /tienda.html [R=301,L,NE]
+RewriteRule ^alguna-pregunta-aqui-el-formulario-de-contacto/?$ /contacto.html [R=301,L,NE]
+RewriteRule ^contacto/?$ /contacto.html [R=301,L,NE]
+RewriteRule ^aviso-legal/?$ /legal.html#aviso [R=301,L,NE]
+RewriteRule ^politica-de-privacidad/?$ /legal.html#privacidad [R=301,L,NE]
+RewriteRule ^politica-de-cookies/?$ /legal.html#cookies [R=301,L,NE]
+RewriteRule ^reembolso_devoluciones/?$ /legal.html#devoluciones [R=301,L,NE]
+RewriteRule ^terminos-y-condiciones/?$ /legal.html [R=301,L,NE]
+RewriteRule ^prueba-inicio/?$ / [R=301,L,NE]
+RewriteRule ^articulo\.html$ /blog-guitarra-clasica-vs-flamenca-luthier.html [R=301,L,NE]
+RewriteRule ^producto\.html$ /producto-paloma.html [R=301,L,NE]
+RewriteRule ^m/?$ / [R=301,L,NE]
+RewriteRule ^m/(.+)$ /$1 [R=301,L,NE]
+RewriteRule ^pau-ferro/?$ /blog-pau-ferro.html [R=301,L,NE]
+RewriteRule ^cnc-en-la-lutheria/?$ /blog-cnc-en-la-lutheria.html [R=301,L,NE]
+RewriteRule ^guitarra-clasica-vs-flamenca-luthier/?$ /blog-guitarra-clasica-vs-flamenca-luthier.html [R=301,L,NE]
+RewriteRule ^madera-de-bubinga-guitarra/?$ /blog-madera-de-bubinga-guitarra.html [R=301,L,NE]
+RewriteRule ^madera-de-cocobolo/?$ /blog-madera-de-cocobolo.html [R=301,L,NE]
+RewriteRule ^moon-spruce/?$ /blog-moon-spruce.html [R=301,L,NE]
+RewriteRule ^libros-para-luthiers/?$ /blog-libros-para-luthiers.html [R=301,L,NE]
+RewriteRule ^mantenimiento-guitarra-de-lujo/?$ /blog-mantenimiento-guitarra-de-lujo.html [R=301,L,NE]
+RewriteRule ^guitarras-hecha-a-mano/?$ /blog-guitarras-hecha-a-mano.html [R=301,L,NE]
+RewriteRule ^guitarra-de-abeto-la-eleccion-perfecta-para-el-sonido-ideal/?$ /blog-guitarra-de-abeto-la-eleccion-perfecta-para-el-sonido-ideal.html [R=301,L,NE]
+RewriteRule ^homo-faber-y-vael-de-gines/?$ /blog-homo-faber-y-vael-de-gines.html [R=301,L,NE]
+RewriteRule ^luthier-de-guitarras/?$ /blog-luthier-de-guitarras.html [R=301,L,NE]
+RewriteRule ^historia_de_la_guitarra/?$ /blog-historia_de_la_guitarra.html [R=301,L,NE]
+RewriteRule ^herramientas-electricas/?$ /blog-herramientas-electricas.html [R=301,L,NE]
+RewriteRule ^el-luthier-y-las-herramientas-tradicionales/?$ /blog-el-luthier-y-las-herramientas-tradicionales.html [R=301,L,NE]
+RewriteRule ^abeto-vs-cedro/?$ /blog-abeto-vs-cedro.html [R=301,L,NE]
+RewriteRule ^palo-santo/?$ /blog-palo-santo.html [R=301,L,NE]
+RewriteRule ^arce/?$ /blog-arce.html [R=301,L,NE]
+RewriteRule ^cipres/?$ /blog-cipres.html [R=301,L,NE]
+RewriteRule ^ebano/?$ /blog-ebano.html [R=301,L,NE]
+RewriteRule ^ziricote/?$ /blog-ziricote.html [R=301,L,NE]
+RewriteRule ^el-barniz/?$ /blog-el-barniz.html [R=301,L,NE]
+RewriteRule ^que-es-una-guitarra/?$ /blog-que-es-una-guitarra.html [R=301,L,NE]
+RewriteRule ^que-es-un-luthier/?$ /blog-que-es-un-luthier.html [R=301,L,NE]
+RewriteRule ^que-es-un-ukelele/?$ /blog-que-es-un-ukelele.html [R=301,L,NE]
+RewriteRule ^definicion-de-violin/?$ /blog-definicion-de-violin.html [R=301,L,NE]
+RewriteRule ^partes-del-violin/?$ /blog-partes-del-violin.html [R=301,L,NE]
+</IfModule>
+
+<IfModule mod_headers.c>
+Header always set X-Content-Type-Options "nosniff"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml application/xml text/plain
+</IfModule>
+
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresDefault "access plus 1 hour"
+ExpiresByType text/html "access plus 0 seconds"
+ExpiresByType text/css "access plus 1 month"
+ExpiresByType application/javascript "access plus 1 month"
+ExpiresByType image/webp "access plus 1 year"
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType image/gif "access plus 1 year"
+ExpiresByType image/svg+xml "access plus 1 year"
+</IfModule>

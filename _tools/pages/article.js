@@ -1,13 +1,8 @@
 'use strict';
-const { icons, postCard, ctaBand } = require('../layout');
+const { icons, postCard, ctaBand, readTime } = require('../layout');
 const articles = require('../data/blog');
 
 const bySlug = Object.fromEntries(articles.map((a) => [a.slug, a]));
-
-function readTime(content) {
-  const words = content.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
-  return Math.max(3, Math.round(words / 190));
-}
 
 function tocOf(content) {
   return [...content.matchAll(/<h([23]) id="(sec-\d+)">([\s\S]*?)<\/h\1>/g)]

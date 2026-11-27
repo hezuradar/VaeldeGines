@@ -210,6 +210,7 @@
         const img = $('img', thumb);
         if (!img || !main) return;
         main.src = img.dataset.full || img.src;
+        if (img.srcset) main.srcset = img.srcset; else main.removeAttribute('srcset');
         main.alt = img.alt;
         thumbs.forEach((t) => t.classList.toggle('is-active', t === thumb));
       });
@@ -291,18 +292,19 @@
     });
   });
 
-  /* ---------- Cambio entre versión móvil y escritorio ---------- */
-  $$('[data-view]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      try { localStorage.setItem('vdg-view', btn.dataset.view); } catch (e) {}
-      const page = location.pathname.split('/').pop() || 'index.html';
-      const inMobile = /(^|\/)m\//.test(location.pathname);
-      let target = page;
-      if (btn.dataset.view === 'mobile' && !inMobile) target = `m/${page}`;
-      if (btn.dataset.view === 'desktop' && inMobile) target = `../${page}`;
-      location.href = target;
-    });
-  });
+  /* ---------- Limpieza de la antigua versión móvil separada ---------- */
+  try { localStorage.removeItem('vdg-view'); } catch (e) { /* almacenamiento no disponible */ }
+
+  /* ---------- Contacto: rellenar desde el enlace de origen ---------- */
+  const interesSelect = $('#interes');
+  if (interesSelect) {
+    const params = new URLSearchParams(location.search);
+    const interes = (params.get('interes') || '').slice(0, 60);
+    const asunto = (params.get('asunto') || '').slice(0, 80);
+    if (interes && $$('option', interesSelect).some((o) => o.value === interes)) interesSelect.value = interes;
+    const message = $('#mensaje');
+    if (asunto && message && !message.value) message.value = `Me interesa: ${asunto}.\n\n`;
+  }
 
   /* ---------- Año actual ---------- */
   $$('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });

@@ -1,12 +1,12 @@
 'use strict';
-const { icons, pageHero, ctaBand } = require('../layout');
+const { contactUrl, icons, pageHero, ctaBand } = require('../layout');
 
 module.exports = `
 ${pageHero({
   eyebrow: 'El taller · Los Alcázares, Murcia',
   title: 'El oficio detrás<br><em>del instrumento.</em>',
   text: 'Soy Ginés Martínez, luthier artesanal y creador de Vael de Ginés. En mi taller construyo guitarras personalizadas e instrumentos de folclore, combinando el conocimiento del oficio, la selección de materiales y el trabajo manual.',
-  actions: `<a class="btn" href="contacto.html">Visitar el taller ${icons.arrow}</a><a class="link-arrow" href="#proceso">Conocer el proceso ${icons.arrow}</a>`,
+  actions: `<a class="btn" href="${contactUrl('Visita al taller')}">Visitar el taller ${icons.arrow}</a><a class="link-arrow" href="#proceso">Conocer el proceso ${icons.arrow}</a>`,
   image: 'assets/img/luthier-portrait.jpg',
   alt: 'Ginés Martínez, luthier artesanal de Vael de Ginés',
   caption: 'Ginés Martínez · Luthier',
@@ -153,7 +153,7 @@ ${pageHero({
 ${ctaBand({
   title: 'Ven al taller,<br><em>hablemos sin prisa.</em>',
   text: 'Puedes visitarme con cita previa en Los Alcázares (Murcia). Verás las maderas, conocerás el proceso y podremos hablar de tu próximo instrumento con calma.',
-  primary: `<a class="btn btn--light" href="contacto.html">Pedir cita ${icons.arrow}</a>`,
+  primary: `<a class="btn btn--light" href="${contactUrl('Visita al taller')}">Pedir cita ${icons.arrow}</a>`,
   secondary: `<a class="btn btn--ghost-light" href="podcast.html">Escuchar el podcast</a>`,
   image: 'assets/img/workshop-1.jpg'
 })}

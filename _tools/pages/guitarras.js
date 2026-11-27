@@ -1,12 +1,12 @@
 'use strict';
-const { icons, pageHero, guitarCard, ctaBand } = require('../layout');
+const { contactUrl, icons, pageHero, guitarCard, ctaBand } = require('../layout');
 
 module.exports = `
 ${pageHero({
   eyebrow: 'Guitarras personalizadas',
   title: 'Tu esencia es única,<br><em>tu guitarra también.</em>',
   text: 'Construyo guitarras artesanales concebidas alrededor de tu forma de sentir, interpretar y entender la música. Cada instrumento es una creación única, desarrollada contigo y construida sin renunciar a ningún detalle.',
-  actions: `<a class="btn" href="contacto.html">Diseñemos tu guitarra ${icons.arrow}</a><a class="link-arrow" href="#coleccion">Descubre la colección ${icons.arrow}</a>`,
+  actions: `<a class="btn" href="${contactUrl('Guitarra personalizada')}">Diseñemos tu guitarra ${icons.arrow}</a><a class="link-arrow" href="#coleccion">Descubre la colección ${icons.arrow}</a>`,
   image: 'assets/img/guitar-paloma.jpg',
   alt: 'Guitarra Paloma construida a mano por Vael de Ginés',
   caption: 'Paloma · Colección de autor',
@@ -31,7 +31,7 @@ ${pageHero({
       <p class="lead">No existen dos músicos iguales. Tampoco debería haber dos guitarras que cuenten exactamente la misma historia.</p>
       <p class="text-muted">Cada proyecto comienza con una conversación en la que conozco tu forma de tocar, tus preferencias y lo que buscas en un instrumento. A partir de ahí, damos forma a una guitarra que reúne tus necesidades musicales y tu personalidad.</p>
       <p class="text-muted">El resultado no es una guitarra a la que tengas que adaptarte: es un instrumento pensado para ti, para tus manos y para tu manera de hacer música.</p>
-      <p style="margin-top:28px"><a class="link-arrow" href="contacto.html">Cuéntame tu proyecto ${icons.arrow}</a></p>
+      <p style="margin-top:28px"><a class="link-arrow" href="${contactUrl('Guitarra personalizada')}">Cuéntame tu proyecto ${icons.arrow}</a></p>
     </div>
     <div class="split__media reveal" data-delay="1">
       <div class="split__frame">
@@ -174,7 +174,7 @@ ${pageHero({
 ${ctaBand({
   title: 'Diseñemos <em>tu guitarra.</em>',
   text: 'La primera conversación no tiene coste ni compromiso. Hablamos de tu forma de tocar, de las maderas que te atraen y del sonido que buscas. A partir de ahí, trazamos el proyecto.',
-  primary: `<a class="btn btn--light" href="contacto.html">Iniciar mi proyecto ${icons.arrow}</a>`,
+  primary: `<a class="btn btn--light" href="${contactUrl('Guitarra personalizada')}">Iniciar mi proyecto ${icons.arrow}</a>`,
   secondary: `<a class="btn btn--ghost-light" href="tienda.html">Ver catálogo</a>`
 })}
 </div>

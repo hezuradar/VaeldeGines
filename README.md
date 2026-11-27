@@ -25,16 +25,15 @@ web-nueva/
 ├── instrumentos.html     Instrumentos de folclore + FAQ
 ├── luthier.html          El taller, el proceso y reconocimientos
 ├── tienda.html           Catálogo con filtros y ordenación
-├── producto.html         Ficha de Paloma (acceso directo)
 ├── producto-<slug>.html  Una ficha por cada producto del catálogo (11)
 ├── blog.html             Blog con filtros (27 artículos reales)
 ├── blog-<slug>.html      Una página por cada artículo del blog (27)
-├── articulo.html         Acceso directo al artículo destacado
 ├── mentoria.html         Sesiones de mentoría y precios
 ├── podcast.html          La cabaña del luthier
 ├── contacto.html         Formulario de contacto + mapa
 ├── legal.html            Aviso legal, privacidad, cookies y devoluciones
-├── m/                    Versión móvil dedicada (50 páginas + assets propios)
+├── 404.html              Página de error con el personaje animado
+├── sitemap.xml, robots.txt, .htaccess   SEO, redirecciones 301 y caché (generados)
 ├── assets/
 │   ├── css/styles.css    Sistema de diseño completo
 │   ├── js/main.js        Menú móvil, filtros, pestañas, galería, formularios…
@@ -50,8 +49,10 @@ web-nueva/
 - **Contenido:** textos en español extraídos de la web original y reorganizados para mayor claridad. Datos de contacto reales: `luthier@vaeldegines.com`, `+34 609 302 713`, Los Alcázares (Murcia).
 - **Imágenes:** fotografías reales copiadas de `web-estatica/wp-content/uploads`, renombradas y optimizadas para esta estructura.
 - **Blog completo:** 27 artículos descargados de `https://vaeldegines.com/blog/` mediante la API REST de WordPress, con sus textos íntegros y 76 fotografías. Cada artículo tiene su propia página (`blog-<slug>.html`) con la foto principal de fondo detrás del título, índice, navegación entre artículos, relacionados y enlace a la fuente original.
-- **Versión móvil automática:** al abrir cualquier página en un teléfono o tableta, se redirige a `m/<página>`, una versión móvil dedicada y autocontenida. Se puede forzar la versión escritorio desde el botón «Versión escritorio» y volver a la móvil desde el pie de página. La elección se guarda en `localStorage`. La versión móvil incluye una barra inferior fija de navegación rápida (Inicio, Guitarras, Tienda, Blog, Contacto).
-- **Responsive:** además, la versión escritorio sigue adaptándose a tabletas y móviles mediante media queries.
+- **Una sola web para todos los dispositivos:** el mismo HTML se adapta al ancho de pantalla con media queries. No hay versión móvil separada ni redirecciones, así que no hay contenido duplicado. En móvil (≤780 px) aparece una barra inferior fija (Inicio, Guitarras, Tienda, Blog, Contacto), el titular del inicio va antes que la foto y el catálogo usa tarjetas compactas. Las URL antiguas `m/<página>` redirigen con 301 a `<página>`.
+- **SEO:** cada página tiene URL canónica, Open Graph, meta description limpia y datos estructurados (LocalBusiness, WebSite, Product, BlogPosting, BreadcrumbList). `sitemap.xml`, `robots.txt` y `.htaccess` se generan en el build; `.htaccess` incluye las redirecciones 301 desde todas las URL de la antigua web WordPress.
+- **Rendimiento:** imágenes en WebP con `srcset` (800 px para móvil, hasta 1600 px para escritorio), `width`/`height` reales, carga diferida y versión en la URL de CSS/JS para poder cachearlos un mes.
+- **Conversión:** los botones de producto, mentoría, folclore y podcast abren el formulario de contacto con el interés y el asunto ya rellenados; las fichas ofrecen además «Preguntar por WhatsApp» con el nombre de la pieza.
 - **Catálogo:** 11 productos con ficha propia (`producto-<slug>.html`), cada uno con sus fotografías reales, especificaciones, pestañas informativas y productos relacionados. Las fotos adicionales se descargan de la biblioteca de medios de Vael de Ginés.
 
 ## Responsive
@@ -66,15 +67,18 @@ web-nueva/
 Las páginas HTML se generan desde plantillas para mantener cabecera, pie y componentes coherentes. Tras editar un archivo en `_tools/pages/` o en `_tools/layout.js`:
 
 ```powershell
-node _tools/import-blog.js      # solo si quieres volver a descargar el blog
-node _tools/import-products.js  # solo si quieres volver a descargar las fotos del catálogo
+node _tools/import-blog.js         # solo si quieres volver a descargar el blog
+node _tools/import-products.js     # solo si quieres volver a descargar las fotos del catálogo
+python _tools/optimize-images.py   # tras añadir o cambiar imágenes en assets/img
 node _tools/build.js
-node _tools/build-mobile.js   # regenera la carpeta m/ tras cada build
 ```
 
-Esto reescribe las 50 páginas HTML de la raíz y sus 50 equivalentes móviles en `m/`. Los datos limpios están en `_tools/data/` y las imágenes en `assets/img/`.
+Esto reescribe las 49 páginas HTML, `sitemap.xml`, `robots.txt` y `.htaccess`. Los datos limpios están en `_tools/data/` y las imágenes en `assets/img/`.
 
 ## Notas antes de publicar
+
+- Sube todo menos `_tools/` (el `.htaccess` ya bloquea su acceso). Las redirecciones requieren Apache o LiteSpeed, lo habitual en hostings de WordPress.
+- Las imágenes originales (jpg/png) se conservan como fuente y para las vistas previas sociales; las páginas cargan las versiones `-lg.webp` / `-sm.webp`.
 
 - Los formularios son **demostraciones estáticas** (`data-demo`): validan y muestran un mensaje, pero no envían nada. Conéctalos a tu servicio de correo o backend.
 - El mapa usa Google Maps incrustado; la dirección exacta del taller se ha dejado «al confirmar la cita». Sustitúyela si quieres mostrarla públicamente.

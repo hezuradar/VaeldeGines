@@ -1036,20 +1036,6 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
 }
 .footer__legal { display: flex; flex-wrap: wrap; gap: 22px; }
 .footer__legal a:hover { color: var(--paper); }
-.view-switch-btn {
-  background: none;
-  border: 0;
-  padding: 0;
-  color: inherit;
-  font: inherit;
-  letter-spacing: inherit;
-  text-transform: inherit;
-  text-decoration: none;
-  cursor: pointer;
-  transition: color var(--fast);
-}
-.view-switch-btn:hover { color: var(--brass-light); }
-
 .wa-float {
   position: fixed;
   right: 22px;
@@ -1696,7 +1682,7 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
 
 @media print {
   .reveal { opacity: 1 !important; transform: none !important; }
-  .site-header, .topbar, .cta-band, .site-footer, .menu-toggle { display: none !important; }
+  .site-header, .topbar, .cta-band, .site-footer, .menu-toggle, .mobile-tabbar, .wa-float { display: none !important; }
   body { background: #fff; }
 }
 
@@ -1705,6 +1691,59 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
   .reveal { opacity: 1; transform: none; }
 }
+
+
+/* ---------- 23b. Navegación inferior (solo móvil) ---------- */
+.mobile-tabbar { display: none; }
+
+/* Ficha de producto: sin hueco extra tras las migas de pan */
+.section--after-crumbs { padding-top: 28px; }
+
+/* ---------- 23c. Página 404 ---------- */
+.error-page {
+  padding: clamp(118px, 12vw, 160px) 0 clamp(64px, 8vw, 110px);
+  background: var(--paper-warm);
+}
+.error-page__grid {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(36px, 6vw, 88px);
+}
+.error-page__art {
+  margin: 0;
+  position: relative;
+  background: #fdf6e3;
+  border: 1px solid var(--line);
+  box-shadow: 0 30px 60px -30px rgba(36,26,19,.45);
+  transform: rotate(-1.5deg);
+}
+.error-page__art::after {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1px solid rgba(176,138,74,.35);
+  pointer-events: none;
+}
+.error-page__art img { width: 100%; height: auto; }
+.error-page__body .h2 { font-size: clamp(2.4rem, 4.6vw, 3.8rem); }
+.error-page__body > p:not(.eyebrow) { margin-top: 20px; max-width: 46ch; color: var(--ink-2); }
+.error-page__actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
+.error-page__links { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 44px; background: var(--line); border: 1px solid var(--line); }
+.error-page__links a {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 2px 12px;
+  padding: 18px 20px;
+  background: var(--paper);
+  transition: background var(--fast), color var(--fast);
+}
+.error-page__links strong { font-family: var(--serif); font-size: 1.12rem; font-weight: 500; }
+.error-page__links span { grid-column: 1; font-size: 12px; color: var(--muted); }
+.error-page__links svg { grid-column: 2; grid-row: 1 / span 2; width: 16px; height: 16px; color: var(--brass); transition: transform var(--fast); }
+.error-page__links a:hover { background: var(--cream); }
+.error-page__links a:hover svg { transform: translateX(4px); }
 
 /* ---------- 24. Responsive ---------- */
 @media (max-width: 1180px) {
@@ -1897,4 +1936,85 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
 
   .instrument-row { grid-template-columns: 1fr auto; }
   .instrument-row__icon { display: none; }
+}
+
+/* ---------- 25. Móvil: navegación inferior, hero y catálogo ---------- */
+@media (max-width: 780px) {
+  body { padding-bottom: calc(60px + env(safe-area-inset-bottom, 0px)); }
+
+  .mobile-tabbar {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 1100;
+    background: rgba(36,26,19,.97);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border-top: 1px solid rgba(248,244,236,.16);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  .mobile-tabbar a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    min-height: 60px;
+    padding: 6px 2px;
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: rgba(248,244,236,.62);
+    transition: color var(--fast);
+  }
+  .mobile-tabbar svg { width: 22px; height: 22px; }
+  .mobile-tabbar a:hover, .mobile-tabbar a:focus-visible, .mobile-tabbar a.is-current { color: var(--brass-light); }
+
+  .wa-float {
+    right: 16px;
+    bottom: calc(76px + env(safe-area-inset-bottom, 0px));
+    width: 50px;
+    height: 50px;
+  }
+  .wa-float svg { width: 25px; height: 25px; }
+
+  /* Hero: titular y llamada a la acción visibles sin desplazarse */
+  .hero__content { order: 1; padding: 96px 20px 36px; }
+  .hero__media { order: 2; min-height: 0; max-height: none; }
+  .hero__media img { position: relative; min-height: 0; max-height: none; height: auto; aspect-ratio: 4 / 3; }
+
+  .error-page__grid { grid-template-columns: 1fr; }
+  .error-page__art { max-width: 340px; margin-inline: auto; }
+  .error-page__links { grid-template-columns: 1fr; }
+  .error-page__actions .btn { flex: 1 1 100%; }
+}
+
+@media (max-width: 520px) {
+  /* Catálogo: tarjetas compactas en lista */
+  .product-grid { grid-template-columns: 1fr; gap: 12px; }
+  .product-card {
+    display: grid;
+    grid-template-columns: 104px minmax(0, 1fr);
+    gap: 14px;
+    padding: 12px;
+    background: var(--cream);
+    border: 1px solid var(--line);
+    align-items: start;
+  }
+  .product-card__media { aspect-ratio: 1 / 1; }
+  .product-card__media img { object-fit: cover; }
+  .product-card__body { padding-top: 0; min-width: 0; }
+  .product-card h3 { margin-top: 5px; font-size: 1.18rem; line-height: 1.15; }
+  .product-card p {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-top: 6px;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .product-card__price { margin-top: 9px; }
 }

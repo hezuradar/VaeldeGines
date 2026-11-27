@@ -1,5 +1,15 @@
 'use strict';
 
+const fs = require('fs');
+const path = require('path');
+const crypto = require('crypto');
+
+/** Huella corta del contenido de un recurso para invalidar la caché del navegador. */
+const assetVersion = (rel) => crypto.createHash('sha1')
+  .update(fs.readFileSync(path.join(__dirname, '..', rel))).digest('hex').slice(0, 8);
+const CSS_VERSION = assetVersion('assets/css/styles.css');
+const JS_VERSION = assetVersion('assets/js/main.js');
+
 const SITE = {
   name: 'Vael de Ginés',
   tagline: 'Luthería artesanal · Murcia',
@@ -10,7 +20,10 @@ const SITE = {
   address: 'Los Alcázares, Murcia',
   facebook: 'https://www.facebook.com/Vaelluthier',
   youtube: 'https://www.youtube.com/watch?v=W8ileM09_CI',
-  instagram: 'https://www.instagram.com/vaeldegines/'
+  instagram: 'https://www.instagram.com/vaeldegines/',
+  url: 'https://vaeldegines.com',
+  whatsapp: '34609302713',
+  defaultImage: 'assets/img/hero-guitar.jpg'
 };
 
 const icons = {
@@ -143,45 +156,79 @@ function footer() {
           <a href="legal.html#privacidad">Privacidad</a>
           <a href="legal.html#cookies">Cookies</a>
           <a href="legal.html#devoluciones">Devoluciones</a>
-          <button class="view-switch-btn" type="button" data-view="mobile">Ver versión móvil</button>
         </div>
       </div>
     </div>
   </footer>`;
 }
 
-function page({ title, description, active = '', body, bodyClass = '' }) {
+const tabItems = [
+  ['index.html', 'Inicio', 'home', '<path d="M3.5 11L12 4l8.5 7"/><path d="M6 9.5V20h12V9.5"/>'],
+  ['guitarras.html', 'Guitarras', 'guitarras', '<path d="M15 3l6 6M18 6l-5.5 5.5"/><path d="M11 10.5c-2-1-4.5-.6-5.6 1.1-.6 1-.5 1.9-1.5 2.5-1.6 1-1.4 3.6.6 5.3 1.7 2 4.3 2.2 5.3.6.6-1 1.5-.9 2.5-1.5 1.7-1.1 2.1-3.6 1.1-5.6"/><circle cx="9.3" cy="14.7" r="1.3"/>'],
+  ['tienda.html', 'Tienda', 'tienda', '<rect x="4" y="4" width="6.5" height="6.5"/><rect x="13.5" y="4" width="6.5" height="6.5"/><rect x="4" y="13.5" width="6.5" height="6.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5"/>'],
+  ['blog.html', 'Blog', 'blog', '<path d="M5 19.5l1-4L16.5 5a2 2 0 012.8 2.8L8.8 18.3z"/><path d="M14.5 7l2.5 2.5"/>'],
+  ['contacto.html', 'Contacto', 'contacto', '<rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 6.5L20.5 6"/>']
+];
+
+function tabbar(active) {
+  const current = active === '' ? 'home' : active;
+  return `
+<nav class="mobile-tabbar" aria-label="Navegación rápida">
+  ${tabItems.map(([href, label, key, path]) => `<a href="${href}"${key === current ? ' class="is-current" aria-current="page"' : ''}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true">${path}</svg>${label}</a>`).join('')}
+</nav>`;
+}
+
+const escapeAttr = (value) => String(value)
+  .replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+/** Enlace al formulario de contacto con el interés y el asunto ya rellenados. */
+function contactUrl(interes, asunto = '') {
+  const params = [['interes', interes], ['asunto', asunto]].filter(([, v]) => v)
+    .map(([k, v]) => `${k}=${encodeURIComponent(v)}`).join('&amp;');
+  return `contacto.html${params ? `?${params}` : ''}`;
+}
+
+const absUrl = (file) => `${SITE.url}/${file === 'index.html' ? '' : file}`;
+
+function waLink(text = 'Hola, tengo una consulta sobre un instrumento.') {
+  return `https://api.whatsapp.com/send?phone=${SITE.whatsapp}&amp;text=${encodeURIComponent(text)}`;
+}
+
+/**
+ * Página completa. `file` define la URL canónica; `image` la imagen social;
+ * `jsonLd` es un objeto o una lista de objetos schema.org.
+ */
+function page({ file, title, description, active = '', body, bodyClass = '', image = SITE.defaultImage, type = 'website', jsonLd = [], waText, noindex = false, baseHref = '' }) {
+  const url = absUrl(file);
+  const imageUrl = `${SITE.url}/${image}`;
+  const schemas = (Array.isArray(jsonLd) ? jsonLd : [jsonLd]).filter(Boolean);
+  const ld = schemas.map((s) => `<script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', ...s }).replace(/</g, '\\u003c')}</script>`).join('\n  ');
   return `<!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- AUTO-REDIRECT-MOBILE -->
-  <script>
-  (function () {
-    try {
-      if (localStorage.getItem('vdg-view') === 'desktop') return;
-      var ua = navigator.userAgent || '';
-      var mobile = (navigator.userAgentData && navigator.userAgentData.mobile === true) ||
-        /Android|iPhone|iPod|Windows Phone|Mobile|Silk|BlackBerry|Opera Mini/i.test(ua) ||
-        (/iPad|Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
-      if (!mobile) return;
-      var page = location.pathname.split('/').pop() || 'index.html';
-      if (!/\.html$/.test(page)) page = 'index.html';
-      location.replace('m/' + page);
-    } catch (e) {}
-  })();
-  </script>
-  <!-- /AUTO-REDIRECT-MOBILE -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  ${baseHref ? `<base href="${baseHref}">` : ''}
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>${title}</title>
-  <meta name="description" content="${description}">
-  <meta name="theme-color" content="#f8f4ec">
+  <meta name="description" content="${escapeAttr(description)}">
+  ${noindex ? '<meta name="robots" content="noindex, follow">' : `<link rel="canonical" href="${url}">`}
+  <meta property="og:type" content="${type}">
+  <meta property="og:site_name" content="${SITE.name}">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="${escapeAttr(title)}">
+  <meta property="og:description" content="${escapeAttr(description)}">
+  <meta property="og:url" content="${url}">
+  <meta property="og:image" content="${imageUrl}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#241a13">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/styles.css?v=${CSS_VERSION}">
   <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+  ${ld}
 </head>
 <body${bodyClass ? ` class="${bodyClass}"` : ''}>
 ${header(active)}
@@ -189,10 +236,11 @@ ${header(active)}
 ${body}
 </main>
 ${footer()}
-<script src="assets/js/main.js" defer></script>
-<a class="wa-float" href="https://api.whatsapp.com/send?phone=34609302713&amp;text=Hola%2C%20tengo%20una%20consulta%20sobre%20un%20instrumento." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp (se abre en una pestaña nueva)">
+${tabbar(active)}
+<a class="wa-float" href="${waLink(waText)}" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp (se abre en una pestaña nueva)">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.02c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.06 8.06 0 0 1-1.24-4.24c0-4.46 3.63-8.09 8.1-8.09 2.16 0 4.2.85 5.73 2.38a8.05 8.05 0 0 1 2.37 5.72c0 4.46-3.63 8.1-8.1 8.1zm4.44-6.06c-.24-.12-1.44-.71-1.66-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.01-.37.11-.49.11-.11.24-.29.36-.43.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.13 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
 </a>
+<script src="assets/js/main.js?v=${JS_VERSION}" defer></script>
 </body>
 </html>
 `;
@@ -258,7 +306,13 @@ function guitarCard({ num, name, tag, desc, img, alt, href }) {
   </article>`;
 }
 
-function postCard({ category, title, excerpt, img, alt, href = 'articulo.html', date = '12 nov 2026', read = '6 min' }) {
+/** Minutos de lectura estimados a partir del HTML del artículo. */
+function readTime(content = '') {
+  const words = content.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length;
+  return Math.max(3, Math.round(words / 190));
+}
+
+function postCard({ category, title, excerpt, img, alt, href, read }) {
   return `
   <article class="post-card reveal">
     <a class="post-card__media" href="${href}" aria-label="Leer ${title}">
@@ -271,4 +325,4 @@ function postCard({ category, title, excerpt, img, alt, href = 'articulo.html', 
   </article>`;
 }
 
-module.exports = { SITE, icons, header, footer, page, pageHero, ctaBand, guitarCard, postCard };
+module.exports = { SITE, icons, header, footer, page, pageHero, ctaBand, guitarCard, postCard, readTime, waLink, absUrl, contactUrl };

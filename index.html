@@ -1,34 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- AUTO-REDIRECT-MOBILE -->
-  <script>
-  (function () {
-    try {
-      if (localStorage.getItem('vdg-view') === 'desktop') return;
-      var ua = navigator.userAgent || '';
-      var mobile = (navigator.userAgentData && navigator.userAgentData.mobile === true) ||
-        /Android|iPhone|iPod|Windows Phone|Mobile|Silk|BlackBerry|Opera Mini/i.test(ua) ||
-        (/iPad|Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
-      if (!mobile) return;
-      var page = location.pathname.split('/').pop() || 'index.html';
-      if (!/.html$/.test(page)) page = 'index.html';
-      location.replace('m/' + page);
-    } catch (e) {}
-  })();
-  </script>
-  <!-- /AUTO-REDIRECT-MOBILE -->
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Vael de Ginés · Guitarras artesanales e instrumentos de folclore</title>
   <meta name="description" content="Luthería artesanal en Los Alcázares (Murcia). Guitarras personalizadas, instrumentos de folclore y mentoría con Ginés Martínez.">
-  <meta name="theme-color" content="#f8f4ec">
+  <link rel="canonical" href="https://vaeldegines.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Vael de Ginés">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Vael de Ginés · Guitarras artesanales e instrumentos de folclore">
+  <meta property="og:description" content="Luthería artesanal en Los Alcázares (Murcia). Guitarras personalizadas, instrumentos de folclore y mentoría con Ginés Martínez.">
+  <meta property="og:url" content="https://vaeldegines.com/">
+  <meta property="og:image" content="https://vaeldegines.com/assets/img/hero-guitar.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#241a13">
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/img/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/styles.css?v=4f8adf85">
   <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","@id":"https://vaeldegines.com/#taller","name":"Vael de Ginés","description":"Luthería artesanal: guitarras personalizadas e instrumentos de folclore construidos a mano.","url":"https://vaeldegines.com/","logo":"https://vaeldegines.com/assets/img/logo.png","image":"https://vaeldegines.com/assets/img/hero-guitar.jpg","telephone":"+34609302713","email":"luthier@vaeldegines.com","priceRange":"€€€","address":{"@type":"PostalAddress","addressLocality":"Los Alcázares","addressRegion":"Murcia","addressCountry":"ES"},"areaServed":"ES","founder":{"@type":"Person","name":"Ginés Martínez","jobTitle":"Luthier"},"sameAs":["https://www.instagram.com/vaeldegines/","https://www.facebook.com/Vaelluthier"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://vaeldegines.com/#web","name":"Vael de Ginés","url":"https://vaeldegines.com/","inLanguage":"es-ES","publisher":{"@id":"https://vaeldegines.com/#taller"}}</script>
 </head>
 <body>
 
@@ -39,7 +35,7 @@
   <header class="site-header">
     <div class="container header__inner">
       <a class="brand" href="index.html" aria-label="Vael de Ginés, inicio">
-        <img class="brand__logo" src="assets/img/logo.png" alt="Vael de Ginés" width="120" height="60">
+        <img decoding="async" loading="lazy" sizes="(max-width: 780px) 100vw, 50vw" srcset="assets/img/logo-sm.webp 800w, assets/img/logo-lg.webp 1600w" class="brand__logo" src="assets/img/logo-lg.webp" alt="Vael de Ginés" width="1600" height="1141">
         <span class="brand__meta">Los Alcázares · Murcia</span>
       </a>
 
@@ -64,7 +60,7 @@
     <h1 class="hero__title">Instrumentos con alma,<br><em>construidos a mano.</em></h1>
     <p class="hero__text">Guitarras personalizadas e instrumentos de folclore. Cada pieza nace de una conversación, de maderas seleccionadas con paciencia y del tiempo que exige el oficio.</p>
     <div class="hero__actions">
-      <a class="btn" href="contacto.html">Diseñar mi guitarra <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+      <a class="btn" href="contacto.html?interes=Guitarra%20personalizada">Diseñar mi guitarra <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
       <a class="link-arrow" href="guitarras.html#coleccion">Ver la colección <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
     </div>
     <dl class="hero__stats">
@@ -74,7 +70,7 @@
     </dl>
   </div>
   <div class="hero__media">
-    <img src="assets/img/hero-guitar.jpg" alt="Dos guitarras clásicas artesanales construidas por Vael de Ginés" width="848" height="1131" fetchpriority="high">
+    <img decoding="async" src="assets/img/hero-guitar-lg.webp" alt="Dos guitarras clásicas artesanales construidas por Vael de Ginés" width="864" height="1152" fetchpriority="high">
     <div class="hero__badge">
       <strong>Nº 01</strong>
       <span>Paloma<br>Colección de autor</span>
@@ -99,7 +95,7 @@
       <p class="lead">Soy Ginés Martínez, luthier artesanal en Los Alcázares (Murcia) y creador de Vael de Ginés. En mi taller construyo guitarras personalizadas e instrumentos de folclore combinando el conocimiento del oficio, la selección de materiales y el trabajo manual.</p>
       <p class="text-muted">No existen dos músicos iguales. Por eso cada proyecto comienza escuchando cómo tocas, qué buscas y qué necesitas sentir con el instrumento. A partir de ahí, diseño y construyo una pieza con identidad propia: tuya.</p>
       <div class="split__signature">
-        <img src="assets/img/luthier-portrait.jpg" alt="Ginés Martínez, luthier de Vael de Ginés" loading="lazy">
+        <img decoding="async" sizes="(max-width: 780px) 100vw, 50vw" srcset="assets/img/luthier-portrait-sm.webp 800w, assets/img/luthier-portrait-lg.webp 1030w" height="1028" width="1030" src="assets/img/luthier-portrait-lg.webp" alt="Ginés Martínez, luthier de Vael de Ginés" loading="lazy">
         <div>
           <strong>Ginés Martínez</strong>
           <span>Luthier · Vael de Ginés</span>
@@ -109,7 +105,7 @@
     </div>
     <div class="split__media reveal" data-delay="1">
       <div class="split__frame">
-        <img src="assets/img/luthier-portrait.jpg" alt="Ginés Martínez sosteniendo una tapa de guitarra en su taller" loading="lazy">
+        <img decoding="async" sizes="(max-width: 780px) 100vw, 50vw" srcset="assets/img/luthier-portrait-sm.webp 800w, assets/img/luthier-portrait-lg.webp 1030w" height="1028" width="1030" src="assets/img/luthier-portrait-lg.webp" alt="Ginés Martínez sosteniendo una tapa de guitarra en su taller" loading="lazy">
       </div>
       <p class="split__caption">El taller · Los Alcázares, Murcia</p>
     </div>
@@ -127,14 +123,14 @@
     <div class="paths">
       <a class="path-card reveal" href="guitarras.html">
         <span class="path-card__index">01 — Guitarras</span>
-        <img src="assets/img/guitar-paloma.jpg" alt="Guitarra Paloma de Vael de Ginés" loading="lazy">
+        <img decoding="async" height="1030" width="687" src="assets/img/guitar-paloma-lg.webp" alt="Guitarra Paloma de Vael de Ginés" loading="lazy">
         <h3>Guitarras personalizadas</h3>
         <p>Diseñadas junto a cada músico: maderas, proporciones, ergonomía y ornamentación pensadas para tu forma de tocar.</p>
         <span class="link-arrow">Descubre las guitarras <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></span>
       </a>
       <a class="path-card reveal" data-delay="1" href="instrumentos.html">
         <span class="path-card__index">02 — Folclore</span>
-        <img src="assets/img/folk-player.jpg" alt="Músico tocando un instrumento tradicional construido por Vael de Ginés" loading="lazy">
+        <img decoding="async" height="674" width="612" src="assets/img/folk-player-lg.webp" alt="Músico tocando un instrumento tradicional construido por Vael de Ginés" loading="lazy">
         <h3>Instrumentos de folclore</h3>
         <p>Guitarros, laúdes y bandurrias construidos con respeto por la tradición y por la música para la que fueron concebidos.</p>
         <span class="link-arrow">Descubre los instrumentos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></span>
@@ -150,11 +146,11 @@
       <h2 class="h2">Cada guitarra deja<br><em>una huella positiva.</em></h2>
       <p class="lead">La madera que uso tiene una segunda vida. Colaboro con Tree Nation para compensar la huella de carbono del taller y devolver al planeta parte de lo que recibe de él.</p>
       <p class="text-muted measure">En el bosque de Vael de Ginés ya se han plantado <strong>129 árboles</strong> y se han capturado <strong>14,92 toneladas de CO₂</strong> en proyectos de reforestación en Tanzania, Madagascar y Senegal.</p>
-      <a class="btn" href="https://tree-nation.com/es/perfil/impacto/vael-de-gines?code=64f099c2343b7&amp;version=v1&amp;utm_source=widget&amp;utm_medium=referral&amp;utm_campaign=net-zero-website&amp;utm_term=660287" target="_blank" rel="noopener"><img src="assets/img/tree-nation-logo.png" alt="Tree Nation" width="640" height="147">Ver el bosque en Tree Nation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
+      <a class="btn" href="https://tree-nation.com/es/perfil/impacto/vael-de-gines?code=64f099c2343b7&amp;version=v1&amp;utm_source=widget&amp;utm_medium=referral&amp;utm_campaign=net-zero-website&amp;utm_term=660287" target="_blank" rel="noopener"><img decoding="async" loading="lazy" src="assets/img/tree-nation-logo-lg.webp" alt="Tree Nation" width="640" height="147">Ver el bosque en Tree Nation <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 12h16M14 6l6 6-6 6"/></svg></a>
     </div>
 
     <div class="compromiso__visual reveal" data-delay="1">
-      <img src="assets/img/compromiso.webp" alt="Manos sosteniendo tierra con una planta joven" loading="lazy">
+      <img decoding="async" sizes="(max-width: 780px) 100vw, 50vw" srcset="assets/img/compromiso-sm.webp 800w, assets/img/compromiso-lg.webp 1264w" height="842" width="1264" src="assets/img/compromiso-lg.webp" alt="Manos sosteniendo tierra con una planta joven" loading="lazy">
       <div class="compromiso__rings">
         <div class="impact-ring impact-ring--green" data-value="14.92" data-decimals="2" data-percent="75">
           <svg viewBox="0 0 120 120" aria-hidden="true">
@@ -197,7 +193,7 @@
     <a class="guitar-card__media" href="producto-paloma.html" aria-label="Ver Paloma">
       <span class="guitar-card__num">Nº 01</span>
       <span class="guitar-card__tag">Serie exclusiva</span>
-      <img src="assets/img/guitar-paloma.jpg" alt="Guitarra Paloma de Vael de Ginés" loading="lazy">
+      <img decoding="async" height="1030" width="687" src="assets/img/guitar-paloma-lg.webp" alt="Guitarra Paloma de Vael de Ginés" loading="lazy">
     </a>
     <div class="guitar-card__body">
       <div class="guitar-card__title"><h3><a href="producto-paloma.html">Paloma</a></h3><span>Guitarra de autor</span></div>
@@ -210,7 +206,7 @@
     <a class="guitar-card__media" href="producto-golden-whale.html" aria-label="Ver Golden Whale">
       <span class="guitar-card__num">Nº 02</span>
       <span class="guitar-card__tag">Maestría orgánica</span>
-      <img src="assets/img/guitar-golden-whale.jpg" alt="Guitarra Golden Whale de Vael de Ginés" loading="lazy">
+      <img decoding="async" height="1152" width="864" src="assets/img/guitar-golden-whale-lg.webp" alt="Guitarra Golden Whale de Vael de Ginés" loading="lazy">
     </a>
     <div class="guitar-card__body">
       <div class="guitar-card__title"><h3><a href="producto-golden-whale.html">Golden Whale</a></h3><span>Guitarra de autor</span></div>
@@ -223,7 +219,7 @@
     <a class="guitar-card__media" href="producto-freya.html" aria-label="Ver Freya">
       <span class="guitar-card__num">Nº 03</span>
       <span class="guitar-card__tag">Templanza y tempestad</span>
-      <img src="assets/img/guitar-freya.jpg" alt="Guitarra Freya de Vael de Ginés" loading="lazy">
+      <img decoding="async" sizes="(max-width: 780px) 100vw, 50vw" srcset="assets/img/guitar-freya-sm.webp 800w, assets/img/guitar-freya-lg.webp 1030w" height="687" width="1030" src="assets/img/guitar-freya-lg.webp" alt="Guitarra Freya de Vael de Ginés" loading="lazy">
     </a>
     <div class="guitar-card__body">
       <div class="guitar-card__title"><h3><a href="producto-freya.html">Freya</a></h3><span>Guitarra de autor</span></div>
@@ -236,7 +232,7 @@
     <a class="guitar-card__media" href="producto-camino.html" aria-label="Ver Camino">
       <span class="guitar-card__num">Nº 04</span>
       <span class="guitar-card__tag">Vínculo infinito</span>
-      <img src="assets/img/guitar-camino.jpg" alt="Guitarra Camino de Vael de Ginés" loading="lazy">
+      <img decoding="async" sizes="(max-width: 780px) 100vw, 50vw" srcset="assets/img/guitar-camino-sm.webp 800w, assets/img/guitar-camino-lg.webp 1030w" height="687" width="1030" src="assets/img/guitar-camino-lg.webp" alt="Guitarra Camino de Vael de Ginés" loading="lazy">
     </a>
     <div class="guitar-card__body">
       <div class="guitar-card__title"><h3><a href="producto-camino.html">Camino</a></h3><span>Guitarra de autor</span></div>
@@ -249,7 +245,7 @@
     <a class="guitar-card__media" href="producto-jaguar.html" aria-label="Ver Jaguar">
       <span class="guitar-card__num">Nº 05</span>
       <span class="guitar-card__tag">Instinto y ataque</span>
-      <img src="assets/img/guitar-jaguar.jpg" alt="Guitarra Jaguar de Vael de Ginés" loading="lazy">
+      <img decoding="async" sizes="(max-width: 780px) 100vw, 50vw" srcset="assets/img/guitar-jaguar-sm.webp 800w, assets/img/guitar-jaguar-lg.webp 1030w" height="687" width="1030" src="assets/img/guitar-jaguar-lg.webp" alt="Guitarra Jaguar de Vael de Ginés" loading="lazy">
     </a>
     <div class="guitar-card__body">
       <div class="guitar-card__title"><h3><a href="producto-jaguar.html">Jaguar</a></h3><span>Guitarra de autor</span></div>
@@ -262,7 +258,7 @@
     <a class="guitar-card__media" href="producto-venus.html" aria-label="Ver Venus">
       <span class="guitar-card__num">Nº 06</span>
       <span class="guitar-card__tag">Belleza celestial</span>
-      <img src="assets/img/guitar-venus.jpg" alt="Guitarra Venus de Vael de Ginés" loading="lazy">
+      <img decoding="async" sizes="(max-width: 780px) 100vw, 50vw" srcset="assets/img/guitar-venus-sm.webp 800w, assets/img/guitar-venus-lg.webp 1030w" height="687" width="1030" src="assets/img/guitar-venus-lg.webp" alt="Guitarra Venus de Vael de Ginés" loading="lazy">
     </a>
     <div class="guitar-card__body">
       <div class="guitar-card__title"><h3><a href="producto-venus.html">Venus</a></h3><span>Guitarra de autor</span></div>
@@ -277,7 +273,7 @@
 <section class="section section--dark" id="proceso">
   <div class="container process">
     <div class="process__media reveal">
-      <img src="assets/img/workshop-3.jpg" alt="Ginés Martínez trabajando en el taller de luthería" loading="lazy">
+      <img decoding="async" sizes="(max-width: 780px) 100vw, 50vw" srcset="assets/img/workshop-3-sm.webp 800w, assets/img/workshop-3-lg.webp 1024w" height="681" width="1024" src="assets/img/workshop-3-lg.webp" alt="Ginés Martínez trabajando en el taller de luthería" loading="lazy">
     </div>
     <div class="reveal" data-delay="1">
       <p class="eyebrow">El proceso artesanal</p>
@@ -298,7 +294,7 @@
   <div class="container split">
     <div class="split__media reveal">
       <div class="split__frame">
-        <img src="assets/img/workshop-1.jpg" alt="Ginés Martínez cepillando una pieza de madera en el taller" loading="lazy">
+        <img decoding="async" sizes="(max-width: 780px) 100vw, 50vw" srcset="assets/img/workshop-1-sm.webp 800w, assets/img/workshop-1-lg.webp 1030w" height="687" width="1030" src="assets/img/workshop-1-lg.webp" alt="Ginés Martínez cepillando una pieza de madera en el taller" loading="lazy">
       </div>
       <p class="split__caption">El oficio se aprende con las manos</p>
     </div>
@@ -309,7 +305,7 @@
       <p class="text-muted">Combino técnicas tradicionales, trabajo manual y herramientas de precisión, incorporando la tecnología cuando permite mejorar el resultado. La madera, la acústica y el tiempo marcan el ritmo del taller.</p>
       <div class="credentials">
         <div class="credential">
-          <img src="assets/img/homofaber.webp" alt="Sello Homo Faber" loading="lazy">
+          <img decoding="async" height="248" width="248" src="assets/img/homofaber-lg.webp" alt="Sello Homo Faber" loading="lazy">
           <div><strong>Homo Faber</strong><span>Member · España</span></div>
         </div>
         <div class="credential">
@@ -347,7 +343,7 @@
       
   <article class="post-card reveal">
     <a class="post-card__media" href="blog-guitarra-clasica-vs-flamenca-luthier.html" aria-label="Leer Diferencias entre guitarra clásica y flamenca de luthier">
-      <img src="assets/img/blog/guitarra-clasica-vs-flamenca-luthier-portada.jpg" alt="Diferencias entre guitarra clásica y flamenca de luthier" loading="lazy">
+      <img decoding="async" sizes="(max-width: 780px) 100vw, 50vw" srcset="assets/img/blog/guitarra-clasica-vs-flamenca-luthier-portada-sm.webp 800w, assets/img/blog/guitarra-clasica-vs-flamenca-luthier-portada-lg.webp 1024w" height="1024" width="1024" src="assets/img/blog/guitarra-clasica-vs-flamenca-luthier-portada-lg.webp" alt="Diferencias entre guitarra clásica y flamenca de luthier" loading="lazy">
     </a>
     <div class="post-card__meta">Guitarras artesanales <span>·</span> <span>6 min de lectura</span></div>
     <h3><a href="blog-guitarra-clasica-vs-flamenca-luthier.html">Diferencias entre guitarra clásica y flamenca de luthier</a></h3>
@@ -357,7 +353,7 @@
       
   <article class="post-card reveal">
     <a class="post-card__media" href="blog-pau-ferro.html" aria-label="Leer Pau Ferro: equilibrio natural entre elegancia y versatilidad sonora">
-      <img src="assets/img/blog/pau-ferro-portada.jpg" alt="Pau Ferro: equilibrio natural entre elegancia y versatilidad sonora" loading="lazy">
+      <img decoding="async" sizes="(max-width: 780px) 100vw, 50vw" srcset="assets/img/blog/pau-ferro-portada-sm.webp 800w, assets/img/blog/pau-ferro-portada-lg.webp 1030w" height="687" width="1030" src="assets/img/blog/pau-ferro-portada-lg.webp" alt="Pau Ferro: equilibrio natural entre elegancia y versatilidad sonora" loading="lazy">
     </a>
     <div class="post-card__meta">Maderas y materiales <span>·</span> <span>6 min de lectura</span></div>
     <h3><a href="blog-pau-ferro.html">Pau Ferro: equilibrio natural entre elegancia y versatilidad sonora</a></h3>
@@ -367,7 +363,7 @@
       
   <article class="post-card reveal">
     <a class="post-card__media" href="blog-cnc-en-la-lutheria.html" aria-label="Leer CNC en la luthería: ¿herramienta o amenaza?">
-      <img src="assets/img/blog/cnc-en-la-lutheria-portada.jpg" alt="CNC en la luthería: ¿herramienta o amenaza?" loading="lazy">
+      <img decoding="async" height="606" width="648" src="assets/img/blog/cnc-en-la-lutheria-portada-lg.webp" alt="CNC en la luthería: ¿herramienta o amenaza?" loading="lazy">
     </a>
     <div class="post-card__meta">Herramientas <span>·</span> <span>6 min de lectura</span></div>
     <h3><a href="blog-cnc-en-la-lutheria.html">CNC en la luthería: ¿herramienta o amenaza?</a></h3>
@@ -380,7 +376,7 @@
 
 
   <section class="cta-band">
-    <div class="cta-band__bg"><img src="assets/img/hero-luthier.jpg" alt="" loading="lazy"></div>
+    <div class="cta-band__bg"><img decoding="async" sizes="(max-width: 780px) 100vw, 50vw" srcset="assets/img/hero-luthier-sm.webp 800w, assets/img/hero-luthier-lg.webp 1030w" height="687" width="1030" src="assets/img/hero-luthier-lg.webp" alt="" loading="lazy"></div>
     <div class="container cta-band__inner">
       <div>
         <p class="eyebrow">Hablemos de tu proyecto</p>
@@ -401,7 +397,7 @@
       <div class="footer__top">
         <div class="footer__brand">
           <a href="index.html" aria-label="Vael de Ginés, inicio">
-            <img src="assets/img/logo.png" alt="Vael de Ginés" width="150" height="75" loading="lazy">
+            <img decoding="async" sizes="(max-width: 780px) 100vw, 50vw" srcset="assets/img/logo-sm.webp 800w, assets/img/logo-lg.webp 1600w" src="assets/img/logo-lg.webp" alt="Vael de Ginés" width="1600" height="1141" loading="lazy">
           </a>
           <p>Luthería artesanal en Los Alcázares (Murcia). Guitarras personalizadas e instrumentos de folclore construidos a mano, uno a uno.</p>
           <div class="footer__social">
@@ -460,14 +456,17 @@
           <a href="legal.html#privacidad">Privacidad</a>
           <a href="legal.html#cookies">Cookies</a>
           <a href="legal.html#devoluciones">Devoluciones</a>
-          <button class="view-switch-btn" type="button" data-view="mobile">Ver versión móvil</button>
         </div>
       </div>
     </div>
   </footer>
-<script src="assets/js/main.js" defer></script>
+
+<nav class="mobile-tabbar" aria-label="Navegación rápida">
+  <a href="index.html" class="is-current" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 11L12 4l8.5 7"/><path d="M6 9.5V20h12V9.5"/></svg>Inicio</a><a href="guitarras.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M15 3l6 6M18 6l-5.5 5.5"/><path d="M11 10.5c-2-1-4.5-.6-5.6 1.1-.6 1-.5 1.9-1.5 2.5-1.6 1-1.4 3.6.6 5.3 1.7 2 4.3 2.2 5.3.6.6-1 1.5-.9 2.5-1.5 1.7-1.1 2.1-3.6 1.1-5.6"/><circle cx="9.3" cy="14.7" r="1.3"/></svg>Guitarras</a><a href="tienda.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6.5" height="6.5"/><rect x="13.5" y="4" width="6.5" height="6.5"/><rect x="4" y="13.5" width="6.5" height="6.5"/><rect x="13.5" y="13.5" width="6.5" height="6.5"/></svg>Tienda</a><a href="blog.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M5 19.5l1-4L16.5 5a2 2 0 012.8 2.8L8.8 18.3z"/><path d="M14.5 7l2.5 2.5"/></svg>Blog</a><a href="contacto.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3.5 6l8.5 6.5L20.5 6"/></svg>Contacto</a>
+</nav>
 <a class="wa-float" href="https://api.whatsapp.com/send?phone=34609302713&amp;text=Hola%2C%20tengo%20una%20consulta%20sobre%20un%20instrumento." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp (se abre en una pestaña nueva)">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2zm0 18.02c-1.5 0-2.96-.4-4.24-1.16l-.3-.18-3.12.82.83-3.04-.2-.31a8.06 8.06 0 0 1-1.24-4.24c0-4.46 3.63-8.09 8.1-8.09 2.16 0 4.2.85 5.73 2.38a8.05 8.05 0 0 1 2.37 5.72c0 4.46-3.63 8.1-8.1 8.1zm4.44-6.06c-.24-.12-1.44-.71-1.66-.79-.22-.08-.39-.12-.55.12-.16.24-.63.79-.78.95-.14.16-.29.18-.53.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.01-.37.11-.49.11-.11.24-.29.36-.43.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.33-.76-1.82-.2-.48-.4-.42-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.13 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
 </a>
+<script src="assets/js/main.js?v=9ddb4abe" defer></script>
 </body>
 </html>

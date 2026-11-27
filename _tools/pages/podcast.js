@@ -1,5 +1,5 @@
 'use strict';
-const { icons, ctaBand } = require('../layout');
+const { contactUrl, icons, ctaBand } = require('../layout');
 
 module.exports = `
 <section class="podcast-hero">
@@ -32,7 +32,7 @@ module.exports = `
       <h2 class="h2">Ayúdame a que la conversación <em>llegue más lejos.</em></h2>
       <p class="text-muted measure">Si tu marca comparte los valores de la artesanía, la cultura musical o el cuidado del oficio, podemos colaborar para seguir produciendo «La cabaña del luthier». Busco patrocinadores que quieran formar parte de un proyecto honesto, cercano y con una comunidad que escucha con atención.</p>
     </div>
-    <a class="btn" href="contacto.html">Hablemos de patrocinio ${icons.arrow}</a>
+    <a class="btn" href="${contactUrl('Podcast', 'Patrocinio del podcast')}">Hablemos de patrocinio ${icons.arrow}</a>
   </div>
 </section>
 
@@ -44,7 +44,7 @@ module.exports = `
       <p class="lead">La cabaña del luthier nace con la idea de abrir el taller y compartir conversaciones con luthiers, músicos y artesanos.</p>
       <p class="text-muted">En cada episodio hablamos de maderas, técnicas, herramientas, historia del instrumento y de la vida alrededor de un oficio que se transmite de persona a persona. Sin prisa y sin guion cerrado.</p>
       <p class="text-muted">Puedes escucharlo mientras trabajas en el taller, vas en coche o preparas la siguiente pieza. Si tienes una propuesta o te gustaría participar, escríbeme.</p>
-      <p style="margin-top:28px"><a class="link-arrow" href="contacto.html">Proponer un episodio ${icons.arrow}</a></p>
+      <p style="margin-top:28px"><a class="link-arrow" href="${contactUrl('Podcast', 'Propuesta de episodio')}">Proponer un episodio ${icons.arrow}</a></p>
     </div>
     <div class="split__media reveal" data-delay="1">
       <div class="split__frame">
@@ -58,7 +58,7 @@ module.exports = `
 ${ctaBand({
   title: '¿Tienes una historia<br><em>que contar?</em>',
   text: 'Si eres luthier, músico o artesano y crees que tu trabajo merece una conversación, escríbeme. El podcast también se construye con las propuestas de quien escucha.',
-  primary: `<a class="btn btn--light" href="contacto.html">Proponer un episodio ${icons.arrow}</a>`,
+  primary: `<a class="btn btn--light" href="${contactUrl('Podcast', 'Propuesta de episodio')}">Proponer un episodio ${icons.arrow}</a>`,
   secondary: `<a class="btn btn--ghost-light" href="mentoria.html">Conocer la mentoría</a>`,
   image: 'assets/img/workshop-3.jpg'
 })}

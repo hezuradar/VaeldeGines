@@ -1,11 +1,14 @@
 'use strict';
-const { icons, ctaBand } = require('../layout');
+const { contactUrl, waLink, icons, ctaBand } = require('../layout');
 const products = require('../data/products');
 
 const relatedOf = (p) => [
   ...products.filter((x) => x.slug !== p.slug && x.cat === p.cat),
   ...products.filter((x) => x.slug !== p.slug && x.cat !== p.cat)
 ].slice(0, 3);
+
+const INTEREST_BY_CAT = { guitarras: 'Guitarra personalizada', folclore: 'Instrumento de folclore', maderas: 'Maderas' };
+const interestOf = (p) => (p.slug === 'mentoria' ? 'Mentoría' : INTEREST_BY_CAT[p.cat] || 'Otra consulta');
 
 const fileOf = (p) => `producto-${p.slug}.html`;
 
@@ -21,7 +24,7 @@ const mentoriaOptions = `
             <li>Grabación opcional</li>
             <li>Resumen de conclusiones</li>
           </ul>
-          <a class="btn btn--outline btn--block" href="contacto.html">Solicitar una hora ${icons.arrow}</a>
+          <a class="btn btn--outline btn--block" href="${contactUrl('Mentoría', 'Una sesión de mentoría')}">Solicitar una hora ${icons.arrow}</a>
         </div>
         <div class="product-option product-option--featured">
           <span class="product-option__tag">Acompañamiento</span>
@@ -33,7 +36,7 @@ const mentoriaOptions = `
             <li>Plan de negocio con mi apoyo</li>
             <li>Estudio y minimización de riesgos</li>
           </ul>
-          <a class="btn btn--light btn--block" href="contacto.html">Solicitar el pack ${icons.arrow}</a>
+          <a class="btn btn--light btn--block" href="${contactUrl('Mentoría', 'Pack de 10 sesiones')}">Solicitar el pack ${icons.arrow}</a>
         </div>
       </div>`;
 
@@ -54,7 +57,7 @@ module.exports = function productPage(p) {
   </nav>
 </div>
 
-<section class="section section--tight">
+<section class="section section--tight section--after-crumbs">
   <div class="container product">
     <div class="gallery${p.gallery.length === 1 ? ' gallery--single' : ''}" data-gallery>
       <div class="gallery__thumbs">${thumbs}
@@ -81,8 +84,8 @@ module.exports = function productPage(p) {
       </dl>`}
       ${isMentoria ? '' : `
       <div class="product__actions">
-        <a class="btn btn--block" href="contacto.html">Solicitar ${p.name} ${icons.arrow}</a>
-        <a class="btn btn--outline btn--block" href="contacto.html">Hablar con el luthier</a>
+        <a class="btn btn--block" href="${contactUrl(interestOf(p), p.name)}">Solicitar ${p.name} ${icons.arrow}</a>
+        <a class="btn btn--outline btn--block" href="${waLink(`Hola, me interesa ${p.name} (${p.label}). ¿Podemos hablar?`)}" target="_blank" rel="noopener">Preguntar por WhatsApp</a>
       </div>
       <p class="product__note">${icons.clock}<span>Construcción y disponibilidad por encargo. Te confirmaré plazos y condiciones antes de iniciar el proyecto.</span></p>`}
     </div>
@@ -191,7 +194,7 @@ module.exports = function productPage(p) {
 ${ctaBand({
   title: `¿Es ${p.name} <em>lo que buscas?</em>`,
   text: 'Si esta pieza encaja con lo que tienes en mente, escríbeme y concretamos los detalles. Si tienes otra idea, también podemos diseñarla desde cero.',
-  primary: `<a class="btn btn--light" href="contacto.html">Solicitar información ${icons.arrow}</a>`,
+  primary: `<a class="btn btn--light" href="${contactUrl(interestOf(p), p.name)}">Solicitar información ${icons.arrow}</a>`,
   secondary: `<a class="btn btn--ghost-light" href="tienda.html">Seguir explorando</a>`,
   image: p.image
 })}

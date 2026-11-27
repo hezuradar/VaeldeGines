@@ -1,5 +1,5 @@
 'use strict';
-const { icons, postCard, ctaBand } = require('../layout');
+const { icons, postCard, ctaBand, readTime } = require('../layout');
 const articles = require('../data/blog');
 
 const featured = articles[0];
@@ -55,7 +55,7 @@ module.exports = `
     <div class="post-grid">
       ${articles.map((a) => `
       <div data-post="${a.filter}">
-        ${postCard({ category: a.label, title: a.title, excerpt: a.excerpt, img: a.image, alt: a.title, href: a.file, date: a.date })}
+        ${postCard({ category: a.label, title: a.title, excerpt: a.excerpt, img: a.image, alt: a.title, href: a.file, read: readTime(a.content) + ' min' })}
       </div>`).join('')}
     </div>
   </div>

@@ -1,0 +1,702 @@
+{
+ "assets/img/blog/abeto-vs-cedro-1.webp": {
+  "w": 750,
+  "h": 750,
+  "lg": "assets/img/blog/abeto-vs-cedro-1-lg.webp"
+ },
+ "assets/img/blog/abeto-vs-cedro-2.jpg": {
+  "w": 300,
+  "h": 300,
+  "lg": "assets/img/blog/abeto-vs-cedro-2-lg.webp"
+ },
+ "assets/img/blog/abeto-vs-cedro-3.png": {
+  "w": 942,
+  "h": 575,
+  "lg": "assets/img/blog/abeto-vs-cedro-3-lg.webp",
+  "sm": "assets/img/blog/abeto-vs-cedro-3-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/abeto-vs-cedro-portada.jpg": {
+  "w": 1030,
+  "h": 687,
+  "lg": "assets/img/blog/abeto-vs-cedro-portada-lg.webp",
+  "sm": "assets/img/blog/abeto-vs-cedro-portada-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/arce-portada.jpg": {
+  "w": 460,
+  "h": 314,
+  "lg": "assets/img/blog/arce-portada-lg.webp"
+ },
+ "assets/img/blog/cipres-portada.jpg": {
+  "w": 977,
+  "h": 1030,
+  "lg": "assets/img/blog/cipres-portada-lg.webp",
+  "sm": "assets/img/blog/cipres-portada-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/cnc-en-la-lutheria-1.jpg": {
+  "w": 673,
+  "h": 394,
+  "lg": "assets/img/blog/cnc-en-la-lutheria-1-lg.webp"
+ },
+ "assets/img/blog/cnc-en-la-lutheria-2.jpg": {
+  "w": 1030,
+  "h": 594,
+  "lg": "assets/img/blog/cnc-en-la-lutheria-2-lg.webp",
+  "sm": "assets/img/blog/cnc-en-la-lutheria-2-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/cnc-en-la-lutheria-3.jpg": {
+  "w": 1030,
+  "h": 634,
+  "lg": "assets/img/blog/cnc-en-la-lutheria-3-lg.webp",
+  "sm": "assets/img/blog/cnc-en-la-lutheria-3-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/cnc-en-la-lutheria-4.jpg": {
+  "w": 1030,
+  "h": 785,
+  "lg": "assets/img/blog/cnc-en-la-lutheria-4-lg.webp",
+  "sm": "assets/img/blog/cnc-en-la-lutheria-4-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/cnc-en-la-lutheria-portada.jpg": {
+  "w": 648,
+  "h": 606,
+  "lg": "assets/img/blog/cnc-en-la-lutheria-portada-lg.webp"
+ },
+ "assets/img/blog/definicion-de-violin-portada.jpg": {
+  "w": 959,
+  "h": 554,
+  "lg": "assets/img/blog/definicion-de-violin-portada-lg.webp",
+  "sm": "assets/img/blog/definicion-de-violin-portada-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/ebano-portada.jpeg": {
+  "w": 506,
+  "h": 630,
+  "lg": "assets/img/blog/ebano-portada-lg.webp"
+ },
+ "assets/img/blog/el-barniz-portada.jpg": {
+  "w": 1030,
+  "h": 686,
+  "lg": "assets/img/blog/el-barniz-portada-lg.webp",
+  "sm": "assets/img/blog/el-barniz-portada-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/el-luthier-y-las-herramientas-tradicionales-portada.jpg": {
+  "w": 1030,
+  "h": 687,
+  "lg": "assets/img/blog/el-luthier-y-las-herramientas-tradicionales-portada-lg.webp",
+  "sm": "assets/img/blog/el-luthier-y-las-herramientas-tradicionales-portada-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/guitarra-clasica-vs-flamenca-luthier-1.jpg": {
+  "w": 770,
+  "h": 1030,
+  "lg": "assets/img/blog/guitarra-clasica-vs-flamenca-luthier-1-lg.webp"
+ },
+ "assets/img/blog/guitarra-clasica-vs-flamenca-luthier-2.jpg": {
+  "w": 748,
+  "h": 1030,
+  "lg": "assets/img/blog/guitarra-clasica-vs-flamenca-luthier-2-lg.webp"
+ },
+ "assets/img/blog/guitarra-clasica-vs-flamenca-luthier-3.jpg": {
+  "w": 1030,
+  "h": 687,
+  "lg": "assets/img/blog/guitarra-clasica-vs-flamenca-luthier-3-lg.webp",
+  "sm": "assets/img/blog/guitarra-clasica-vs-flamenca-luthier-3-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/guitarra-clasica-vs-flamenca-luthier-portada.jpg": {
+  "w": 1024,
+  "h": 1024,
+  "lg": "assets/img/blog/guitarra-clasica-vs-flamenca-luthier-portada-lg.webp",
+  "sm": "assets/img/blog/guitarra-clasica-vs-flamenca-luthier-portada-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/guitarra-de-abeto-la-eleccion-perfecta-para-el-sonido-ideal-1.jpg": {
+  "w": 1024,
+  "h": 1024,
+  "lg": "assets/img/blog/guitarra-de-abeto-la-eleccion-perfecta-para-el-sonido-ideal-1-lg.webp",
+  "sm": "assets/img/blog/guitarra-de-abeto-la-eleccion-perfecta-para-el-sonido-ideal-1-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/guitarra-de-abeto-la-eleccion-perfecta-para-el-sonido-ideal-2.jpg": {
+  "w": 687,
+  "h": 1030,
+  "lg": "assets/img/blog/guitarra-de-abeto-la-eleccion-perfecta-para-el-sonido-ideal-2-lg.webp"
+ },
+ "assets/img/blog/guitarra-de-abeto-la-eleccion-perfecta-para-el-sonido-ideal-portada.jpg": {
+  "w": 1030,
+  "h": 687,
+  "lg": "assets/img/blog/guitarra-de-abeto-la-eleccion-perfecta-para-el-sonido-ideal-portada-lg.webp",
+  "sm": "assets/img/blog/guitarra-de-abeto-la-eleccion-perfecta-para-el-sonido-ideal-portada-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/guitarras-hecha-a-mano-2.jpg": {
+  "w": 1030,
+  "h": 687,
+  "lg": "assets/img/blog/guitarras-hecha-a-mano-2-lg.webp",
+  "sm": "assets/img/blog/guitarras-hecha-a-mano-2-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/guitarras-hecha-a-mano-3.jpg": {
+  "w": 1030,
+  "h": 687,
+  "lg": "assets/img/blog/guitarras-hecha-a-mano-3-lg.webp",
+  "sm": "assets/img/blog/guitarras-hecha-a-mano-3-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/guitarras-hecha-a-mano-portada.jpg": {
+  "w": 1030,
+  "h": 687,
+  "lg": "assets/img/blog/guitarras-hecha-a-mano-portada-lg.webp",
+  "sm": "assets/img/blog/guitarras-hecha-a-mano-portada-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/herramientas-electricas-portada.jpg": {
+  "w": 1030,
+  "h": 574,
+  "lg": "assets/img/blog/herramientas-electricas-portada-lg.webp",
+  "sm": "assets/img/blog/herramientas-electricas-portada-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/historia_de_la_guitarra-1.jpg": {
+  "w": 640,
+  "h": 629,
+  "lg": "assets/img/blog/historia_de_la_guitarra-1-lg.webp"
+ },
+ "assets/img/blog/historia_de_la_guitarra-2.jpg": {
+  "w": 1030,
+  "h": 492,
+  "lg": "assets/img/blog/historia_de_la_guitarra-2-lg.webp",
+  "sm": "assets/img/blog/historia_de_la_guitarra-2-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/historia_de_la_guitarra-3.webp": {
+  "w": 724,
+  "h": 1030,
+  "lg": "assets/img/blog/historia_de_la_guitarra-3-lg.webp"
+ },
+ "assets/img/blog/historia_de_la_guitarra-4.jpg": {
+  "w": 900,
+  "h": 1030,
+  "lg": "assets/img/blog/historia_de_la_guitarra-4-lg.webp"
+ },
+ "assets/img/blog/historia_de_la_guitarra-5.jpg": {
+  "w": 1030,
+  "h": 580,
+  "lg": "assets/img/blog/historia_de_la_guitarra-5-lg.webp",
+  "sm": "assets/img/blog/historia_de_la_guitarra-5-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/historia_de_la_guitarra-6.jpg": {
+  "w": 1030,
+  "h": 687,
+  "lg": "assets/img/blog/historia_de_la_guitarra-6-lg.webp",
+  "sm": "assets/img/blog/historia_de_la_guitarra-6-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/historia_de_la_guitarra-portada.jpg": {
+  "w": 1030,
+  "h": 708,
+  "lg": "assets/img/blog/historia_de_la_guitarra-portada-lg.webp",
+  "sm": "assets/img/blog/historia_de_la_guitarra-portada-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/homo-faber-y-vael-de-gines-1.webp": {
+  "w": 248,
+  "h": 248,
+  "lg": "assets/img/blog/homo-faber-y-vael-de-gines-1-lg.webp"
+ },
+ "assets/img/blog/homo-faber-y-vael-de-gines-2.jpg": {
+  "w": 1030,
+  "h": 900,
+  "lg": "assets/img/blog/homo-faber-y-vael-de-gines-2-lg.webp",
+  "sm": "assets/img/blog/homo-faber-y-vael-de-gines-2-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/homo-faber-y-vael-de-gines-portada.jpg": {
+  "w": 1030,
+  "h": 687,
+  "lg": "assets/img/blog/homo-faber-y-vael-de-gines-portada-lg.webp",
+  "sm": "assets/img/blog/homo-faber-y-vael-de-gines-portada-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/libros-para-luthiers-1.jpg": {
+  "w": 718,
+  "h": 1030,
+  "lg": "assets/img/blog/libros-para-luthiers-1-lg.webp"
+ },
+ "assets/img/blog/libros-para-luthiers-2.jpg": {
+  "w": 1030,
+  "h": 580,
+  "lg": "assets/img/blog/libros-para-luthiers-2-lg.webp",
+  "sm": "assets/img/blog/libros-para-luthiers-2-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/libros-para-luthiers-3.jpg": {
+  "w": 650,
+  "h": 846,
+  "lg": "assets/img/blog/libros-para-luthiers-3-lg.webp"
+ },
+ "assets/img/blog/libros-para-luthiers-4.jpg": {
+  "w": 824,
+  "h": 1030,
+  "lg": "assets/img/blog/libros-para-luthiers-4-lg.webp"
+ },
+ "assets/img/blog/libros-para-luthiers-5.jpg": {
+  "w": 724,
+  "h": 1030,
+  "lg": "assets/img/blog/libros-para-luthiers-5-lg.webp"
+ },
+ "assets/img/blog/libros-para-luthiers-portada.jpg": {
+  "w": 824,
+  "h": 1030,
+  "lg": "assets/img/blog/libros-para-luthiers-portada-lg.webp"
+ },
+ "assets/img/blog/luthier-de-guitarras-1.jpg": {
+  "w": 1030,
+  "h": 1030,
+  "lg": "assets/img/blog/luthier-de-guitarras-1-lg.webp",
+  "sm": "assets/img/blog/luthier-de-guitarras-1-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/luthier-de-guitarras-2.jpg": {
+  "w": 1030,
+  "h": 1030,
+  "lg": "assets/img/blog/luthier-de-guitarras-2-lg.webp",
+  "sm": "assets/img/blog/luthier-de-guitarras-2-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/luthier-de-guitarras-portada.jpg": {
+  "w": 1030,
+  "h": 687,
+  "lg": "assets/img/blog/luthier-de-guitarras-portada-lg.webp",
+  "sm": "assets/img/blog/luthier-de-guitarras-portada-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/madera-de-bubinga-guitarra-1.png": {
+  "w": 1024,
+  "h": 576,
+  "lg": "assets/img/blog/madera-de-bubinga-guitarra-1-lg.webp",
+  "sm": "assets/img/blog/madera-de-bubinga-guitarra-1-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/madera-de-bubinga-guitarra-2.jpeg": {
+  "w": 590,
+  "h": 540,
+  "lg": "assets/img/blog/madera-de-bubinga-guitarra-2-lg.webp"
+ },
+ "assets/img/blog/madera-de-bubinga-guitarra-3.jpg": {
+  "w": 600,
+  "h": 600,
+  "lg": "assets/img/blog/madera-de-bubinga-guitarra-3-lg.webp"
+ },
+ "assets/img/blog/madera-de-bubinga-guitarra-4.jpeg": {
+  "w": 168,
+  "h": 300,
+  "lg": "assets/img/blog/madera-de-bubinga-guitarra-4-lg.webp"
+ },
+ "assets/img/blog/madera-de-bubinga-guitarra-portada.jpg": {
+  "w": 1080,
+  "h": 1080,
+  "lg": "assets/img/blog/madera-de-bubinga-guitarra-portada-lg.webp",
+  "sm": "assets/img/blog/madera-de-bubinga-guitarra-portada-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/madera-de-cocobolo-1.jpg": {
+  "w": 683,
+  "h": 1024,
+  "lg": "assets/img/blog/madera-de-cocobolo-1-lg.webp"
+ },
+ "assets/img/blog/madera-de-cocobolo-2.jpg": {
+  "w": 1030,
+  "h": 776,
+  "lg": "assets/img/blog/madera-de-cocobolo-2-lg.webp",
+  "sm": "assets/img/blog/madera-de-cocobolo-2-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/madera-de-cocobolo-3.jpg": {
+  "w": 631,
+  "h": 1030,
+  "lg": "assets/img/blog/madera-de-cocobolo-3-lg.webp"
+ },
+ "assets/img/blog/madera-de-cocobolo-4.jpg": {
+  "w": 524,
+  "h": 604,
+  "lg": "assets/img/blog/madera-de-cocobolo-4-lg.webp"
+ },
+ "assets/img/blog/madera-de-cocobolo-portada.jpg": {
+  "w": 1005,
+  "h": 1030,
+  "lg": "assets/img/blog/madera-de-cocobolo-portada-lg.webp",
+  "sm": "assets/img/blog/madera-de-cocobolo-portada-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/mantenimiento-guitarra-de-lujo-1.jpg": {
+  "w": 824,
+  "h": 824,
+  "lg": "assets/img/blog/mantenimiento-guitarra-de-lujo-1-lg.webp"
+ },
+ "assets/img/blog/mantenimiento-guitarra-de-lujo-2.jpg": {
+  "w": 464,
+  "h": 464,
+  "lg": "assets/img/blog/mantenimiento-guitarra-de-lujo-2-lg.webp"
+ },
+ "assets/img/blog/mantenimiento-guitarra-de-lujo-3.jpg": {
+  "w": 824,
+  "h": 1030,
+  "lg": "assets/img/blog/mantenimiento-guitarra-de-lujo-3-lg.webp"
+ },
+ "assets/img/blog/mantenimiento-guitarra-de-lujo-4.jpg": {
+  "w": 1024,
+  "h": 1024,
+  "lg": "assets/img/blog/mantenimiento-guitarra-de-lujo-4-lg.webp",
+  "sm": "assets/img/blog/mantenimiento-guitarra-de-lujo-4-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/mantenimiento-guitarra-de-lujo-portada.jpg": {
+  "w": 687,
+  "h": 1030,
+  "lg": "assets/img/blog/mantenimiento-guitarra-de-lujo-portada-lg.webp"
+ },
+ "assets/img/blog/moon-spruce-1.webp": {
+  "w": 1024,
+  "h": 1024,
+  "lg": "assets/img/blog/moon-spruce-1-lg.webp",
+  "sm": "assets/img/blog/moon-spruce-1-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/moon-spruce-2.jpg": {
+  "w": 458,
+  "h": 497,
+  "lg": "assets/img/blog/moon-spruce-2-lg.webp"
+ },
+ "assets/img/blog/moon-spruce-3.jpg": {
+  "w": 540,
+  "h": 540,
+  "lg": "assets/img/blog/moon-spruce-3-lg.webp"
+ },
+ "assets/img/blog/moon-spruce-4.jpg": {
+  "w": 687,
+  "h": 425,
+  "lg": "assets/img/blog/moon-spruce-4-lg.webp"
+ },
+ "assets/img/blog/moon-spruce-portada.jpg": {
+  "w": 1030,
+  "h": 687,
+  "lg": "assets/img/blog/moon-spruce-portada-lg.webp",
+  "sm": "assets/img/blog/moon-spruce-portada-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/palo-santo-portada.jpg": {
+  "w": 687,
+  "h": 1030,
+  "lg": "assets/img/blog/palo-santo-portada-lg.webp"
+ },
+ "assets/img/blog/partes-del-violin-portada.jpg": {
+  "w": 1030,
+  "h": 685,
+  "lg": "assets/img/blog/partes-del-violin-portada-lg.webp",
+  "sm": "assets/img/blog/partes-del-violin-portada-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/pau-ferro-1.jpg": {
+  "w": 1030,
+  "h": 687,
+  "lg": "assets/img/blog/pau-ferro-1-lg.webp",
+  "sm": "assets/img/blog/pau-ferro-1-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/pau-ferro-2.jpg": {
+  "w": 576,
+  "h": 1024,
+  "lg": "assets/img/blog/pau-ferro-2-lg.webp"
+ },
+ "assets/img/blog/pau-ferro-3.jpg": {
+  "w": 511,
+  "h": 571,
+  "lg": "assets/img/blog/pau-ferro-3-lg.webp"
+ },
+ "assets/img/blog/pau-ferro-4.jpg": {
+  "w": 1030,
+  "h": 687,
+  "lg": "assets/img/blog/pau-ferro-4-lg.webp",
+  "sm": "assets/img/blog/pau-ferro-4-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/pau-ferro-portada.jpg": {
+  "w": 1030,
+  "h": 687,
+  "lg": "assets/img/blog/pau-ferro-portada-lg.webp",
+  "sm": "assets/img/blog/pau-ferro-portada-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/que-es-un-luthier-portada.jpg": {
+  "w": 1030,
+  "h": 687,
+  "lg": "assets/img/blog/que-es-un-luthier-portada-lg.webp",
+  "sm": "assets/img/blog/que-es-un-luthier-portada-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/que-es-un-ukelele-portada.jpg": {
+  "w": 800,
+  "h": 600,
+  "lg": "assets/img/blog/que-es-un-ukelele-portada-lg.webp"
+ },
+ "assets/img/blog/que-es-una-guitarra-portada.jpg": {
+  "w": 1030,
+  "h": 687,
+  "lg": "assets/img/blog/que-es-una-guitarra-portada-lg.webp",
+  "sm": "assets/img/blog/que-es-una-guitarra-portada-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog/ziricote-portada.jpg": {
+  "w": 961,
+  "h": 717,
+  "lg": "assets/img/blog/ziricote-portada-lg.webp",
+  "sm": "assets/img/blog/ziricote-portada-sm.webp",
+  "smw": 800
+ },
+ "assets/img/blog-libro.jpg": {
+  "w": 650,
+  "h": 846,
+  "lg": "assets/img/blog-libro-lg.webp"
+ },
+ "assets/img/compromiso.webp": {
+  "w": 1264,
+  "h": 842,
+  "lg": "assets/img/compromiso-lg.webp",
+  "sm": "assets/img/compromiso-sm.webp",
+  "smw": 800
+ },
+ "assets/img/craft-hands.jpg": {
+  "w": 1023,
+  "h": 1023,
+  "lg": "assets/img/craft-hands-lg.webp",
+  "sm": "assets/img/craft-hands-sm.webp",
+  "smw": 800
+ },
+ "assets/img/craft-plane.jpg": {
+  "w": 1024,
+  "h": 682,
+  "lg": "assets/img/craft-plane-lg.webp",
+  "sm": "assets/img/craft-plane-sm.webp",
+  "smw": 800
+ },
+ "assets/img/folk-guitarro.jpg": {
+  "w": 1030,
+  "h": 686,
+  "lg": "assets/img/folk-guitarro-lg.webp",
+  "sm": "assets/img/folk-guitarro-sm.webp",
+  "smw": 800
+ },
+ "assets/img/folk-player.jpg": {
+  "w": 612,
+  "h": 674,
+  "lg": "assets/img/folk-player-lg.webp"
+ },
+ "assets/img/guitar-camino.jpg": {
+  "w": 1030,
+  "h": 687,
+  "lg": "assets/img/guitar-camino-lg.webp",
+  "sm": "assets/img/guitar-camino-sm.webp",
+  "smw": 800
+ },
+ "assets/img/guitar-freya.jpg": {
+  "w": 1030,
+  "h": 687,
+  "lg": "assets/img/guitar-freya-lg.webp",
+  "sm": "assets/img/guitar-freya-sm.webp",
+  "smw": 800
+ },
+ "assets/img/guitar-golden-whale.jpg": {
+  "w": 864,
+  "h": 1152,
+  "lg": "assets/img/guitar-golden-whale-lg.webp"
+ },
+ "assets/img/guitar-jaguar.jpg": {
+  "w": 1030,
+  "h": 687,
+  "lg": "assets/img/guitar-jaguar-lg.webp",
+  "sm": "assets/img/guitar-jaguar-sm.webp",
+  "smw": 800
+ },
+ "assets/img/guitar-paloma.jpg": {
+  "w": 687,
+  "h": 1030,
+  "lg": "assets/img/guitar-paloma-lg.webp"
+ },
+ "assets/img/guitar-venus.jpg": {
+  "w": 1030,
+  "h": 687,
+  "lg": "assets/img/guitar-venus-lg.webp",
+  "sm": "assets/img/guitar-venus-sm.webp",
+  "smw": 800
+ },
+ "assets/img/guitarro-detail.jpg": {
+  "w": 1030,
+  "h": 687,
+  "lg": "assets/img/guitarro-detail-lg.webp",
+  "sm": "assets/img/guitarro-detail-sm.webp",
+  "smw": 800
+ },
+ "assets/img/hero-guitar.jpg": {
+  "w": 864,
+  "h": 1152,
+  "lg": "assets/img/hero-guitar-lg.webp"
+ },
+ "assets/img/hero-luthier.jpg": {
+  "w": 1030,
+  "h": 687,
+  "lg": "assets/img/hero-luthier-lg.webp",
+  "sm": "assets/img/hero-luthier-sm.webp",
+  "smw": 800
+ },
+ "assets/img/homofaber.webp": {
+  "w": 248,
+  "h": 248,
+  "lg": "assets/img/homofaber-lg.webp"
+ },
+ "assets/img/logo.png": {
+  "w": 1600,
+  "h": 1141,
+  "lg": "assets/img/logo-lg.webp",
+  "sm": "assets/img/logo-sm.webp",
+  "smw": 800
+ },
+ "assets/img/luthier-portrait.jpg": {
+  "w": 1030,
+  "h": 1028,
+  "lg": "assets/img/luthier-portrait-lg.webp",
+  "sm": "assets/img/luthier-portrait-sm.webp",
+  "smw": 800
+ },
+ "assets/img/mentoria.png": {
+  "w": 560,
+  "h": 518,
+  "lg": "assets/img/mentoria-lg.webp"
+ },
+ "assets/img/podcast-cover.png": {
+  "w": 500,
+  "h": 500,
+  "lg": "assets/img/podcast-cover-lg.webp"
+ },
+ "assets/img/productos/camino-1.jpg": {
+  "w": 1024,
+  "h": 683,
+  "lg": "assets/img/productos/camino-1-lg.webp",
+  "sm": "assets/img/productos/camino-1-sm.webp",
+  "smw": 800
+ },
+ "assets/img/productos/golden-whale-1.jpg": {
+  "w": 768,
+  "h": 1024,
+  "lg": "assets/img/productos/golden-whale-1-lg.webp"
+ },
+ "assets/img/productos/golden-whale-2.jpg": {
+  "w": 683,
+  "h": 1024,
+  "lg": "assets/img/productos/golden-whale-2-lg.webp"
+ },
+ "assets/img/productos/golden-whale-3.jpg": {
+  "w": 1024,
+  "h": 683,
+  "lg": "assets/img/productos/golden-whale-3-lg.webp",
+  "sm": "assets/img/productos/golden-whale-3-sm.webp",
+  "smw": 800
+ },
+ "assets/img/productos/guitarro-murciano-1.jpg": {
+  "w": 1024,
+  "h": 704,
+  "lg": "assets/img/productos/guitarro-murciano-1-lg.webp",
+  "sm": "assets/img/productos/guitarro-murciano-1-sm.webp",
+  "smw": 800
+ },
+ "assets/img/productos/guitarro-murciano-2.jpg": {
+  "w": 1024,
+  "h": 839,
+  "lg": "assets/img/productos/guitarro-murciano-2-lg.webp",
+  "sm": "assets/img/productos/guitarro-murciano-2-sm.webp",
+  "smw": 800
+ },
+ "assets/img/productos/guitarro-tenor-1.jpg": {
+  "w": 1024,
+  "h": 682,
+  "lg": "assets/img/productos/guitarro-tenor-1-lg.webp",
+  "sm": "assets/img/productos/guitarro-tenor-1-sm.webp",
+  "smw": 800
+ },
+ "assets/img/productos/guitarro-tenor-2.jpg": {
+  "w": 1024,
+  "h": 683,
+  "lg": "assets/img/productos/guitarro-tenor-2-lg.webp",
+  "sm": "assets/img/productos/guitarro-tenor-2-sm.webp",
+  "smw": 800
+ },
+ "assets/img/productos/libro-guitarra-lutheria-1.jpg": {
+  "w": 650,
+  "h": 846,
+  "lg": "assets/img/productos/libro-guitarra-lutheria-1-lg.webp"
+ },
+ "assets/img/productos/madera-bubinga-1.jpg": {
+  "w": 600,
+  "h": 600,
+  "lg": "assets/img/productos/madera-bubinga-1-lg.webp"
+ },
+ "assets/img/productos/madera-bubinga-2.jpeg": {
+  "w": 1024,
+  "h": 768,
+  "lg": "assets/img/productos/madera-bubinga-2-lg.webp",
+  "sm": "assets/img/productos/madera-bubinga-2-sm.webp",
+  "smw": 800
+ },
+ "assets/img/productos/paloma-1.jpg": {
+  "w": 1024,
+  "h": 683,
+  "lg": "assets/img/productos/paloma-1-lg.webp",
+  "sm": "assets/img/productos/paloma-1-sm.webp",
+  "smw": 800
+ },
+ "assets/img/productos/paloma-2.jpg": {
+  "w": 1024,
+  "h": 683,
+  "lg": "assets/img/productos/paloma-2-lg.webp",
+  "sm": "assets/img/productos/paloma-2-sm.webp",
+  "smw": 800
+ },
+ "assets/img/tree-nation-logo.png": {
+  "w": 640,
+  "h": 147,
+  "lg": "assets/img/tree-nation-logo-lg.webp"
+ },
+ "assets/img/wood-bubinga.jpg": {
+  "w": 600,
+  "h": 600,
+  "lg": "assets/img/wood-bubinga-lg.webp"
+ },
+ "assets/img/workshop-1.jpg": {
+  "w": 1030,
+  "h": 687,
+  "lg": "assets/img/workshop-1-lg.webp",
+  "sm": "assets/img/workshop-1-sm.webp",
+  "smw": 800
+ },
+ "assets/img/workshop-2.jpg": {
+  "w": 1030,
+  "h": 687,
+  "lg": "assets/img/workshop-2-lg.webp",
+  "sm": "assets/img/workshop-2-sm.webp",
+  "smw": 800
+ },
+ "assets/img/workshop-3.jpg": {
+  "w": 1024,
+  "h": 681,
+  "lg": "assets/img/workshop-3-lg.webp",
+  "sm": "assets/img/workshop-3-sm.webp",
+  "smw": 800
+ }
+}

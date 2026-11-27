@@ -1,10 +1,10 @@
 'use strict';
-const { icons, guitarCard, postCard, ctaBand } = require('../layout');
+const { contactUrl, icons, guitarCard, postCard, ctaBand, readTime } = require('../layout');
 const articles = require('../data/blog');
 const bySlug = Object.fromEntries(articles.map((a) => [a.slug, a]));
 const blogTeaser = (slug) => {
   const a = bySlug[slug];
-  return postCard({ category: a.label, title: a.title, excerpt: a.excerpt, img: a.image, alt: a.title, href: a.file, read: '6 min' });
+  return postCard({ category: a.label, title: a.title, excerpt: a.excerpt, img: a.image, alt: a.title, href: a.file, read: readTime(a.content) + ' min' });
 };
 
 module.exports = `
@@ -14,7 +14,7 @@ module.exports = `
     <h1 class="hero__title">Instrumentos con alma,<br><em>construidos a mano.</em></h1>
     <p class="hero__text">Guitarras personalizadas e instrumentos de folclore. Cada pieza nace de una conversación, de maderas seleccionadas con paciencia y del tiempo que exige el oficio.</p>
     <div class="hero__actions">
-      <a class="btn" href="contacto.html">Diseñar mi guitarra ${icons.arrow}</a>
+      <a class="btn" href="${contactUrl('Guitarra personalizada')}">Diseñar mi guitarra ${icons.arrow}</a>
       <a class="link-arrow" href="guitarras.html#coleccion">Ver la colección ${icons.arrow}</a>
     </div>
     <dl class="hero__stats">

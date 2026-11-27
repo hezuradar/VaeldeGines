@@ -1,5 +1,5 @@
 'use strict';
-const { icons, pageHero, ctaBand } = require('../layout');
+const { contactUrl, icons, pageHero, ctaBand } = require('../layout');
 
 module.exports = `
 ${pageHero({
@@ -59,7 +59,7 @@ ${pageHero({
           <li>Grabación opcional</li>
           <li>Resumen de conclusiones</li>
         </ul>
-        <a class="btn btn--outline" href="contacto.html">Reservar sesión ${icons.arrow}</a>
+        <a class="btn btn--outline" href="${contactUrl('Mentoría', 'Una sesión de mentoría')}">Reservar sesión ${icons.arrow}</a>
       </div>
 
       <div class="price-card price-card--featured reveal" data-delay="1">
@@ -73,7 +73,7 @@ ${pageHero({
           <li>Estudio y minimización de riesgos</li>
           <li>Seguimiento entre sesiones</li>
         </ul>
-        <a class="btn btn--light" href="contacto.html">Reservar el pack ${icons.arrow}</a>
+        <a class="btn btn--light" href="${contactUrl('Mentoría', 'Pack de 10 sesiones')}">Reservar el pack ${icons.arrow}</a>
       </div>
     </div>
   </div>
@@ -143,7 +143,7 @@ ${pageHero({
 ${ctaBand({
   title: '¿Empezamos <em>por una conversación?</em>',
   text: 'Cuéntame en qué punto estás, qué te gustaría conseguir y qué dudas tienes. Te responderé personalmente para concretar la sesión.',
-  primary: `<a class="btn btn--light" href="contacto.html">Reservar mi mentoría ${icons.arrow}</a>`,
+  primary: `<a class="btn btn--light" href="${contactUrl('Mentoría')}">Reservar mi mentoría ${icons.arrow}</a>`,
   secondary: `<a class="btn btn--ghost-light" href="podcast.html">Escuchar el podcast</a>`,
   image: 'assets/img/craft-plane.jpg'
 })}

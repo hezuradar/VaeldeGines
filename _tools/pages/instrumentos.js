@@ -1,5 +1,5 @@
 'use strict';
-const { icons, pageHero, ctaBand } = require('../layout');
+const { contactUrl, icons, pageHero, ctaBand } = require('../layout');
 
 const instruments = [
   { name: 'Guitarro murciano', desc: 'Un instrumento ligado a la tradición musical murciana, construido artesanalmente y con atención a sus características propias.', icon: icons.instrument },
@@ -16,7 +16,7 @@ ${pageHero({
   eyebrow: 'Instrumentos de folclore',
   title: 'La tradición,<br><em>hecha instrumento.</em>',
   text: 'Construyo artesanalmente instrumentos de cuerda ligados a nuestra tradición musical, respetando su carácter, su historia y la música para la que fueron concebidos.',
-  actions: `<a class="btn" href="#catalogo">Explorar instrumentos ${icons.arrow}</a><a class="link-arrow" href="contacto.html">Consultar mi instrumento ${icons.arrow}</a>`,
+  actions: `<a class="btn" href="#catalogo">Explorar instrumentos ${icons.arrow}</a><a class="link-arrow" href="${contactUrl('Instrumento de folclore')}">Consultar mi instrumento ${icons.arrow}</a>`,
   image: 'assets/img/folk-player.jpg',
   alt: 'Músico tocando un instrumento de folclore construido por Vael de Ginés',
   caption: 'Tradición viva · Murcia',
@@ -31,7 +31,7 @@ ${pageHero({
       <p class="lead">Cada instrumento tradicional tiene su propia voz, su historia y su lugar en nuestra cultura musical.</p>
       <p class="text-muted">En mi taller construyo instrumentos de cuerda de forma artesanal, con atención a sus características, sus materiales y el trabajo necesario para darles vida. La construcción artesanal se une al interés por conocer, comprender y preservar estos instrumentos.</p>
       <p class="text-muted">Mi trabajo incluye especialmente el guitarro murciano, una familia de instrumentos cuya construcción y tradición merecen seguir transmitiéndose a nuevas generaciones de músicos.</p>
-      <p style="margin-top:28px"><a class="link-arrow" href="contacto.html">Cuéntame qué buscas ${icons.arrow}</a></p>
+      <p style="margin-top:28px"><a class="link-arrow" href="${contactUrl('Instrumento de folclore')}">Cuéntame qué buscas ${icons.arrow}</a></p>
     </div>
     <div class="split__media reveal" data-delay="1">
       <div class="split__frame">
@@ -50,7 +50,7 @@ ${pageHero({
         <h2 class="h2">Cada instrumento,<br><em>su propia voz.</em></h2>
         <p class="text-muted measure">Explora la familia de instrumentos que construyo en el taller. Si buscas una variante concreta o tienes una necesidad particular, consúltame para comprobar las posibilidades de fabricación.</p>
       </div>
-      <a class="link-arrow" href="contacto.html">Asesoramiento ${icons.arrow}</a>
+      <a class="link-arrow" href="${contactUrl('Instrumento de folclore')}">Asesoramiento ${icons.arrow}</a>
     </div>
     <div class="instrument-grid" id="guitarro">
       ${instruments.map((it) => `
@@ -79,7 +79,7 @@ ${pageHero({
         <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:var(--brass);width:16px;flex:none">${icons.check}</span><span class="text-muted">Asesoramiento sobre configuración y uso</span></li>
         <li style="display:flex;gap:10px;align-items:flex-start"><span style="color:var(--brass);width:16px;flex:none">${icons.check}</span><span class="text-muted">Acabados y ajustes a medida</span></li>
       </ul>
-      <p style="margin-top:30px"><a class="btn" href="contacto.html">Consultar el guitarro ${icons.arrow}</a></p>
+      <p style="margin-top:30px"><a class="btn" href="${contactUrl('Instrumento de folclore', 'Guitarro murciano')}">Consultar el guitarro ${icons.arrow}</a></p>
     </div>
     <div class="split__media reveal" data-delay="1">
       <div class="split__frame">
@@ -154,7 +154,7 @@ ${pageHero({
 ${ctaBand({
   title: 'Hablemos de música <em>y tradición.</em>',
   text: 'Cuéntame qué instrumento tienes en mente, cómo lo vas a utilizar y qué necesitas encontrar en él. Estudiaremos las posibilidades y te facilitaré la información necesaria para dar el siguiente paso.',
-  primary: `<a class="btn btn--light" href="contacto.html">Consultar mi instrumento ${icons.arrow}</a>`,
+  primary: `<a class="btn btn--light" href="${contactUrl('Instrumento de folclore')}">Consultar mi instrumento ${icons.arrow}</a>`,
   secondary: `<a class="btn btn--ghost-light" href="tienda.html">Ver catálogo</a>`,
   image: 'assets/img/folk-guitarro.jpg'
 })}

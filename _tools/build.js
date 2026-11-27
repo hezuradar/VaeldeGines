@@ -1,134 +1,150 @@
 'use strict';
+/* Genera todas las páginas del sitio, más sitemap.xml, robots.txt, .htaccess
+   y 404.html. Una sola versión responsive: no hay copia móvil separada.     */
 
 const fs = require('fs');
 const path = require('path');
-const { page } = require('./layout');
+const { page, SITE, absUrl } = require('./layout');
 const articlePage = require('./pages/article');
 const productPage = require('./pages/producto');
 const articles = require('./data/blog');
 const products = require('./data/products');
+const { optimizeImages } = require('./images');
+const { buildHtaccess } = require('./redirects');
 
 const root = path.join(__dirname, '..');
+const BUILD_DATE = new Date().toISOString().slice(0, 10);
+const MAX_DESCRIPTION = 158;
+const MAX_TITLE = 65;
+
+/* ---------- Datos estructurados (schema.org) ---------- */
+
+const business = {
+  '@type': 'LocalBusiness',
+  '@id': `${SITE.url}/#taller`,
+  name: SITE.name,
+  description: 'Luthería artesanal: guitarras personalizadas e instrumentos de folclore construidos a mano.',
+  url: `${SITE.url}/`,
+  logo: `${SITE.url}/assets/img/logo.png`,
+  image: `${SITE.url}/${SITE.defaultImage}`,
+  telephone: SITE.phone.replace(/\s/g, ''),
+  email: SITE.email,
+  priceRange: '€€€',
+  address: { '@type': 'PostalAddress', addressLocality: 'Los Alcázares', addressRegion: 'Murcia', addressCountry: 'ES' },
+  areaServed: 'ES',
+  founder: { '@type': 'Person', name: 'Ginés Martínez', jobTitle: 'Luthier' },
+  sameAs: [SITE.instagram, SITE.facebook]
+};
+
+const website = { '@type': 'WebSite', '@id': `${SITE.url}/#web`, name: SITE.name, url: `${SITE.url}/`, inLanguage: 'es-ES', publisher: { '@id': business['@id'] } };
+
+const breadcrumb = (items) => ({
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map(([name, file], i) => ({ '@type': 'ListItem', position: i + 1, name, item: absUrl(file) }))
+});
+
+const AVAILABILITY = { guitarras: 'MadeToOrder', folclore: 'MadeToOrder', formacion: 'InStock' };
+
+function productSchema(p) {
+  const availability = AVAILABILITY[p.cat];
+  return {
+    '@type': 'Product',
+    name: p.name,
+    description: `${p.subtitle} ${p.desc}`,
+    image: p.gallery.map((src) => `${SITE.url}/${src}`),
+    brand: { '@type': 'Brand', name: SITE.name },
+    category: p.label,
+    offers: {
+      '@type': 'Offer',
+      url: absUrl(`producto-${p.slug}.html`),
+      priceCurrency: 'EUR',
+      price: p.price,
+      ...(availability ? { availability: `https://schema.org/${availability}` } : {}),
+      seller: { '@id': business['@id'] }
+    }
+  };
+}
+
+function articleSchema(a) {
+  return {
+    '@type': 'BlogPosting',
+    headline: a.title,
+    description: describe(a.excerpt),
+    image: `${SITE.url}/${a.image}`,
+    datePublished: a.iso,
+    inLanguage: 'es-ES',
+    mainEntityOfPage: absUrl(a.file),
+    author: { '@type': 'Person', name: 'Ginés Martínez' },
+    publisher: { '@id': business['@id'] }
+  };
+}
+
+/* ---------- Textos SEO ---------- */
+
+/** Recorta un extracto de WordPress a una meta description limpia. */
+function describe(text) {
+  const clean = text.replace(/\s*[…]+$|\.{3}$/, '').replace(/\s+/g, ' ').trim();
+  if (clean.length <= MAX_DESCRIPTION) return clean;
+  const cut = clean.slice(0, MAX_DESCRIPTION);
+  const sentence = cut.lastIndexOf('. ');
+  if (sentence > 90) return cut.slice(0, sentence + 1);
+  return `${cut.slice(0, cut.lastIndexOf(' ')).replace(/[,;:]$/, '')}…`;
+}
+
+const titleFor = (name) => (`${name} · ${SITE.name}`.length <= MAX_TITLE ? `${name} · ${SITE.name}` : name);
+
+/* ---------- Páginas ---------- */
+
+const productFile = (p) => `producto-${p.slug}.html`;
 
 const pages = [
-  {
-    file: 'index.html',
-    active: '',
-    title: 'Vael de Ginés · Guitarras artesanales e instrumentos de folclore',
-    description: 'Luthería artesanal en Los Alcázares (Murcia). Guitarras personalizadas, instrumentos de folclore y mentoría con Ginés Martínez.',
-    body: require('./pages/home')
-  },
-  {
-    file: 'guitarras.html',
-    active: 'guitarras',
-    title: 'Guitarras personalizadas · Vael de Ginés',
-    description: 'Guitarras de autor construidas a mano y diseñadas junto a cada músico. Colección Paloma, Golden Whale, Freya, Camino, Jaguar y Venus.',
-    body: require('./pages/guitarras')
-  },
-  {
-    file: 'instrumentos.html',
-    active: 'instrumentos',
-    title: 'Instrumentos de folclore · Vael de Ginés',
-    description: 'Guitarro murciano, laúd, bandurria y guitarra mayor. Instrumentos tradicionales construidos artesanalmente en Murcia.',
-    body: require('./pages/instrumentos')
-  },
-  {
-    file: 'luthier.html',
-    active: 'taller',
-    title: 'El taller y el luthier · Vael de Ginés',
-    description: 'Conoce a Ginés Martínez, luthier artesanal en Los Alcázares (Murcia), su proceso de trabajo y sus reconocimientos.',
-    body: require('./pages/luthier')
-  },
-  {
-    file: 'tienda.html',
-    active: 'tienda',
-    title: 'Catálogo de instrumentos y maderas · Vael de Ginés',
-    description: 'Catálogo del taller: guitarras de autor, instrumentos de folclore, maderas seleccionadas, libros y mentoría.',
-    body: require('./pages/tienda')
-  },
-  {
-    file: 'producto.html',
-    active: 'guitarras',
-    title: 'Paloma · Guitarra de autor · Vael de Ginés',
-    description: 'Guitarra Paloma: abeto alemán, palosanto de Madagascar y goma laca a muñequilla. Construida por encargo en Los Alcázares.',
-    body: () => productPage(products.find((p) => p.slug === 'paloma'))
-  },
-  {
-    file: 'blog.html',
-    active: 'blog',
-    title: 'Blog · Cuaderno del taller · Vael de Ginés',
-    description: 'Artículos sobre maderas, luthería, guitarras artesanales y cuidados del instrumento.',
-    body: require('./pages/blog')
-  },
-  {
-    file: 'articulo.html',
-    active: 'blog',
-    title: articles.find((a) => a.slug === 'guitarra-clasica-vs-flamenca-luthier').title + ' · Vael de Ginés',
-    description: 'Diferencias entre guitarra clásica y flamenca de luthier: propósito musical, maderas, construcción, acción y sonido.',
-    body: () => articlePage(articles.find((a) => a.slug === 'guitarra-clasica-vs-flamenca-luthier'))
-  },
-  {
-    file: 'mentoria.html',
-    active: 'mentoria',
-    title: 'Mentoría y consultoría · Vael de Ginés',
-    description: 'Sesiones de mentoría 1:1 sobre luthería, artesanía y negocio. 45 € por sesión o 400 € el pack de diez.',
-    body: require('./pages/mentoria')
-  },
-  {
-    file: 'podcast.html',
-    active: 'podcast',
-    title: 'La cabaña del luthier · Podcast · Vael de Ginés',
-    description: 'Conversaciones sobre luthería, artesanía y música con luthiers, músicos y artesanos.',
-    body: require('./pages/podcast')
-  },
-  {
-    file: 'contacto.html',
-    active: 'contacto',
-    title: 'Contacto · Vael de Ginés',
-    description: 'Escríbeme para hablar de tu guitarra personalizada, un instrumento de folclore o una visita al taller en Los Alcázares.',
-    body: require('./pages/contacto')
-  },
-  {
-    file: 'legal.html',
-    active: 'legal',
-    title: 'Aviso legal, privacidad y cookies · Vael de Ginés',
-    description: 'Información legal, política de privacidad, cookies y condiciones de devolución y garantía de Vael de Ginés.',
-    body: require('./pages/legal')
-  }
+  { file: 'index.html', active: '', title: 'Vael de Ginés · Guitarras artesanales e instrumentos de folclore', description: 'Luthería artesanal en Los Alcázares (Murcia). Guitarras personalizadas, instrumentos de folclore y mentoría con Ginés Martínez.', body: require('./pages/home'), jsonLd: [business, website], priority: '1.0' },
+  { file: 'guitarras.html', active: 'guitarras', title: 'Guitarras personalizadas · Vael de Ginés', description: 'Guitarras de autor construidas a mano y diseñadas junto a cada músico. Colección Paloma, Golden Whale, Freya, Camino, Jaguar y Venus.', body: require('./pages/guitarras'), priority: '0.9' },
+  { file: 'instrumentos.html', active: 'instrumentos', title: 'Instrumentos de folclore · Vael de Ginés', description: 'Guitarro murciano, laúd, bandurria y guitarra mayor. Instrumentos tradicionales construidos artesanalmente en Murcia.', body: require('./pages/instrumentos'), priority: '0.9' },
+  { file: 'luthier.html', active: 'taller', title: 'El taller y el luthier · Vael de Ginés', description: 'Conoce a Ginés Martínez, luthier artesanal en Los Alcázares (Murcia), su proceso de trabajo y sus reconocimientos.', body: require('./pages/luthier'), jsonLd: [business], priority: '0.8' },
+  { file: 'tienda.html', active: 'tienda', title: 'Catálogo de instrumentos y maderas · Vael de Ginés', description: 'Catálogo del taller: guitarras de autor, instrumentos de folclore, maderas seleccionadas, libros y mentoría.', body: require('./pages/tienda'), priority: '0.8' },
+  { file: 'blog.html', active: 'blog', title: 'Blog · Cuaderno del taller · Vael de Ginés', description: 'Artículos sobre maderas, luthería, guitarras artesanales y cuidados del instrumento, escritos desde el taller de Vael de Ginés.', body: require('./pages/blog'), priority: '0.7' },
+  { file: 'mentoria.html', active: 'mentoria', title: 'Mentoría y consultoría · Vael de Ginés', description: 'Sesiones de mentoría 1:1 sobre luthería, artesanía y negocio. 45 € por sesión o 400 € el pack de diez.', body: require('./pages/mentoria'), priority: '0.7' },
+  { file: 'podcast.html', active: 'podcast', title: 'La cabaña del luthier · Podcast · Vael de Ginés', description: 'Podcast de Vael de Ginés: conversaciones sobre luthería, artesanía y música con luthiers, músicos y artesanos.', body: require('./pages/podcast'), priority: '0.6' },
+  { file: 'contacto.html', active: 'contacto', title: 'Contacto · Vael de Ginés', description: 'Escríbeme para hablar de tu guitarra personalizada, un instrumento de folclore o una visita al taller en Los Alcázares.', body: require('./pages/contacto'), jsonLd: [business], priority: '0.8' },
+  { file: 'legal.html', active: 'legal', title: 'Aviso legal, privacidad y cookies · Vael de Ginés', description: 'Información legal, política de privacidad, cookies y condiciones de devolución y garantía de Vael de Ginés.', body: require('./pages/legal'), priority: '0.2' },
+  { file: '404.html', active: '', title: 'Página no encontrada · Vael de Ginés', description: 'La página que buscas no existe o ha cambiado de dirección.', body: require('./pages/404'), noindex: true, baseHref: '/', sitemap: false },
+
+  ...articles.map((a) => ({
+    file: a.file, active: 'blog', title: titleFor(a.title), description: describe(a.excerpt),
+    body: articlePage(a), image: a.image, type: 'article', lastmod: a.iso.slice(0, 10), priority: '0.6',
+    jsonLd: [articleSchema(a), breadcrumb([['Inicio', 'index.html'], ['Blog', 'blog.html'], [a.title, a.file]])]
+  })),
+
+  ...products.map((p) => ({
+    file: productFile(p),
+    active: p.slug === 'mentoria' ? 'mentoria' : (p.cat === 'guitarras' ? 'guitarras' : 'tienda'),
+    title: titleFor(`${p.name} · ${p.label}`), description: describe(`${p.name}: ${p.desc} ${p.subtitle}`),
+    body: productPage(p), image: p.image, type: 'product', priority: '0.8',
+    waText: `Hola, me interesa ${p.name} (${p.label}). ¿Podemos hablar?`,
+    jsonLd: [productSchema(p), breadcrumb([['Inicio', 'index.html'], ['Tienda', 'tienda.html'], [p.name, productFile(p)]])]
+  }))
 ];
 
-let written = 0;
+/* ---------- Escritura ---------- */
 
-pages.forEach(({ file, active, title, description, body }) => {
-  const html = page({ title, description, active, body: typeof body === 'function' ? body() : body });
-  fs.writeFileSync(path.join(root, file), html, 'utf8');
-  written++;
-  console.log(`✓ ${file}`);
+const write = (file, content) => fs.writeFileSync(path.join(root, file), content, 'utf8');
+
+pages.forEach((entry) => {
+  const body = typeof entry.body === 'function' ? entry.body() : entry.body;
+  write(entry.file, optimizeImages(page({ ...entry, body })));
 });
 
-articles.forEach((a) => {
-  const html = page({
-    title: `${a.title} · Vael de Ginés`,
-    description: a.excerpt,
-    active: 'blog',
-    body: articlePage(a)
-  });
-  fs.writeFileSync(path.join(root, a.file), html, 'utf8');
-  written++;
-  console.log(`✓ ${a.file}`);
-});
+const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${pages.filter((p) => p.sitemap !== false).map((p) => `  <url><loc>${absUrl(p.file)}</loc><lastmod>${p.lastmod || BUILD_DATE}</lastmod><priority>${p.priority}</priority></url>`).join('\n')}
+</urlset>
+`;
+write('sitemap.xml', sitemap);
+write('robots.txt', `User-agent: *\nAllow: /\nDisallow: /_tools/\n\nSitemap: ${SITE.url}/sitemap.xml\n`);
+write('.htaccess', buildHtaccess(articles));
 
-products.forEach((p) => {
-  const html = page({
-    title: `${p.name} · ${p.label} · Vael de Ginés`,
-    description: p.desc,
-    active: p.slug === 'mentoria' ? 'mentoria' : (p.cat === 'guitarras' ? 'guitarras' : 'tienda'),
-    body: productPage(p)
-  });
-  const file = `producto-${p.slug}.html`;
-  fs.writeFileSync(path.join(root, file), html, 'utf8');
-  written++;
-  console.log(`✓ ${file}`);
-});
+// Páginas retiradas: duplicaban contenido y ahora redirigen con 301.
+['articulo.html', 'producto.html'].forEach((f) => fs.rmSync(path.join(root, f), { force: true }));
 
-console.log(`\n${written} páginas generadas en ${root}`);
+console.log(`${pages.length} páginas + sitemap.xml, robots.txt y .htaccess generados en ${root}`);
