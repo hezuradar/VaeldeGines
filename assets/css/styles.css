@@ -1638,11 +1638,14 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
 .podcast-cover img { width: 100%; height: 100%; object-fit: cover; }
 .podcast-platforms { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }
 .podcast-note { margin-top: 12px; font-size: 12.5px; line-height: 1.5; color: rgba(248,244,236,.7); }
-.podcast-support { margin-top: 30px; padding-top: 22px; border-top: 1px solid rgba(248,244,236,.18); }
-.podcast-support__title { margin: 0; font-size: 10px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--brass-light); }
-.podcast-support p { margin-top: 10px; max-width: 48ch; font-size: 13px; line-height: 1.65; color: rgba(248,244,236,.72); }
-.podcast-support a { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; padding-bottom: 4px; border-bottom: 1px solid var(--brass); color: var(--paper); font-size: 13px; transition: color var(--fast), border-color var(--fast); }
+.podcast-support { margin-top: 28px; padding: 20px 22px; background: rgba(248,244,236,.07); border: 1px solid rgba(248,244,236,.24); }
+.podcast-support__title { margin: 0; font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--brass-light); }
+.podcast-support p { margin-top: 10px; max-width: 52ch; font-size: 15px; line-height: 1.6; color: rgba(248,244,236,.88); }
+.podcast-support a { display: inline-flex; align-items: center; gap: 8px; margin-top: 12px; padding-bottom: 4px; border-bottom: 1px solid var(--brass); color: var(--paper); font-size: 15px; font-weight: 500; transition: color var(--fast), border-color var(--fast); }
 .podcast-support a:hover { color: var(--brass-light); border-color: var(--brass-light); }
+
+.sponsor-block { display: flex; align-items: center; justify-content: space-between; gap: 48px; }
+.sponsor-block .btn { flex: none; }
 .episode-list { border-top: 1px solid var(--line); }
 .episode {
   display: grid;
@@ -1831,6 +1834,8 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
 
   .article-sidebar { grid-template-columns: 1fr; }
   .article-nav { grid-template-columns: 1fr; }
+  .sponsor-block { flex-direction: column; align-items: flex-start; gap: 26px; }
+  .sponsor-block .btn { width: 100%; }
   .article-hero { min-height: 470px; padding: 110px 0 48px; }
   .article-hero__shade { background: linear-gradient(to top, rgba(24,17,12,.96), rgba(24,17,12,.62) 72%, rgba(24,17,12,.38)); }
   .article-hero__body { margin-top: 40px; }

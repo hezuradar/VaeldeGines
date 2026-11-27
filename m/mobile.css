@@ -163,6 +163,8 @@ body { padding-bottom: calc(58px + env(safe-area-inset-bottom, 0px)); }
 
   .article-sidebar { grid-template-columns: 1fr; }
   .article-nav { grid-template-columns: 1fr; }
+  .sponsor-block { flex-direction: column; align-items: flex-start; gap: 26px; }
+  .sponsor-block .btn { width: 100%; }
   .article-hero { min-height: 470px; padding: 110px 0 48px; }
   .article-hero__shade { background: linear-gradient(to top, rgba(24,17,12,.96), rgba(24,17,12,.62) 72%, rgba(24,17,12,.38)); }
   .article-hero__body { margin-top: 40px; }

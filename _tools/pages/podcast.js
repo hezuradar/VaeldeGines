@@ -44,6 +44,17 @@ module.exports = `
   </div>
 </section>
 
+<section class="section section--cream">
+  <div class="container sponsor-block">
+    <div class="reveal">
+      <p class="eyebrow">Patrocina el podcast</p>
+      <h2 class="h2">Ayúdame a que la conversación <em>llegue más lejos.</em></h2>
+      <p class="text-muted measure">Si tu marca comparte los valores de la artesanía, la cultura musical o el cuidado del oficio, podemos colaborar para seguir produciendo «La cabaña del luthier». Busco patrocinadores que quieran formar parte de un proyecto honesto, cercano y con una comunidad que escucha con atención.</p>
+    </div>
+    <a class="btn" href="contacto.html">Hablemos de patrocinio ${icons.arrow}</a>
+  </div>
+</section>
+
 ${ctaBand({
   title: '¿Tienes una historia<br><em>que contar?</em>',
   text: 'Si eres luthier, músico o artesano y crees que tu trabajo merece una conversación, escríbeme. El podcast también se construye con las propuestas de quien escucha.',
