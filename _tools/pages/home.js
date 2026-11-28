@@ -8,6 +8,7 @@ const tarjetasColeccion = (descOf) => guitarrasPortada.map((p, i) => guitarCard(
   img: p.image, alt: `Guitarra ${p.name} de Vael de Ginés`, slug: p.slug, novedad: p.novedad
 })).join('\n');
 const articles = require('../data/blog');
+const testimonios = require('../data/testimonios');
 const bySlug = Object.fromEntries(articles.map((a) => [a.slug, a]));
 const blogTeaser = (slug) => {
   const a = bySlug[slug];
@@ -202,11 +203,24 @@ ${nGuitarras === 0 ? '' : `<section class="section section--cream" id="coleccion
   </div>
 </section>
 
-<section class="section section--warm">
-  <div class="container quote-block reveal">
-    <span class="quote-block__mark">“</span>
-    <blockquote>El violonchelo que construyó Vael posee un timbre aterciopelado y una potencia que llena cualquier sala. Su dedicación se siente en cada nota.</blockquote>
-    <cite>Beatriz Méndez · Violonchelista de cámara</cite>
+<section class="section section--warm testimonials" id="opiniones">
+  <div class="container">
+    <div class="testimonial-viewport">
+      <div class="testimonial-track">
+        ${testimonios.map((t) => `
+        <figure class="testimonial-slide">
+          <span class="quote-block__mark">“</span>
+          <blockquote>${t.texto}</blockquote>
+          <figcaption>${t.autor}${t.cargo ? `<span>${t.cargo}</span>` : ''}</figcaption>
+        </figure>`).join('')}
+      </div>
+    </div>
+    ${testimonios.length > 1 ? `
+    <div class="testimonial-nav">
+      <button type="button" data-testimonial="prev" aria-label="Opinión anterior">${icons.arrowLeft}</button>
+      <div class="testimonial-dots" aria-label="Elegir opinión"></div>
+      <button type="button" data-testimonial="next" aria-label="Opinión siguiente">${icons.arrow}</button>
+    </div>` : ''}
   </div>
 </section>
 

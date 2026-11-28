@@ -15,6 +15,7 @@ import { setToken, checkAccess, readText, putFile, toBase64, CATALOG_PATH, GitHu
 import { photoUrl, deleteCatalogPhotos } from './fotos.js';
 import { initEditor, openEditor, formatPrice } from './editor.js';
 import { initPublish, refreshPublish } from './publicar.js';
+import { initTestimonios, refreshTestimonios } from './testimonios.js';
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -22,7 +23,7 @@ const db = getFirestore(app);
 const tokenDoc = doc(db, 'adminConfig', 'github');
 
 const CAT_NAME = { guitarras: 'Guitarras', folclore: 'Folclore', maderas: 'Maderas', formacion: 'Formación' };
-const sections = ['login', 'denied', 'connect', 'catalog'];
+const sections = ['login', 'denied', 'connect', 'catalog', 'opiniones'];
 const $ = (id) => document.getElementById(id);
 
 let items = [];
@@ -33,6 +34,12 @@ let pendingDelete = null;
 
 function show(id) {
   sections.forEach((s) => { $(s).hidden = s !== id; });
+  if ($('admNav')) {
+    $('admNav').hidden = id !== 'catalog' && id !== 'opiniones';
+    $('admNav').querySelectorAll('[data-section]').forEach((b) => {
+      b.classList.toggle('is-active', b.dataset.section === id);
+    });
+  }
 }
 
 function setStatus(message, type = 'info') {
@@ -113,6 +120,14 @@ $('forgot').addEventListener('click', async () => {
 
 $('logout').addEventListener('click', () => signOut(auth));
 $('changeToken').addEventListener('click', () => show('connect'));
+$('admNav').querySelectorAll('[data-section]').forEach((b) => {
+  b.addEventListener('click', () => {
+    show(b.dataset.section);
+    if (b.dataset.section === 'opiniones') {
+      refreshTestimonios().catch((error) => setStatus(friendlyError(error), 'error'));
+    }
+  });
+});
 
 /* ---------- Conexión con GitHub ---------- */
 
@@ -275,3 +290,9 @@ initEditor({
 });
 
 initPublish();
+
+initTestimonios({
+  friendlyError,
+  setStatus,
+  onSaved: (message) => { setStatus(message, 'ok'); refreshPublish().catch(() => {}); }
+});

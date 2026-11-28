@@ -5,6 +5,7 @@
 
 export const REPO = { owner: 'hezuradar', repo: 'VaeldeGines', branch: 'main' };
 export const CATALOG_PATH = '_tools/data/catalogo.json';
+export const TESTIMONIOS_PATH = '_tools/data/testimonios.json';
 export const PHOTO_DIR = 'assets/img/catalogo';
 const API = `https://api.github.com/repos/${REPO.owner}/${REPO.repo}`;
 const RAW = `https://raw.githubusercontent.com/${REPO.owner}/${REPO.repo}/${REPO.branch}`;

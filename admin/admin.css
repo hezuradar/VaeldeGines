@@ -34,6 +34,26 @@ code { background: var(--cream); border: 1px solid var(--line); padding: 2px 6px
 .adm-brand { display: flex; align-items: center; gap: 12px; font-size: 12px; letter-spacing: .16em; text-transform: uppercase; }
 .adm-brand img { height: 32px; width: auto; }
 .adm-session { display: flex; align-items: center; gap: 12px; font-size: 13px; }
+.adm-nav { display: flex; gap: 8px; }
+.adm-nav .adm-btn.is-active { background: var(--cream); color: var(--ink); border-color: var(--cream); }
+.adm-nav .adm-btn:hover { background: var(--brass); border-color: var(--brass); color: var(--ink); }
+
+/* Opiniones */
+.adm-opiniones { display: grid; gap: 14px; }
+.adm-opinion { position: relative; background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px; box-shadow: var(--shadow); }
+.adm-opinion.is-hidden { opacity: .6; }
+.adm-opinion__num { position: absolute; top: 14px; right: 20px; font: 600 11px/1 "Jost", sans-serif; letter-spacing: .14em; color: var(--brass); }
+.adm-opinion blockquote { margin: 0; max-width: 76ch; font: italic 1.25rem/1.4 "Cormorant Garamond", Georgia, serif; }
+.adm-opinion__author { margin: 12px 0 0; display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; }
+.adm-opinion__author strong { font-weight: 600; }
+.adm-opinion__author span { color: var(--muted); letter-spacing: .04em; text-transform: none; }
+.adm-opinion__actions { display: flex; gap: 8px; margin-top: 18px; }
+.adm-opinion__flag { position: absolute; top: 14px; right: 52px; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--danger); }
+@media (max-width: 700px) {
+  .adm-header { flex-wrap: wrap; }
+  .adm-nav { order: 3; width: 100%; }
+  .adm-nav .adm-btn { flex: 1; }
+}
 
 .adm-main { max-width: 1240px; margin: 0 auto; padding: 28px clamp(16px, 4vw, 40px) 72px; }
 .adm-card { background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }

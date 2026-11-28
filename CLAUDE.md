@@ -23,6 +23,7 @@ Este documento describe **cómo está construida la web ahora**. Cualquier cambi
 - Las fotos subidas desde el panel se referencian como `foto:<id>` y viven en `assets/img/catalogo/`; `safeImage()` resuelve la ruta.
 - **Firestore NO guarda productos**: solo el documento `adminConfig/github` con el token de GitHub del panel. No migrar el catálogo a Firestore.
 - Estado actual del repositorio: `catalogo.json` tiene 12 entradas (incluye una pieza de prueba `prueba` creada desde el panel y `libro-guitarra-lutheria` despublicada); el build publica 10 y la colección de portada cuenta 6 guitarras.
+- Las opiniones de la portada viven en `_tools/data/testimonios.json` (también editables desde `/admin`, sección «Opiniones»): `{id, texto, autor, cargo, activo}`. `_tools/data/testimonios.js` las normaliza y escapa; la portada muestra las activas en un carrusel.
 
 ## 3. Panel de administración y publicación
 

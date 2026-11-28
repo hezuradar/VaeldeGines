@@ -17,6 +17,10 @@
       <img src="../assets/img/logo.png" alt="" width="64" height="32">
       <span>Panel del taller</span>
     </div>
+    <nav class="adm-nav" id="admNav" hidden aria-label="Secciones del panel">
+      <button type="button" class="adm-btn adm-btn--ghost-light is-active" data-section="catalog">Catálogo</button>
+      <button type="button" class="adm-btn adm-btn--ghost-light" data-section="opiniones">Opiniones</button>
+    </nav>
     <div class="adm-session" id="session" hidden>
       <span id="sessionEmail"></span>
       <button type="button" class="adm-btn adm-btn--ghost-light" id="changeToken">Conexión GitHub</button>
@@ -102,6 +106,24 @@
       </div>
 
       <div class="adm-grid-cards" id="grid"></div>
+    </section>
+
+    <!-- Opiniones de la portada -->
+    <section id="opiniones" hidden>
+      <div class="adm-toolbar">
+        <div>
+          <p class="adm-eyebrow">Portada</p>
+          <h1>Opiniones <em>de los músicos</em></h1>
+          <p class="adm-muted"><span id="opinionesCount">0</span> opiniones · se muestran en el carrusel de la portada</p>
+        </div>
+        <div class="adm-toolbar__actions">
+          <button type="button" class="adm-btn" id="nuevaOpinion">+ Nueva opinión</button>
+        </div>
+      </div>
+      <div class="adm-empty adm-card" id="opinionesEmpty" hidden>
+        <p>Todavía no hay opiniones. Pulsa «Nueva opinión» para añadir la primera.</p>
+      </div>
+      <div class="adm-opiniones" id="opinionesList"></div>
     </section>
   </main>
 
@@ -225,6 +247,49 @@
         </label>
         <button type="button" class="adm-btn adm-btn--ghost" data-close>Cancelar</button>
         <button type="submit" class="adm-btn" id="save">Guardar</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <!-- Editor de opiniones -->
+  <dialog class="adm-dialog" id="opinionEditor" aria-labelledby="opinionEditorTitle">
+    <form id="opinionForm" novalidate>
+      <header class="adm-dialog__head">
+        <div>
+          <p class="adm-eyebrow" id="opinionEditorEyebrow">Nueva opinión</p>
+          <h2 id="opinionEditorTitle">Opinión</h2>
+        </div>
+        <button type="button" class="adm-icon" data-close aria-label="Cerrar">×</button>
+      </header>
+      <div class="adm-editor">
+        <section class="adm-fields">
+          <div class="adm-grid">
+            <div class="adm-field adm-field--wide">
+              <label for="op-texto">Texto de la opinión *</label>
+              <textarea id="op-texto" maxlength="600" rows="5" required placeholder="Escribe aquí la opinión…"></textarea>
+            </div>
+            <div class="adm-field">
+              <label for="op-autor">Nombre *</label>
+              <input id="op-autor" maxlength="80" required placeholder="Beatriz Méndez">
+            </div>
+            <div class="adm-field">
+              <label for="op-cargo">Cargo / detalle</label>
+              <input id="op-cargo" maxlength="100" placeholder="Violonchelista de cámara">
+            </div>
+          </div>
+        </section>
+      </div>
+      <p class="adm-error" id="opinionError" role="alert"></p>
+      <footer class="adm-dialog__foot">
+        <button type="button" class="adm-btn adm-btn--danger-ghost" id="op-delete" hidden>Borrar opinión</button>
+        <span class="adm-spacer"></span>
+        <label class="adm-switch">
+          <input type="checkbox" id="op-activo" checked>
+          <span class="adm-switch__track" aria-hidden="true"></span>
+          Visible en la portada
+        </label>
+        <button type="button" class="adm-btn adm-btn--ghost" data-close>Cancelar</button>
+        <button type="submit" class="adm-btn" id="op-save">Guardar</button>
       </footer>
     </form>
   </dialog>
