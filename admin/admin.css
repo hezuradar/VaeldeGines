@@ -60,6 +60,15 @@ code { background: var(--cream); border: 1px solid var(--line); padding: 2px 6px
 .adm-rich__tools button:hover { background: var(--brass-soft); border-color: var(--brass); }
 .adm-rich__tools .adm-rich__mode { margin-left: auto; }
 .adm-rich__editor, .adm-rich__html { min-height: 300px; padding: 14px; font: 15px/1.7 "Jost", sans-serif; }
+.adm-rich__editor img { max-width: 100%; height: auto; cursor: pointer; }
+.adm-rich__editor img.is-selected { outline: 2px solid var(--brass); outline-offset: 3px; }
+.adm-img-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 8px 10px; background: var(--brass-soft); border-bottom: 1px solid var(--line); }
+.adm-img-tools strong { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--walnut); }
+.adm-img-tools label { display: inline-flex; align-items: center; gap: 4px; }
+.adm-img-tools input { width: 72px; padding: 5px 6px; }
+.adm-img-tools button { padding: 6px 10px; font: 600 12px/1 "Jost", sans-serif; border: 1px solid var(--line); border-radius: 5px; background: var(--cream); color: var(--ink); cursor: pointer; }
+.adm-img-tools button:hover { border-color: var(--brass); }
+.adm-img-tools .adm-icon { border: 0; background: none; font-size: 18px; }
 .adm-rich__editor:focus, .adm-rich__html:focus { outline: 2px solid var(--brass); outline-offset: -2px; }
 .adm-rich__editor h2, .adm-rich__editor h3 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; }
 .adm-rich__editor img { max-width: 100%; height: auto; }

@@ -375,6 +375,17 @@
                   <button type="button" data-cmd="image" title="Insertar imagen">🖼 Imagen</button>
                   <button type="button" class="adm-rich__mode" data-mode>Ver HTML</button>
                 </div>
+                <div class="adm-img-tools" id="blogImgTools" hidden>
+                  <strong>Imagen seleccionada</strong>
+                  <label>Ancho <input type="number" id="imgWidth" min="80" max="1600" placeholder="px"></label>
+                  <label>Alto <input type="number" id="imgHeight" min="40" max="1600" placeholder="px"></label>
+                  <button type="button" id="imgApply">Aplicar tamaño</button>
+                  <button type="button" id="imgAlignLeft">Izquierda</button>
+                  <button type="button" id="imgAlignCenter">Centro</button>
+                  <button type="button" id="imgAlignRight">Derecha</button>
+                  <button type="button" id="imgRemove">Quitar imagen</button>
+                  <button type="button" class="adm-icon" id="imgClose" aria-label="Cerrar">×</button>
+                </div>
                 <div id="blogContent" class="adm-rich__editor" contenteditable="true" role="textbox" aria-multiline="true"></div>
                 <textarea id="blogHtml" class="adm-rich__html" spellcheck="false" hidden></textarea>
               </div>
