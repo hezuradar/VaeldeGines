@@ -443,5 +443,26 @@
   "disponibilidad": "encargo",
   "orden": 10,
   "publicado": true
+ },
+ {
+  "slug": "prueba",
+  "name": "Prueba",
+  "cat": "guitarras",
+  "label": "Guitarras de autor",
+  "price": 5000,
+  "priceLabel": "Desde 5000 €",
+  "desc": "",
+  "subtitle": "",
+  "specs": [],
+  "disponibilidad": "encargo",
+  "orden": 11,
+  "publicado": true,
+  "lema": "",
+  "resumen": "",
+  "image": "assets/img/catalogo/prueba-mx095kel-1.webp",
+  "gallery": [
+   "assets/img/catalogo/prueba-mx095kel-1.webp"
+  ],
+  "actualizado": "2026-11-28T10:13:32.284Z"
  }
 ]
