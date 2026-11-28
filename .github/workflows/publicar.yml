@@ -52,7 +52,7 @@ jobs:
         run: |
           rsync -a ./ _site/ \
             --exclude '.git' --exclude '.github' --exclude '_site' --exclude '_tools' \
-            --exclude 'README.md' --exclude 'firestore.rules' --exclude 'firebase.json' \
+            --exclude 'README.md' --exclude 'CLAUDE.md' --exclude 'firestore.rules' --exclude 'firebase.json' \
             --exclude '.htaccess' --exclude '*.py'
           touch _site/.nojekyll
 

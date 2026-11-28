@@ -1,5 +1,7 @@
 # Vael de Ginés — Nueva web
 
+Antes de hacer cambios, leer **`CLAUDE.md`**: contiene las pautas de arquitectura, diseño, datos, panel y publicación que debe seguir cualquier modificación.
+
 Rediseño completo del sitio del luthier **Vael de Ginés** (Ginés Martínez), construido en `D:\hezuradar\Vael\web-nueva`.
 
 La web original (`web-estatica`) **no se ha modificado**. Todo el diseño nuevo está en esta carpeta.
