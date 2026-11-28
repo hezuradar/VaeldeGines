@@ -38,7 +38,9 @@
   ],
   "disponibilidad": "encargo",
   "orden": 0,
-  "publicado": true
+  "publicado": true,
+  "lema": "Serie exclusiva",
+  "resumen": "Inspirada en la sutileza del vuelo libre. Tono cristalino y respuesta inmediata, con tapa de abeto alemán y palosanto de Madagascar."
  },
  {
   "slug": "golden-whale",
@@ -80,7 +82,9 @@
   ],
   "disponibilidad": "encargo",
   "orden": 1,
-  "publicado": true
+  "publicado": true,
+  "lema": "Maestría orgánica",
+  "resumen": "Una oda a las profundidades del océano. Proyección armónica colosal, cedro canadiense, koa hawaiana y detalles en pan de oro."
  },
  {
   "slug": "freya",
@@ -120,7 +124,9 @@
   "disponibilidad": "encargo",
   "orden": 2,
   "publicado": true,
-  "actualizado": "2026-11-28T10:08:14.428Z"
+  "actualizado": "2026-11-28T10:08:14.428Z",
+  "lema": "Templanza y tempestad",
+  "resumen": "Fuerza y belleza nórdica. Graves majestuosos y nitidez lírica, con pícea de Sitka y cocobolo de vetas espectaculares."
  },
  {
   "slug": "camino",
@@ -160,7 +166,9 @@
   ],
   "disponibilidad": "encargo",
   "orden": 3,
-  "publicado": true
+  "publicado": true,
+  "lema": "Vínculo infinito",
+  "resumen": "La compañera de viaje de los espíritus errantes. Equilibrio, nobleza y un timbre orgánico que madura con cada pulsación."
  },
  {
   "slug": "jaguar",
@@ -199,7 +207,9 @@
   ],
   "disponibilidad": "encargo",
   "orden": 4,
-  "publicado": true
+  "publicado": true,
+  "lema": "Instinto y ataque",
+  "resumen": "Carácter salvaje e imponente. Ataque veloz, graves aterciopelados y una presencia elegante sobre el escenario."
  },
  {
   "slug": "venus",
@@ -239,7 +249,9 @@
   "disponibilidad": "encargo",
   "orden": 5,
   "publicado": false,
-  "actualizado": "2026-11-28T10:10:17.283Z"
+  "actualizado": "2026-11-28T10:10:17.283Z",
+  "lema": "Belleza celestial",
+  "resumen": "Armonía y simetría ideal. Sustain infinito, armónicos etéreos y roseta grabada a mano con incrustaciones de nácar."
  },
  {
   "slug": "guitarro-murciano",
