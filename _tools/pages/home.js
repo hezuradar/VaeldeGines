@@ -15,7 +15,7 @@ const blogTeaser = (slug) => {
 };
 
 module.exports = `
-<section class="hero">
+<section class="hero hero--overlay">
   <div class="hero__content">
     <p class="eyebrow">Luthier artesanal · Los Alcázares, Murcia</p>
     <h1 class="hero__title">Instrumentos con alma,<br><em>construidos a mano.</em></h1>
