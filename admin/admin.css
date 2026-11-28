@@ -203,6 +203,10 @@ textarea { resize: vertical; }
 .adm-dialog form { padding: 24px; }
 .adm-dialog--wide { width: min(1100px, calc(100vw - 24px)); }
 .adm-dialog--small { width: min(440px, calc(100vw - 24px)); }
+#blogEditor { width: calc(100vw - 24px); height: calc(100vh - 24px); max-height: none; }
+#blogEditor form { display: flex; flex-direction: column; height: 100%; }
+#blogEditor .adm-editor { flex: 1; min-height: 0; overflow-y: auto; grid-template-columns: 1fr; padding-right: 6px; }
+#blogEditor .adm-dialog__foot { position: static; margin: 18px 0 0; padding: 14px 0 0; }
 .adm-dialog__head { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 18px; }
 .adm-dialog__head h2 { margin: 0; }
 .adm-dialog__foot { position: sticky; bottom: -24px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 20px -24px -24px; padding: 14px 24px; background: var(--cream); border-top: 1px solid var(--line); }
