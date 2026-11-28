@@ -38,7 +38,8 @@ export class GitHubError extends Error {
 
 async function api(path, options = {}) {
   if (!token) throw new GitHubError(401, 'Falta conectar el panel con GitHub.');
-  const res = await fetch(`${API}/${path}`, {
+  // Sin «/» final cuando se pide el propio repositorio: GitHub responde 404 a «/repos/dueño/repo/».
+  const res = await fetch(path ? `${API}/${path}` : API, {
     ...options,
     headers: {
       Accept: 'application/vnd.github+json',
