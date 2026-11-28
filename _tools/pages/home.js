@@ -204,6 +204,7 @@ ${nGuitarras === 0 ? '' : `<section class="section section--cream" id="coleccion
 </section>
 
 <section class="section section--warm testimonials" id="opiniones">
+  <noscript><style>.testimonial-slide { display: none; } .testimonial-slide:first-child { display: block; }</style></noscript>
   <div class="container">
     <div class="testimonial-viewport">
       <div class="testimonial-track">

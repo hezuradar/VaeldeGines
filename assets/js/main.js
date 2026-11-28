@@ -156,6 +156,8 @@
     let index = 0;
     let timer;
 
+    slides.forEach((slide, i) => slide.classList.toggle('is-active', i === 0));
+
     if (dotsWrap) {
       slides.forEach((_, i) => {
         const dot = document.createElement('button');
@@ -169,7 +171,7 @@
 
     function go(i) {
       index = (i + slides.length) % slides.length;
-      testimonialTrack.style.transform = `translateX(-${index * 100}%)`;
+      slides.forEach((slide, j) => slide.classList.toggle('is-active', j === index));
       $$('.testimonial-dots button').forEach((d, j) => d.classList.toggle('is-active', j === index));
       restart();
     }

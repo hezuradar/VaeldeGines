@@ -825,12 +825,17 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
 /* ---------- 16. Testimonials ---------- */
 .testimonials { position: relative; }
 .testimonial-viewport { overflow: hidden; }
-.testimonial-track { display: flex; transition: transform .6s var(--ease); }
+.testimonial-track { position: relative; }
 .testimonial-slide {
-  flex: 0 0 100%;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
   padding: 8px clamp(0px, 4vw, 60px);
   text-align: center;
+  transition: opacity .5s var(--ease), visibility .5s var(--ease);
 }
+.testimonial-slide.is-active { position: relative; opacity: 1; visibility: visible; }
 .testimonial-slide .quote-block__mark { display: block; margin: 0 0 14px; font-size: 62px; }
 .testimonial-slide blockquote {
   margin: 0 auto;
