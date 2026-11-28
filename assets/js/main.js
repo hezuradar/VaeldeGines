@@ -175,7 +175,7 @@
     }
     function restart() {
       clearInterval(timer);
-      if (!prefersReduced) timer = setInterval(() => go(index + 1), 7000);
+      if (!prefersReduced) timer = setInterval(() => go(index + 1), 6000);
     }
 
     const prev = $('[data-testimonial="prev"]');
