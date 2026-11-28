@@ -32,10 +32,6 @@ module.exports = `
   </div>
   <div class="hero__media">
     <img src="assets/img/hero-guitar.jpg" alt="Dos guitarras clásicas artesanales construidas por Vael de Ginés" width="848" height="1131" fetchpriority="high">
-    <div class="hero__badge">
-      <strong>Nº 01</strong>
-      <span>Paloma<br>Colección de autor</span>
-    </div>
   </div>
 </section>
 
