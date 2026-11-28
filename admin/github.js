@@ -56,11 +56,23 @@ async function api(path, options = {}) {
   return res.status === 204 ? null : res.json();
 }
 
-/** Comprueba que el token puede escribir en el repositorio. */
+const NO_WRITE = 'El token puede leer pero no escribir. En GitHub, edita el token y pon «Contents» en «Read and write».';
+
+/**
+ * Comprueba que el token puede escribir en el repositorio.
+ * repo.permissions refleja el papel del usuario, no el del token, así que además se intenta
+ * guardar el catálogo con una versión (sha) inventada: con permiso de escritura GitHub responde
+ * 409 (conflicto) sin guardar nada; sin permiso responde 403.
+ */
 export async function checkAccess() {
   const repo = await api('');
-  if (!repo.permissions || !repo.permissions.push) {
-    throw new GitHubError(403, 'El token no tiene permiso de escritura en el repositorio.');
+  if (!repo.permissions || !repo.permissions.push) throw new GitHubError(403, NO_WRITE);
+  try {
+    await putFile(CATALOG_PATH, btoa('comprobacion'), 'Comprobación de permisos (no se guarda)', '0'.repeat(40));
+  } catch (error) {
+    if (error.status === 409 || error.status === 422) return true;
+    if (error.status === 403) throw new GitHubError(403, NO_WRITE);
+    throw error;
   }
   return true;
 }

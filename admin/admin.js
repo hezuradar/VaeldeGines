@@ -49,7 +49,7 @@ function el(tag, props = {}, children = []) {
 function friendlyError(error) {
   if (error instanceof GitHubError) {
     if (error.status === 401) return 'GitHub no acepta el token (puede haber caducado). Vuelve a conectarlo.';
-    if (error.status === 403) return 'El token de GitHub no tiene permiso para esta acción.';
+    if (error.status === 403) return 'El token de GitHub puede leer pero no guardar. En GitHub (Settings → Developer settings → Fine-grained tokens), edita el token y pon «Contents» en «Read and write».';
     if (error.status === 409) return 'Alguien ha cambiado el catálogo a la vez. Recarga la página y vuelve a intentarlo.';
     return `GitHub: ${error.message}`;
   }
