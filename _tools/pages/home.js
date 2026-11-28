@@ -1,8 +1,9 @@
 'use strict';
 const { contactUrl, icons, guitarCard, postCard, ctaBand, readTime } = require('../layout');
-const { guitarrasDeAutor, enLetras, capitalizar } = require('../data/catalog');
-const nGuitarras = guitarrasDeAutor.length;
-const tarjetasColeccion = (descOf) => guitarrasDeAutor.map((p, i) => guitarCard({
+// Portada: solo las guitarras de autor con «Mostrar en la portada» marcado en el panel.
+const { guitarrasPortada, enLetras, capitalizar } = require('../data/catalog');
+const nGuitarras = guitarrasPortada.length;
+const tarjetasColeccion = (descOf) => guitarrasPortada.map((p, i) => guitarCard({
   num: String(i + 1).padStart(2, '0'), name: p.name, tag: p.lema, desc: descOf(p),
   img: p.image, alt: `Guitarra ${p.name} de Vael de Ginés`, slug: p.slug
 })).join('\n');
@@ -137,7 +138,7 @@ module.exports = `
   </div>
 </section>
 
-<section class="section section--cream" id="coleccion">
+${nGuitarras === 0 ? '' : `<section class="section section--cream" id="coleccion">
   <div class="container">
     <div class="section-head">
       <div class="section-head__body">
@@ -151,7 +152,7 @@ module.exports = `
       ${tarjetasColeccion((p) => p.desc)}
     </div>
   </div>
-</section>
+</section>`}
 
 <section class="section section--dark" id="proceso">
   <div class="container process">

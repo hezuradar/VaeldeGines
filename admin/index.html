@@ -169,7 +169,12 @@
               <input id="f-orden" name="orden" type="number" step="1">
             </div>
             <fieldset class="adm-field adm-field--wide adm-autor" id="autorFields">
-              <legend>Colección de autor <small>Aparece en la portada y en la página Guitarras</small></legend>
+              <legend>Colección de autor <small>Página Guitarras y, si se marca, portada</small></legend>
+              <label class="adm-switch adm-portada">
+                <input type="checkbox" id="f-portada" name="portada">
+                <span class="adm-switch__track" aria-hidden="true"></span>
+                Mostrar en la portada <small>(cuenta en «Seis instrumentos, seis historias»)</small>
+              </label>
               <div class="adm-grid">
                 <div class="adm-field">
                   <label for="f-lema">Lema</label>

@@ -199,7 +199,9 @@ function card(p) {
     el('figure', { className: 'adm-tile__media' }, [
       img,
       el('span', { className: 'adm-tile__cat', textContent: CAT_NAME[p.cat] || p.cat }),
-      el('span', { className: 'adm-tile__photos', textContent: `${photos} foto${photos === 1 ? '' : 's'}` })
+      el('span', { className: 'adm-tile__photos', textContent: `${photos} foto${photos === 1 ? '' : 's'}` }),
+      ...(p.cat === 'guitarras' && p.portada !== false && p.publicado
+        ? [el('span', { className: 'adm-tile__home', textContent: 'En portada' })] : [])
     ]),
     el('div', { className: 'adm-tile__body' }, [
       ...(p.cat === 'guitarras' && p.lema ? [el('p', { className: 'adm-tile__lema', textContent: p.lema })] : []),

@@ -59,7 +59,8 @@ function normalize(raw, index) {
     gallery,
     disponibilidad: raw.disponibilidad === 'inmediata' ? 'inmediata' : (raw.disponibilidad || CATEGORIES[cat].disponibilidad),
     orden: Number.isFinite(Number(raw.orden)) ? Number(raw.orden) : index,
-    publicado: raw.publicado !== false
+    publicado: raw.publicado !== false,
+    portada: raw.portada !== false   // colección de autor de la portada (sin dato: sí)
   };
 }
 
@@ -98,3 +99,5 @@ module.exports.enLetras = enLetras;
 module.exports.capitalizar = capitalizar;
 /** Guitarras de la colección de autor: las piezas publicadas de la categoría «guitarras», por orden. */
 module.exports.guitarrasDeAutor = catalog.filter((p) => p.cat === 'guitarras');
+/** Las que además tienen marcado «Mostrar en la portada» en el panel: son las que cuenta el titular de la portada. */
+module.exports.guitarrasPortada = module.exports.guitarrasDeAutor.filter((p) => p.portada);

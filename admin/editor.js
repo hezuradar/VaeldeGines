@@ -129,6 +129,7 @@ export function openEditor(item) {
   field('cat').value = data.cat;
   field('disp').value = data.disponibilidad || 'encargo';
   field('publicado').checked = Boolean(data.publicado);
+  field('portada').checked = data.portada !== false;   // sin dato (piezas antiguas): se muestra
   field('slug').disabled = Boolean(item);
   $('slugPreview').textContent = data.slug || '…';
   $('specs').replaceChildren(...(data.specs || []).map((s) => specRow(s.nombre, s.valor)));
@@ -179,7 +180,11 @@ function readForm() {
     disponibilidad: field('disp').value,
     orden: Number(field('orden').value) || 0,
     publicado: field('publicado').checked,
-    ...(cat === 'guitarras' ? { lema: field('lema').value.trim(), resumen: field('resumen').value.trim() } : {})
+    ...(cat === 'guitarras' ? {
+      lema: field('lema').value.trim(),
+      resumen: field('resumen').value.trim(),
+      portada: field('portada').checked
+    } : {})
   };
   return { data, errors };
 }
