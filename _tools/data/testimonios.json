@@ -5,12 +5,5 @@
   "autor": "Beatriz Méndez",
   "cargo": "Violonchelista de cámara",
   "activo": true
- },
- {
-  "id": "iker",
-  "texto": "la guitarra construida por Vael es el instrumento mas comodo y hergonomico que he probado",
-  "autor": "iker",
-  "cargo": "guitarrista",
-  "activo": true
  }
 ]
