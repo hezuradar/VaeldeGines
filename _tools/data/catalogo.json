@@ -440,30 +440,5 @@
   "disponibilidad": "encargo",
   "orden": 10,
   "publicado": true
- },
- {
-  "slug": "ukelele",
-  "name": "ukelele",
-  "cat": "guitarras",
-  "label": "Guitarras de autor",
-  "price": 23,
-  "priceLabel": "Desde 23 €",
-  "desc": "",
-  "subtitle": "",
-  "image": "assets/img/catalogo/EaU8eiNh3pqRhrL5mBE2.webp",
-  "specs": [
-   {
-    "nombre": "tapa armonica",
-    "valor": "aberto"
-   }
-  ],
-  "gallery": [
-   "assets/img/catalogo/EaU8eiNh3pqRhrL5mBE2.webp"
-  ],
-  "disponibilidad": "encargo",
-  "orden": 11,
-  "publicado": true,
-  "lema": "Serie mini",
-  "resumen": "Inspirada en hawaii"
  }
 ]
