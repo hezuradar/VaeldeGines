@@ -471,10 +471,11 @@
   "publicado": true,
   "lema": "",
   "resumen": "",
+  "portada": false,
   "image": "assets/img/catalogo/prueba-mx095kel-1.webp",
   "gallery": [
    "assets/img/catalogo/prueba-mx095kel-1.webp"
   ],
-  "actualizado": "2026-11-28T10:16:56.422Z"
+  "actualizado": "2026-11-28T12:44:41.353Z"
  }
 ]
