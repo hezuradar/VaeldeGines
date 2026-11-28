@@ -65,6 +65,7 @@ module.exports = `
           ${products.map((p) => `
           <article class="product-card" data-category="${p.cat}" data-price="${p.price}" data-name="${p.name}">
             <a class="product-card__media" href="${fileOf(p)}" aria-label="Ver ${p.name}">
+              ${p.novedad ? '<span class="product-badge product-badge--sm">Novedad</span>' : ''}
               <img src="${p.image}" alt="${p.name}" loading="lazy">
             </a>
             <div class="product-card__body">

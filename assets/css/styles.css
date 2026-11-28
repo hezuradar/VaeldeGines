@@ -1242,6 +1242,7 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
   text-align: center;
   box-shadow: 0 6px 18px -8px rgba(0,0,0,.55);
 }
+.product-badge--sm { width: 56px; height: 56px; top: 10px; left: 10px; font-size: 7.5px; }
 
 /* Product layout */
 .product { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(40px, 6vw, 80px); align-items: start; }

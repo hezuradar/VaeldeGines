@@ -5,7 +5,7 @@ const { guitarrasPortada, enLetras, capitalizar } = require('../data/catalog');
 const nGuitarras = guitarrasPortada.length;
 const tarjetasColeccion = (descOf) => guitarrasPortada.map((p, i) => guitarCard({
   num: String(i + 1).padStart(2, '0'), name: p.name, tag: p.lema, desc: descOf(p),
-  img: p.image, alt: `Guitarra ${p.name} de Vael de Ginés`, slug: p.slug
+  img: p.image, alt: `Guitarra ${p.name} de Vael de Ginés`, slug: p.slug, novedad: p.novedad
 })).join('\n');
 const articles = require('../data/blog');
 const bySlug = Object.fromEntries(articles.map((a) => [a.slug, a]));

@@ -290,11 +290,12 @@ function ctaBand({ title, text, primary, secondary, image = 'assets/img/hero-lut
   </section>`;
 }
 
-function guitarCard({ num, name, tag, desc, img, alt, slug, href }) {
+function guitarCard({ num, name, tag, desc, img, alt, slug, href, novedad = false }) {
   const target = href || `producto-${slug}.html`;
   return `
   <article class="guitar-card reveal">
     <a class="guitar-card__media" href="${target}" aria-label="Ver ${name}">
+      ${novedad ? '<span class="product-badge product-badge--sm">Novedad</span>' : ''}
       <span class="guitar-card__num">Nº ${num}</span>
       <span class="guitar-card__tag">${tag}</span>
       <img src="${img}" alt="${alt}" loading="lazy">
