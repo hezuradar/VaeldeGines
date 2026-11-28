@@ -9,6 +9,8 @@ let items = [];
 let currentId = null;
 let uploadTarget = 'cover';
 let htmlMode = false;
+let slugTouched = false;
+let mediaRefs = [];
 
 const el = (tag, props = {}, children = []) => {
   const node = Object.assign(document.createElement(tag), props);
@@ -57,7 +59,7 @@ export async function refreshBlog() {
 
 function syncEditor(toHtml = htmlMode) {
   if (toHtml) $('blogHtml').value = $('blogContent').innerHTML;
-  else $('blogContent').innerHTML = $('blogHtml').value;
+  else if (!$('blogHtml').hidden) $('blogContent').innerHTML = $('blogHtml').value;
 }
 
 function setMode(toHtml) {
@@ -86,13 +88,57 @@ function exec(cmd) {
 function preview() {
   const img = $('blogPreview');
   const src = photoUrl($('blog-image').value.trim()) || $('blog-image').value.trim();
-  if (/^https?:\/\//.test(src) || src.startsWith('../') || src.startsWith('data:')) {
-    img.src = src; img.hidden = false;
-  } else img.hidden = true;
+  const ok = /^https?:\/\//.test(src) || src.startsWith('../') || src.startsWith('data:');
+  img.hidden = !ok;
+  $('blogCoverEmpty').hidden = ok;
+  $('blogRemoveCover').hidden = !ok;
+  if (ok) img.src = src;
+}
+
+function renderMedia() {
+  $('blogMedia').replaceChildren(...mediaRefs.map((ref, i) => {
+    const button = el('button', { type: 'button', title: 'Insertar imagen en el texto', 'aria-label': `Insertar imagen ${i + 1}` });
+    button.append(el('img', { src: photoUrl(ref) || '', alt: '' }));
+    button.addEventListener('click', () => {
+      const tag = `<img src="${ref}" alt="" loading="lazy">`;
+      if (!$('blogHtml').hidden) $('blogHtml').value += tag;
+      else {
+        $('blogContent').focus();
+        document.execCommand('insertHTML', false, tag);
+      }
+    });
+    return button;
+  }));
+}
+
+function showPreviewDialog() {
+  const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const title = $('blog-title').value.trim() || 'Artículo';
+  const label = $('blog-label').value.trim() || 'Artículo';
+  const date = $('blog-date').value || '2026-01-01';
+  const cover = $('blog-image').value.trim();
+  const coverUrl = photoUrl(cover) || cover || '../assets/img/workshop-1.jpg';
+  const content = ($('blogHtml').hidden ? $('blogContent').innerHTML : $('blogHtml').value)
+    .replace(/src="assets\//g, 'src="../assets/');
+  const html = `<!DOCTYPE html><html lang="es"><head><meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="../assets/css/styles.css"></head><body>
+  <section class="article-hero" style="background-image:url('${coverUrl}')">
+    <div class="container"><p class="eyebrow">${esc(label)}</p><h1 class="article-hero__title">${esc(title)}</h1>
+    <div class="article__meta"><span>Por Ginés Martínez</span><span class="dot"></span><span>${date}</span></div></div>
+  </section>
+  <section class="section section--tight"><div class="container article-layout"><article><div class="prose">${content}</div></article></div></section>
+  </body></html>`;
+  $('blogPreviewTitle').textContent = title;
+  $('blogPreviewFrame').srcdoc = html;
+  $('blogPreviewDialog').showModal();
 }
 
 function open(item) {
   currentId = item ? item.id : null;
+  slugTouched = Boolean(item);
+  const content = item ? (item.content || '') : '';
+  mediaRefs = [...content.matchAll(/src="(assets\/img\/[\w\-/]+\.(?:jpe?g|png|webp))"/g)].map((m) => m[1]);
   $('blogEditorEyebrow').textContent = item ? 'Editar artículo' : 'Nuevo artículo';
   $('blogEditorTitle').textContent = item ? item.title : 'Artículo';
   $('blog-title').value = item ? item.title : '';
@@ -102,13 +148,14 @@ function open(item) {
   $('blog-excerpt').value = item ? (item.excerpt || '') : '';
   $('blog-image').value = item ? (item.image || '') : '';
   $('blog-publicado').checked = item ? item.publicado !== false : true;
-  $('blogContent').innerHTML = item ? (item.content || '') : '';
+  $('blogContent').innerHTML = content;
   htmlMode = false;
   $('blogContent').hidden = false;
   $('blogHtml').hidden = true;
   $('blogEditor').querySelector('.adm-rich__mode').textContent = 'Ver HTML';
   $('blog-delete').hidden = !item;
   $('blogError').textContent = '';
+  renderMedia();
   preview();
   $('blogEditor').showModal();
   $('blog-title').focus();
@@ -116,7 +163,6 @@ function open(item) {
 
 async function save(e) {
   e.preventDefault();
-  syncEditor(!$('blogHtml').hidden);
   const title = $('blog-title').value.trim();
   const slug = $('blog-slug').value.trim();
   const iso = `${$('blog-date').value || '2026-01-01'}T00:00:00`;
@@ -124,7 +170,7 @@ async function save(e) {
     $('blogError').textContent = 'Escribe el título y una dirección web válida (minúsculas, números y guiones).';
     return;
   }
-  let content = htmlMode ? $('blogHtml').value : $('blogContent').innerHTML;
+  let content = $('blogHtml').hidden ? $('blogContent').innerHTML : $('blogHtml').value;
   if (!content || !content.replace(/<[^>]+>/g, '').trim()) {
     $('blogError').textContent = 'El artículo necesita contenido.';
     return;
@@ -193,8 +239,13 @@ async function del(item) {
 export function initBlog(context) {
   ctx = context;
   $('blog-title').addEventListener('input', () => {
-    if (!currentId) $('blog-slug').value = slugify($('blog-title').value);
+    if (!slugTouched) $('blog-slug').value = slugify($('blog-title').value);
   });
+  $('blog-slug').addEventListener('input', () => { slugTouched = true; });
+  $('blogRemoveCover').addEventListener('click', () => { $('blog-image').value = ''; preview(); });
+  $('blogPreviewBtn').addEventListener('click', showPreviewDialog);
+  $('blogPreviewDialog').querySelector('[data-close-preview]').addEventListener('click', () => $('blogPreviewDialog').close());
+  $('blogAddMedia').addEventListener('click', () => { uploadTarget = 'content'; $('blogFile').click(); });
   $('nuevoArticulo').addEventListener('click', () => open(null));
   $('blogForm').addEventListener('submit', save);
   $('blog-delete').addEventListener('click', () => {
@@ -220,6 +271,8 @@ export function initBlog(context) {
         $('blog-image').value = ref;
         preview();
       } else {
+        mediaRefs.push(ref);
+        renderMedia();
         const editor = $('blogContent');
         editor.focus();
         document.execCommand('insertHTML', false, `<img src="${ref}" alt="" loading="lazy">`);

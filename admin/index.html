@@ -349,12 +349,16 @@
               <textarea id="blog-excerpt" rows="3" maxlength="300" placeholder="Resumen que aparece en las tarjetas y en el buscador…"></textarea>
             </div>
             <div class="adm-field adm-field--wide">
-              <label for="blog-image">Imagen principal</label>
-              <div class="adm-image-row">
-                <input id="blog-image" placeholder="assets/img/blog/mi-foto.jpg o https://…">
-                <button type="button" class="adm-btn adm-btn--ghost" id="blogUploadCover">Subir foto</button>
+              <label>Imagen principal</label>
+              <div class="adm-cover" id="blogCover">
+                <img id="blogPreview" alt="Vista previa de la imagen principal" hidden>
+                <span class="adm-cover__empty" id="blogCoverEmpty">Sin imagen principal</span>
+                <div class="adm-cover__actions">
+                  <button type="button" class="adm-btn adm-btn--ghost" id="blogUploadCover">Subir foto</button>
+                  <button type="button" class="adm-btn adm-btn--danger-ghost" id="blogRemoveCover" hidden>Quitar</button>
+                </div>
               </div>
-              <img id="blogPreview" class="adm-image-preview" alt="" hidden>
+              <input id="blog-image" class="adm-cover__url" placeholder="O pega una ruta/URL de imagen…">
             </div>
             <div class="adm-field adm-field--wide">
               <label for="blogContent">Contenido del artículo *</label>
@@ -375,6 +379,8 @@
                 <textarea id="blogHtml" class="adm-rich__html" spellcheck="false" hidden></textarea>
               </div>
               <small>Selecciona texto y pulsa un botón para darle formato. En «Ver HTML» puedes pegar o ajustar el código directamente.</small>
+              <div class="adm-media" id="blogMedia" aria-label="Imágenes del artículo"></div>
+              <button type="button" class="adm-link" id="blogAddMedia">+ Insertar imagen del artículo</button>
             </div>
           </div>
         </section>
@@ -389,11 +395,24 @@
           <span class="adm-switch__track" aria-hidden="true"></span>
           Visible en la web
         </label>
+        <button type="button" class="adm-btn adm-btn--ghost" id="blogPreviewBtn">Previsualizar</button>
         <button type="button" class="adm-btn adm-btn--ghost" data-close>Cancelar</button>
         <button type="submit" class="adm-btn" id="blog-save">Guardar artículo</button>
       </footer>
       <input type="file" id="blogFile" accept="image/*" hidden>
     </form>
+  </dialog>
+
+  <!-- Previsualización del artículo -->
+  <dialog class="adm-dialog adm-dialog--wide adm-preview" id="blogPreviewDialog" aria-labelledby="blogPreviewTitle">
+    <header class="adm-dialog__head">
+      <div>
+        <p class="adm-eyebrow">Así se verá en la web</p>
+        <h2 id="blogPreviewTitle">Vista previa</h2>
+      </div>
+      <button type="button" class="adm-icon" data-close-preview aria-label="Cerrar">×</button>
+    </header>
+    <iframe id="blogPreviewFrame" title="Vista previa del artículo"></iframe>
   </dialog>
 
   <!-- Confirmación de borrado -->
