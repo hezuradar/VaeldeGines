@@ -402,7 +402,8 @@
   ],
   "disponibilidad": "inmediata",
   "orden": 9,
-  "publicado": true
+  "publicado": false,
+  "actualizado": "2026-11-28T10:09:16.228Z"
  },
  {
   "slug": "mentoria",
