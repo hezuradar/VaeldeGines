@@ -83,27 +83,36 @@ export async function readText(path) {
   return data ? { content: fromBase64(data.content), sha: data.sha } : null;
 }
 
+// Último commit hecho desde el panel: su publicación es la que hay que seguir en la barra de estado.
+let lastCommit = null;
+export const getLastCommit = () => lastCommit;
+const remember = (result) => {
+  if (result && result.commit && result.commit.sha) lastCommit = result.commit.sha;
+  return result;
+};
+
 /** Crea o sustituye un archivo (contenido ya en base64). */
 export async function putFile(path, base64, message, sha) {
-  return api(`contents/${encodePath(path)}`, {
+  return remember(await api(`contents/${encodePath(path)}`, {
     method: 'PUT',
     body: JSON.stringify({ message, content: base64, branch: REPO.branch, ...(sha ? { sha } : {}) })
-  });
+  }));
 }
 
 /** Borra un archivo si existe. */
 export async function deleteFile(path, message) {
   const data = await api(`contents/${encodePath(path)}?ref=${REPO.branch}`, { allow404: true });
   if (!data) return;
-  await api(`contents/${encodePath(path)}`, {
+  remember(await api(`contents/${encodePath(path)}`, {
     method: 'DELETE',
     body: JSON.stringify({ message, sha: data.sha, branch: REPO.branch })
-  });
+  }));
 }
 
-/** Última ejecución del flujo de publicación (para mostrar el estado en el panel). */
-export async function lastPublishRun() {
-  const data = await api('actions/workflows/publicar.yml/runs?per_page=1', { allow404: true });
+/** Ejecución del flujo de publicación: la del commit indicado o, sin commit, la última. */
+export async function publishRun(commitSha) {
+  const filter = commitSha ? `&head_sha=${commitSha}` : '';
+  const data = await api(`actions/workflows/publicar.yml/runs?per_page=1${filter}`, { allow404: true });
   return data && data.workflow_runs && data.workflow_runs[0] ? data.workflow_runs[0] : null;
 }
 

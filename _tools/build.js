@@ -141,6 +141,29 @@ function writeAdminFiles() {
   fs.rmSync(path.join(root, 'admin', 'catalogo-inicial.json'), { force: true });
 }
 
+/**
+ * Panel: añade ?v=<huella> a sus módulos y estilos al publicar. GitHub Pages guarda los archivos
+ * en caché 10 minutos; sin versión, el navegador podía mezclar un módulo nuevo con otro antiguo
+ * y el panel no arrancaba. Solo se hace en la copia que se publica (no en el repositorio).
+ */
+function versionAdminAssets() {
+  const dir = path.join(root, 'admin');
+  const files = fs.readdirSync(dir).filter((f) => /\.(js|css)$/.test(f)).sort();
+  const hash = require('crypto').createHash('sha1');
+  files.forEach((f) => hash.update(fs.readFileSync(path.join(dir, f))));
+  const v = hash.digest('hex').slice(0, 10);
+  files.filter((f) => f.endsWith('.js')).forEach((f) => {
+    const file = path.join(dir, f);
+    const code = fs.readFileSync(file, 'utf8').replace(/(from\s+'\.\/[\w-]+\.js)'/g, `$1?v=${v}'`);
+    fs.writeFileSync(file, code, 'utf8');
+  });
+  const htmlFile = path.join(dir, 'index.html');
+  const html = fs.readFileSync(htmlFile, 'utf8')
+    .replace('src="admin.js"', `src="admin.js?v=${v}"`)
+    .replace('href="admin.css"', `href="admin.css?v=${v}"`);
+  fs.writeFileSync(htmlFile, html, 'utf8');
+}
+
 /** GitHub Pages no lee .htaccess: las URL antiguas se resuelven con páginas que redirigen. */
 function writeRedirectStubs() {
   buildRedirectStubs(articles, pages.map((p) => p.file)).forEach(({ file, html }) => {
@@ -165,7 +188,10 @@ write('.htaccess', buildHtaccess(articles));
 write('firebase.json', `${JSON.stringify({ firestore: { rules: 'firestore.rules' } }, null, 2)}\n`);
 writeAdminFiles();
 // Solo al publicar en GitHub Pages (en local no hacen falta y llenarían el repositorio de carpetas).
-if (process.env.GENERAR_REDIRECCIONES === '1') writeRedirectStubs();
+if (process.env.GENERAR_REDIRECCIONES === '1') {
+  writeRedirectStubs();
+  versionAdminAssets();
+}
 
 // Páginas retiradas: duplicaban contenido. En GitHub Pages se sustituyen por redirecciones (writeRedirectStubs).
 if (process.env.GENERAR_REDIRECCIONES !== '1') {
