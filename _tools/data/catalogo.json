@@ -457,12 +457,12 @@
   "disponibilidad": "encargo",
   "orden": 11,
   "publicado": true,
-  "lema": "",
-  "resumen": "",
+  "lema": "Prueba",
+  "resumen": "Prueba",
   "image": "assets/img/catalogo/prueba-mx095kel-1.webp",
   "gallery": [
    "assets/img/catalogo/prueba-mx095kel-1.webp"
   ],
-  "actualizado": "2026-11-28T10:13:32.284Z"
+  "actualizado": "2026-11-28T10:14:48.242Z"
  }
 ]
