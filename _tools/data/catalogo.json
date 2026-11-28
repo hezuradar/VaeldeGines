@@ -238,7 +238,8 @@
   ],
   "disponibilidad": "encargo",
   "orden": 5,
-  "publicado": true
+  "publicado": false,
+  "actualizado": "2026-11-28T10:05:45.866Z"
  },
  {
   "slug": "guitarro-murciano",
