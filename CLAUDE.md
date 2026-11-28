@@ -74,7 +74,9 @@ Este documento describe **cómo está construida la web ahora**. Cualquier cambi
 
 ## 9. Blog y páginas de producto
 
-- 27 artículos en `_tools/data/blog.js` (importados de la API REST de WordPress). Cada `blog-<slug>.html` se genera con foto de fondo en el título, índice, artículos relacionados y enlace a la fuente. No editar a mano.
+- 27 artículos en `_tools/data/blog.js` (importados originalmente de la API REST de WordPress). La fuente editable es **`_tools/data/blog-posts.json`** (sección «Blog» del panel `/admin`); `_tools/data/blog-original.json` es la copia de seguridad importada. `_tools/data/blog.js` normaliza y escapa títulos/extractos y conserva el HTML del cuerpo.
+- Cada `blog-<slug>.html` se genera con foto de fondo en el título, índice, artículos relacionados y enlace a la fuente. No editar a mano. El build retira las páginas de artículos borrados desde el panel.
+- El panel permite dar de alta, modificar y borrar artículos con un editor enriquecido (negrita, cursiva, H2/H3, listas, cita, enlaces e imágenes) y una vista «Ver HTML» para editar el código directamente. Las fotos se suben a `assets/img/blog/`.
 - Cada producto publicado del catálogo genera `producto-<slug>.html` desde `_tools/pages/producto.js`.
 - Excepción actual: **Mentoría** muestra dos opciones (45 € sesión / 400 € pack 10), sin lista de specs ni pestaña «Entrega y garantía».
 - Las tarjetas de la colección de autor usan `guitarrasPortada` (flag `portada` del panel); el titular calcula el número con `enLetras()`.

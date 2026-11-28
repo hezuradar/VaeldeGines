@@ -204,4 +204,10 @@ fs.readdirSync(root)
   .filter((f) => /^producto-[a-z0-9-]+\.html$/.test(f) && !productFiles.has(f))
   .forEach((f) => { fs.rmSync(path.join(root, f)); console.log(`Ficha retirada: ${f}`); });
 
+// Artículos borrados desde el panel: se retira su página para no dejar huérfanos.
+const blogFiles = new Set(articles.map((a) => a.file));
+fs.readdirSync(root)
+  .filter((f) => /^blog-[a-z0-9_-]+\.html$/.test(f) && !blogFiles.has(f))
+  .forEach((f) => { fs.rmSync(path.join(root, f)); console.log(`Artículo retirado: ${f}`); });
+
 console.log(`${pages.length} páginas + sitemap.xml, robots.txt y .htaccess generados en ${root}`);

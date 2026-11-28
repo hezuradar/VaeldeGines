@@ -20,6 +20,7 @@
     <nav class="adm-nav" id="admNav" hidden aria-label="Secciones del panel">
       <button type="button" class="adm-btn adm-btn--ghost-light is-active" data-section="catalog">Catálogo</button>
       <button type="button" class="adm-btn adm-btn--ghost-light" data-section="opiniones">Opiniones</button>
+      <button type="button" class="adm-btn adm-btn--ghost-light" data-section="blog">Blog</button>
     </nav>
     <div class="adm-session" id="session" hidden>
       <span id="sessionEmail"></span>
@@ -124,6 +125,25 @@
         <p>Todavía no hay opiniones. Pulsa «Nueva opinión» para añadir la primera.</p>
       </div>
       <div class="adm-opiniones" id="opinionesList"></div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog" hidden>
+      <div class="adm-toolbar">
+        <div>
+          <p class="adm-eyebrow">Cuaderno del taller</p>
+          <h1>Artículos <em>del blog</em></h1>
+          <p class="adm-muted"><span id="blogCount">0</span> artículos · cada uno tiene su propia página</p>
+        </div>
+        <div class="adm-toolbar__actions">
+          <input type="search" id="blogSearch" placeholder="Buscar artículo…" aria-label="Buscar en el blog">
+          <button type="button" class="adm-btn" id="nuevoArticulo">+ Nuevo artículo</button>
+        </div>
+      </div>
+      <div class="adm-empty adm-card" id="blogEmpty" hidden>
+        <p>Todavía no hay artículos. Pulsa «Nuevo artículo» para escribir el primero.</p>
+      </div>
+      <div class="adm-grid-cards" id="blogList"></div>
     </section>
   </main>
 
@@ -291,6 +311,88 @@
         <button type="button" class="adm-btn adm-btn--ghost" data-close>Cancelar</button>
         <button type="submit" class="adm-btn" id="op-save">Guardar</button>
       </footer>
+    </form>
+  </dialog>
+
+  <!-- Editor del blog -->
+  <dialog class="adm-dialog adm-dialog--wide" id="blogEditor" aria-labelledby="blogEditorTitle">
+    <form id="blogForm" novalidate>
+      <header class="adm-dialog__head">
+        <div>
+          <p class="adm-eyebrow" id="blogEditorEyebrow">Nuevo artículo</p>
+          <h2 id="blogEditorTitle">Artículo</h2>
+        </div>
+        <button type="button" class="adm-icon" data-close aria-label="Cerrar">×</button>
+      </header>
+
+      <div class="adm-editor">
+        <section class="adm-fields">
+          <div class="adm-grid">
+            <div class="adm-field adm-field--wide">
+              <label for="blog-title">Título *</label>
+              <input id="blog-title" maxlength="120" required placeholder="Título del artículo">
+            </div>
+            <div class="adm-field">
+              <label for="blog-slug">Dirección web *</label>
+              <input id="blog-slug" maxlength="80" required placeholder="mi-articulo">
+            </div>
+            <div class="adm-field">
+              <label for="blog-label">Categoría</label>
+              <input id="blog-label" maxlength="60" placeholder="Maderas">
+            </div>
+            <div class="adm-field">
+              <label for="blog-date">Fecha de publicación *</label>
+              <input id="blog-date" type="date" required>
+            </div>
+            <div class="adm-field adm-field--wide">
+              <label for="blog-excerpt">Extracto</label>
+              <textarea id="blog-excerpt" rows="3" maxlength="300" placeholder="Resumen que aparece en las tarjetas y en el buscador…"></textarea>
+            </div>
+            <div class="adm-field adm-field--wide">
+              <label for="blog-image">Imagen principal</label>
+              <div class="adm-image-row">
+                <input id="blog-image" placeholder="assets/img/blog/mi-foto.jpg o https://…">
+                <button type="button" class="adm-btn adm-btn--ghost" id="blogUploadCover">Subir foto</button>
+              </div>
+              <img id="blogPreview" class="adm-image-preview" alt="" hidden>
+            </div>
+            <div class="adm-field adm-field--wide">
+              <label for="blogContent">Contenido del artículo *</label>
+              <div class="adm-rich">
+                <div class="adm-rich__tools" role="toolbar" aria-label="Formato del texto">
+                  <button type="button" data-cmd="bold" title="Negrita"><strong>B</strong></button>
+                  <button type="button" data-cmd="italic" title="Cursiva"><em>I</em></button>
+                  <button type="button" data-cmd="h2" title="Encabezado H2">H2</button>
+                  <button type="button" data-cmd="h3" title="Encabezado H3">H3</button>
+                  <button type="button" data-cmd="ul" title="Lista">• Lista</button>
+                  <button type="button" data-cmd="ol" title="Lista numerada">1. Lista</button>
+                  <button type="button" data-cmd="blockquote" title="Cita">❝ Cita</button>
+                  <button type="button" data-cmd="link" title="Insertar enlace">🔗 Enlace</button>
+                  <button type="button" data-cmd="image" title="Insertar imagen">🖼 Imagen</button>
+                  <button type="button" class="adm-rich__mode" data-mode>Ver HTML</button>
+                </div>
+                <div id="blogContent" class="adm-rich__editor" contenteditable="true" role="textbox" aria-multiline="true"></div>
+                <textarea id="blogHtml" class="adm-rich__html" spellcheck="false" hidden></textarea>
+              </div>
+              <small>Selecciona texto y pulsa un botón para darle formato. En «Ver HTML» puedes pegar o ajustar el código directamente.</small>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <p class="adm-error" id="blogError" role="alert"></p>
+      <footer class="adm-dialog__foot">
+        <button type="button" class="adm-btn adm-btn--danger-ghost" id="blog-delete" hidden>Borrar artículo</button>
+        <span class="adm-spacer"></span>
+        <label class="adm-switch">
+          <input type="checkbox" id="blog-publicado" checked>
+          <span class="adm-switch__track" aria-hidden="true"></span>
+          Visible en la web
+        </label>
+        <button type="button" class="adm-btn adm-btn--ghost" data-close>Cancelar</button>
+        <button type="submit" class="adm-btn" id="blog-save">Guardar artículo</button>
+      </footer>
+      <input type="file" id="blogFile" accept="image/*" hidden>
     </form>
   </dialog>
 

@@ -49,6 +49,24 @@ code { background: var(--cream); border: 1px solid var(--line); padding: 2px 6px
 .adm-opinion__author span { color: var(--muted); letter-spacing: .04em; text-transform: none; }
 .adm-opinion__actions { display: flex; gap: 8px; margin-top: 18px; }
 .adm-opinion__flag { position: absolute; top: 14px; right: 52px; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: var(--danger); }
+
+/* Blog */
+.adm-image-row { display: flex; gap: 8px; }
+.adm-image-row input { flex: 1; }
+.adm-image-preview { width: 100%; max-width: 260px; margin-top: 10px; border: 1px solid var(--line); border-radius: 6px; }
+.adm-rich { border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: #fff; }
+.adm-rich__tools { display: flex; flex-wrap: wrap; gap: 4px; padding: 6px; border-bottom: 1px solid var(--line); background: var(--paper); }
+.adm-rich__tools button { min-width: 34px; padding: 6px 8px; font: 600 12px/1 "Jost", sans-serif; border: 1px solid var(--line); border-radius: 4px; background: var(--cream); color: var(--ink); cursor: pointer; }
+.adm-rich__tools button:hover { background: var(--brass-soft); border-color: var(--brass); }
+.adm-rich__tools .adm-rich__mode { margin-left: auto; }
+.adm-rich__editor, .adm-rich__html { min-height: 300px; padding: 14px; font: 15px/1.7 "Jost", sans-serif; }
+.adm-rich__editor:focus, .adm-rich__html:focus { outline: 2px solid var(--brass); outline-offset: -2px; }
+.adm-rich__editor h2, .adm-rich__editor h3 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 500; }
+.adm-rich__editor img { max-width: 100%; height: auto; }
+.adm-rich__editor blockquote { margin: 12px 0; padding-left: 14px; border-left: 2px solid var(--brass); font-style: italic; }
+.adm-rich__html { width: 100%; border: 0; resize: vertical; font-family: ui-monospace, monospace; font-size: 13px; }
+#blogList .adm-tile__body .adm-tile__cat { position: static; display: inline-block; padding: 0; background: none; color: var(--brass); }
+#blogList .adm-tile__body p { margin: 8px 0 0; font-size: 13px; color: var(--muted); }
 @media (max-width: 700px) {
   .adm-header { flex-wrap: wrap; }
   .adm-nav { order: 3; width: 100%; }

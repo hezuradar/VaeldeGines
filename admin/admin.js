@@ -16,6 +16,7 @@ import { photoUrl, deleteCatalogPhotos } from './fotos.js';
 import { initEditor, openEditor, formatPrice } from './editor.js';
 import { initPublish, refreshPublish } from './publicar.js';
 import { initTestimonios, refreshTestimonios } from './testimonios.js';
+import { initBlog, refreshBlog } from './blog.js';
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
@@ -23,7 +24,7 @@ const db = getFirestore(app);
 const tokenDoc = doc(db, 'adminConfig', 'github');
 
 const CAT_NAME = { guitarras: 'Guitarras', folclore: 'Folclore', maderas: 'Maderas', formacion: 'Formación' };
-const sections = ['login', 'denied', 'connect', 'catalog', 'opiniones'];
+const sections = ['login', 'denied', 'connect', 'catalog', 'opiniones', 'blog'];
 const $ = (id) => document.getElementById(id);
 
 let items = [];
@@ -35,7 +36,7 @@ let pendingDelete = null;
 function show(id) {
   sections.forEach((s) => { $(s).hidden = s !== id; });
   if ($('admNav')) {
-    $('admNav').hidden = id !== 'catalog' && id !== 'opiniones';
+    $('admNav').hidden = !['catalog', 'opiniones', 'blog'].includes(id);
     $('admNav').querySelectorAll('[data-section]').forEach((b) => {
       b.classList.toggle('is-active', b.dataset.section === id);
     });
@@ -125,6 +126,9 @@ $('admNav').querySelectorAll('[data-section]').forEach((b) => {
     show(b.dataset.section);
     if (b.dataset.section === 'opiniones') {
       refreshTestimonios().catch((error) => setStatus(friendlyError(error), 'error'));
+    }
+    if (b.dataset.section === 'blog') {
+      refreshBlog().catch((error) => setStatus(friendlyError(error), 'error'));
     }
   });
 });
@@ -292,6 +296,12 @@ initEditor({
 initPublish();
 
 initTestimonios({
+  friendlyError,
+  setStatus,
+  onSaved: (message) => { setStatus(message, 'ok'); refreshPublish().catch(() => {}); }
+});
+
+initBlog({
   friendlyError,
   setStatus,
   onSaved: (message) => { setStatus(message, 'ok'); refreshPublish().catch(() => {}); }

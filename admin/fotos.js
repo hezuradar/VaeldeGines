@@ -1,6 +1,6 @@
 /* Fotos del catálogo: compresión en el navegador y subida como archivos al repositorio (assets/img/catalogo/).
    Mientras se edita, las fotos nuevas quedan «pendientes» en memoria (pending:<id>) y solo se suben al guardar. */
-import { putFile, deleteFile, rawUrl, PHOTO_DIR } from './github.js';
+import { putFile, deleteFile, rawUrl, PHOTO_DIR, BLOG_PHOTO_DIR } from './github.js';
 
 const MAX_SIDES = [1600, 1280, 1024];
 const QUALITIES = [0.82, 0.72, 0.6, 0.5];
@@ -13,9 +13,10 @@ const EXT = { 'image/webp': 'webp', 'image/jpeg': 'jpg' };
 const pending = new Map();
 let nextId = 1;
 
-export const isPhotoRef = (ref) => SITE_IMAGE.test(ref) || PENDING.test(ref);
+export const isPhotoRef = (ref, dir = PHOTO_DIR) => SITE_IMAGE.test(ref) || PENDING.test(ref);
 export const isPending = (ref) => PENDING.test(ref);
-export const isCatalogPhoto = (ref) => String(ref).startsWith(`${PHOTO_DIR}/`);
+export const isCatalogPhoto = (ref, dir = PHOTO_DIR) => String(ref).startsWith(`${dir}/`);
+export const isBlogPhoto = (ref) => isCatalogPhoto(ref, BLOG_PHOTO_DIR);
 
 function toBlob(canvas, type, quality) {
   return new Promise((resolve) => canvas.toBlob(resolve, type, quality));
@@ -70,18 +71,18 @@ export function photoUrl(ref) {
     const { mime, data } = pending.get(ref);
     return `data:${mime};base64,${data}`;
   }
-  if (isCatalogPhoto(ref)) return rawUrl(ref);   // recién subida: aún puede no estar en la web
+  if (isCatalogPhoto(ref) || isBlogPhoto(ref)) return rawUrl(ref);   // recién subida: aún puede no estar en la web
   return SITE_IMAGE.test(ref) ? `../${ref}` : '';
 }
 
 /** Sube al repositorio las fotos pendientes de una galería y devuelve la galería con rutas definitivas. */
-export async function commitPhotos(slug, gallery) {
+export async function commitPhotos(slug, gallery, dir = PHOTO_DIR) {
   const stamp = Date.now().toString(36);
   const result = [];
   for (const [i, ref] of gallery.entries()) {
     if (!pending.has(ref)) { result.push(ref); continue; }
     const { data, mime } = pending.get(ref);
-    const path = `${PHOTO_DIR}/${slug}-${stamp}-${i + 1}.${EXT[mime] || 'webp'}`;
+    const path = `${dir}/${slug}-${stamp}-${i + 1}.${EXT[mime] || 'webp'}`;
     await putFile(path, data, `Panel: foto de ${slug}`);
     pending.delete(ref);
     result.push(path);
@@ -95,8 +96,8 @@ export function discardPending(refs) {
 }
 
 /** Borra del repositorio fotos subidas desde el panel que ya no se usan. Las demás de la web no se tocan. */
-export async function deleteCatalogPhotos(paths, slug) {
-  for (const path of paths.filter(isCatalogPhoto)) {
+export async function deleteCatalogPhotos(paths, slug, dir = PHOTO_DIR) {
+  for (const path of paths.filter((p) => isCatalogPhoto(p, dir))) {
     await deleteFile(path, `Panel: borra foto de ${slug}`);
   }
 }
