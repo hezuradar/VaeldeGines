@@ -440,5 +440,31 @@
   "disponibilidad": "encargo",
   "orden": 10,
   "publicado": true
+ },
+ {
+  "slug": "ukelele",
+  "name": "ukelele",
+  "cat": "guitarras",
+  "label": "Guitarras de autor",
+  "price": 1,
+  "priceLabel": "Desde 6.200 €",
+  "desc": "",
+  "subtitle": "Inspirada en la sutileza y ligereza del vuelo libre.",
+  "specs": [
+   {
+    "nombre": "tapara armonica",
+    "valor": "Abeto aleman"
+   }
+  ],
+  "disponibilidad": "encargo",
+  "orden": 11,
+  "publicado": true,
+  "lema": "Serie mini",
+  "resumen": "Prueba de nueva guitarra para tienda y seccion pagina principal",
+  "image": "assets/img/catalogo/ukelele-mx07ocwq-1.webp",
+  "gallery": [
+   "assets/img/catalogo/ukelele-mx07ocwq-1.webp"
+  ],
+  "actualizado": "2026-11-28T09:32:02.688Z"
  }
 ]
