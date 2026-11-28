@@ -51,7 +51,6 @@
   "priceLabel": "Desde 6.200 €",
   "desc": "Cedro canadiense · Koa hawaiana · pan de oro. Proyección armónica colosal.",
   "subtitle": "Una oda a las profundidades del océano.",
-  "image": "assets/img/guitar-golden-whale.jpg",
   "specs": [
    {
     "nombre": "Tapa armónica",
@@ -74,17 +73,21 @@
     "valor": "Goma laca"
    }
   ],
+  "disponibilidad": "encargo",
+  "orden": 1,
+  "publicado": true,
+  "novedad": true,
+  "lema": "Maestría orgánica",
+  "resumen": "Una oda a las profundidades del océano. Proyección armónica colosal, cedro canadiense, koa hawaiana y detalles en pan de oro.",
+  "portada": true,
+  "image": "assets/img/guitar-golden-whale.jpg",
   "gallery": [
    "assets/img/guitar-golden-whale.jpg",
    "assets/img/productos/golden-whale-1.jpg",
    "assets/img/productos/golden-whale-2.jpg",
    "assets/img/productos/golden-whale-3.jpg"
   ],
-  "disponibilidad": "encargo",
-  "orden": 1,
-  "publicado": true,
-  "lema": "Maestría orgánica",
-  "resumen": "Una oda a las profundidades del océano. Proyección armónica colosal, cedro canadiense, koa hawaiana y detalles en pan de oro."
+  "actualizado": "2026-11-28T13:34:31.719Z"
  },
  {
   "slug": "freya",
