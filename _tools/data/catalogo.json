@@ -119,7 +119,8 @@
   ],
   "disponibilidad": "encargo",
   "orden": 2,
-  "publicado": true
+  "publicado": false,
+  "actualizado": "2026-11-28T10:04:40.716Z"
  },
  {
   "slug": "camino",
