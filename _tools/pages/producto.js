@@ -63,6 +63,7 @@ module.exports = function productPage(p) {
       <div class="gallery__thumbs">${thumbs}
       </div>
       <div class="gallery__main">
+        ${p.novedad ? '<span class="product-badge">Novedad</span>' : ''}
         <span class="guitar-card__tag">${p.label}</span>
         <img src="${p.gallery[0]}" alt="${p.name} de Vael de Ginés" width="690" height="863">
       </div>

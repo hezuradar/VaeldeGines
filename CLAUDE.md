@@ -19,7 +19,7 @@ Este documento describe **cómo está construida la web ahora**. Cualquier cambi
 
 - La **fuente de verdad del catálogo es `_tools/data/catalogo.json`**, editada por el panel `/admin`.
 - `_tools/data/catalog.js` normaliza ese JSON (o usa `products.js` como fallback si no existe), escapa todos los textos con `escapeHtml`, valida rutas de imagen y aplica defaults.
-- Los productos pueden tener: `publicado`, `portada` (mostrar en la colección de la portada), `orden`, `disponibilidad`, `lema`, `resumen`, `specs` (`{nombre,valor}`), `gallery` e `image`.
+- Los productos pueden tener: `publicado`, `portada` (mostrar en la colección de la portada), `novedad` (círculo rojo «Novedad» en la ficha), `orden`, `disponibilidad`, `lema`, `resumen`, `specs` (`{nombre,valor}`), `gallery` e `image`.
 - Las fotos subidas desde el panel se referencian como `foto:<id>` y viven en `assets/img/catalogo/`; `safeImage()` resuelve la ruta.
 - **Firestore NO guarda productos**: solo el documento `adminConfig/github` con el token de GitHub del panel. No migrar el catálogo a Firestore.
 - Estado actual del repositorio: `catalogo.json` tiene 12 entradas (incluye una pieza de prueba `prueba` creada desde el panel y `libro-guitarra-lutheria` despublicada); el build publica 10 y la colección de portada cuenta 6 guitarras.

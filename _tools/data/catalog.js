@@ -60,7 +60,8 @@ function normalize(raw, index) {
     disponibilidad: raw.disponibilidad === 'inmediata' ? 'inmediata' : (raw.disponibilidad || CATEGORIES[cat].disponibilidad),
     orden: Number.isFinite(Number(raw.orden)) ? Number(raw.orden) : index,
     publicado: raw.publicado !== false,
-    portada: raw.portada !== false   // colección de autor de la portada (sin dato: sí)
+    portada: raw.portada !== false,   // colección de autor de la portada (sin dato: sí)
+    novedad: raw.novedad === true     // distintivo «Novedad» en la ficha
   };
 }
 
