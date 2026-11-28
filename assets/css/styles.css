@@ -1241,6 +1241,14 @@ button { cursor: pointer; background: none; border: 0; padding: 0; }
   line-height: 1.2;
   text-align: center;
   box-shadow: 0 6px 18px -8px rgba(0,0,0,.55);
+  animation: badgeBeat 2.2s ease-in-out infinite;
+}
+@keyframes badgeBeat {
+  0%, 100% { transform: scale(1); }
+  12% { transform: scale(1.14); }
+  24% { transform: scale(1); }
+  36% { transform: scale(1.09); }
+  50% { transform: scale(1); }
 }
 .product-badge--sm { width: 56px; height: 56px; top: 10px; right: 10px; font-size: 7.5px; }
 
